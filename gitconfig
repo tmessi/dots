@@ -1,0 +1,35 @@
+[user]
+	name = shadowfax-chc
+	email = tim.messier@gmail.com
+[github]
+    user = shadowfax-chc
+[core]
+    editor = vim
+    excludesfile = ~/.gitignore_global
+[merge]
+    tool = vimdiff
+[color]
+    status = auto
+    branch = auto
+    interactive = auto
+    diff = auto
+    grep = auto
+    ui = auto
+[diff]
+    tool = vimdiff
+[difftool]
+    prompt = false
+[log]
+    decorate = full
+[alias]
+    glog = log --graph
+    st = status
+    ci = commit -a
+    up = checkout
+    co = checkout
+    sum = status
+    di = diff
+    bo = branch
+    branches = branch
+[push]
+	default = simple
