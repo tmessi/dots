@@ -10,3 +10,4 @@ Install
 ::
     git clone git://github.com/shadowfax-chc/dots.git
     ./dots/install.sh
+
