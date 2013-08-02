@@ -1,12 +1,42 @@
 [[ -f /etc/bash/bashrc ]] && . /etc/bash/bashrc
 
+# complete sudo commands
 complete -cf sudo
 
 # vim bindings for shell
 set -o vi
 
-PATH="/opt/android-sdk-update-manager/platform-tools:/opt/android-sdk-update-manager/tools:/home/tim/bin:/home/tim/bin/eclipse:/usr/games/bin:$PATH"
 
+# Path
+PATH="/usr/local/bin:/bin:/usr/bin:/usr/local/sbin:/sbin:/usr/sbin"
+test -d "/opt/android-sdk-update-manager/platform-tools" &&
+PATH="/opt/android-sdk-update-manager/platform-tools:$PATH"
+test -d "/opt/android-sdk-update-manager/tools" &&
+PATH="/opt/android-sdk-update-manager/tools:$PATH"
+test -d "/usr/games/bin" &&
+PATH="/usr/games/bin:$PATH"
+test -d "$HOME/bin" &&
+PATH="$HOME/bin:$PATH"
+test -d "$HOME/bin/eclipse" &&
+PATH="$HOME/bin/eclipse:$PATH"
+export PATH
+
+
+# Editor and Pager
+EDITOR="vim"
+export EDITOR
+if [ -f /usr/bin/most ]; then
+    PAGER="most"
+    alias less='most'
+else
+    PAGER="less -FirSwX"
+    unalias less &> /dev/null
+fi
+MANPAGER="$PAGER"
+export PAGER MANPAGER
+
+
+# Prompt
 PS1='\$ '
 parse_git_branch ()
 {
@@ -14,8 +44,6 @@ parse_git_branch ()
 }
 export PS1="\$(parse_git_branch)$PS1"
 
-export LD_PRELOAD=
-export PATH
 
 # Laziness
 alias mount='sudo mount'
@@ -33,12 +61,12 @@ alias preview='feh -g 700x700 -d'
 alias mkisofs-qick='mkisofs -R -l -J'
 alias cdrecord='cdrecord dev=5,0,0'
 
-# Because most is less
-alias less='most'
-
 # To keep typos alive
 alias snv="svn"
 alias cim="vim"
 alias bim="vim"
 alias suod="sudo"
 alias sduo="sudo"
+
+# For spectrwm
+export LD_PRELOAD=
