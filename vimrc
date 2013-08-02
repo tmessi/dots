@@ -23,7 +23,6 @@ set relativenumber
 set colorcolumn=80
 
 filetype plugin indent on
-let mapleader="'"
 
 " SuperTab configuration
 set foldmethod=syntax
@@ -38,15 +37,13 @@ let g:EclimOpenUrlInVimPatterns =
     \ '\.\(dtd\|xml\|xsd\)$',
     \ '\.txt$',
   \ ]
-command -range -nargs=* Google call eclim#web#SearchEngine(
-  \ 'http://www.google.com/search?q=<query>', <q-args>, <line1>, <line2>)
-command -nargs=? Dictionary call eclim#web#WordLookup(
-  \ 'http://dictionary.reference.com/search?q=<query>', '<args>')
-let mapleader="'"
+command -range -nargs=* Google call eclim#web#SearchEngine('http://www.google.com/search?q=<query>', <q-args>, <line1>, <line2>)
+command -nargs=? Dictionary call eclim#web#WordLookup('http://dictionary.reference.com/search?q=<query>', '<args>')
 noremap <silent> <buffer> <leader>i :JavaImport<cr>
 noremap <silent> <buffer> <leader>d :JavaDocSearch -x declarations<cr>
 noremap <silent> <buffer> <cr> :JavaSearchContext<cr>
 noremap <silent> <buffer> <leader>o :JavaImportOrganize<cr>
+noremap <silent> <buffer> <leader>p :JavaDocComment<cr>
 
 " NerdTree settings
 let g:nerdtree_tabs_open_on_console_startup = 1
@@ -161,3 +158,5 @@ Bundle 'tpope/vim-repeat'
 Bundle 'tpope/vim-speeddating'
 Bundle 'tpope/vim-surround'
 Bundle 'walm/jshint.vim'
+
+let mapleader="'"
