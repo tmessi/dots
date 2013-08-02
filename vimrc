@@ -30,7 +30,7 @@ set foldmethod=syntax
 let g:SuperTabDefaultCompletionType = "context"
 
 " Some Eclim stuff
-let g:EclimProjectTreeAutoOpen = 1
+let g:EclimProjectTreeAutoOpen = 0
 let g:EclimProjectTreeSharedInstance = 1
 let g:EclimBrowser = 'xombrero'
 let g:EclimOpenUrlInVimPatterns =
@@ -83,6 +83,8 @@ autocmd BufWinLeave *.py mkview
 autocmd BufWinEnter *.py silent loadview
 autocmd BufWinLeave *.java mkview
 autocmd BufWinEnter *.java silent loadview
+autocmd BufWinLeave *.js mkview
+autocmd BufWinEnter *.js silent loadview
 
 " White space and 80 char mark
 highlight OverLength ctermbg=red
@@ -158,3 +160,4 @@ Bundle 'tpope/vim-fugitive'
 Bundle 'tpope/vim-repeat'
 Bundle 'tpope/vim-speeddating'
 Bundle 'tpope/vim-surround'
+Bundle 'walm/jshint.vim'
