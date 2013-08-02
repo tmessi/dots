@@ -55,8 +55,8 @@ let g:nerdtree_tabs_open_on_console_startup = 1
 let g:gundo_preview_bottom = 1
 let g:gundo_right = 1
 let g:gundo_help = 0
-let g:gundo_width = 30
-let g:gundo_preview_height = 20
+let g:gundo_width = 25
+let g:gundo_preview_height = 10
 
 " Colors
 highlight CursorLine cterm=underline
@@ -119,7 +119,7 @@ map <F4> :set hlsearch! hlsearch?<CR>
 map <F5> :edit <CR>
 map <F6> :edit! <CR>
 nmap <F12> :NERDTreeTabsToggle <CR>
-nmap <F7> :ProjectTreeToggle <CR>
+nmap <F7> :GundoToggle <CR>
 map <F8> :set expandtab! expandtab?<CR>
 map <F9> :set paste! paste?<CR>
 map <F10> :set cursorline! cursorline?<CR>
