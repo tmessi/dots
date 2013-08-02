@@ -1,6 +1,8 @@
 #!/bin/env bash
 
-for dot in *; do
+pushd $(dirname $0) &> /dev/null
+
+for dot in $(ls); do
     if [ ! $dot == "README.rst" -a ! $dot == "install.sh" ]; then
         target="$HOME/.$dot"
 
@@ -26,3 +28,5 @@ if [ ! -d "$HOME/.vim/bundle/vundle" ]; then
 else
     echo "Vundle already installed"
 fi
+
+popd &> /dev/null
