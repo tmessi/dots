@@ -41,3 +41,4 @@ xterm*background: black
 xterm*foreground: #b6e77d
 xlock*background: black
 xlock*foreground: #b6e77d
+xlock*mode: xjack
