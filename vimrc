@@ -12,8 +12,6 @@ set nowrap
 set expandtab
 set smarttab
 set nosmartindent
-set laststatus=2
-set statusline=%<%f\ %h%m%r%=%-14.(%l,%c%V%)\ %P
 set mouse=a
 set hlsearch
 set incsearch
@@ -27,6 +25,7 @@ set colorcolumn=80
 filetype plugin indent on
 let mapleader="'"
 
+" SuperTab configuration
 set foldmethod=syntax
 let g:SuperTabDefaultCompletionType = "context"
 
@@ -49,6 +48,8 @@ noremap <silent> <buffer> <leader>d :JavaDocSearch -x declarations<cr>
 noremap <silent> <buffer> <cr> :JavaSearchContext<cr>
 noremap <silent> <buffer> <leader>o :JavaImportOrganize<cr>
 
+" NerdTree settings
+let g:nerdtree_tabs_open_on_console_startup = 1
 
 " Colors
 highlight CursorLine cterm=underline
@@ -87,10 +88,6 @@ autocmd InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
 autocmd InsertLeave * match ExtraWhitespace /\s\+$/
 autocmd BufWinLeave * call clearmatches()
 
-" Start NERDTree
-autocmd VimEnter * NERDTree
-autocmd VimEnter * wincmd p
-
 " Treat jade as javascript
 autocmd! BufNewFile,BufRead *.jade setf javascript
 
@@ -114,7 +111,7 @@ map <F3> :set wrap! wrap?<CR>
 map <F4> :set hlsearch! hlsearch?<CR>
 map <F5> :edit <CR>
 map <F6> :edit! <CR>
-nmap <F12> :NERDTreeMirror <CR>
+nmap <F12> :NERDTreeTabsToggle <CR>
 nmap <F7> :ProjectTreeToggle <CR>
 map <F8> :set expandtab! expandtab?<CR>
 map <F9> :set paste! paste?<CR>
@@ -133,5 +130,17 @@ call vundle#rc(g:vim_home_path. "/bundle")
 
 " Bundles to install
 Bundle 'gmarik/vundle'
-Bundle 'scrooloose/syntastic'
+" Syntax/filetype detection
 Bundle 'saltstack/salt-vim'
+
+" Helpful plugins
+Bundle 'scrooloose/syntastic'
+Bundle 'scrooloose/nerdtree'
+Bundle 'scrooloose/nerdcommenter'
+Bundle 'Lokaltog/vim-easymotion'
+Bundle 'Lokaltog/vim-powerline'
+Bundle 'tpope/vim-eunuch'
+Bundle 'tpope/vim-fugitive'
+Bundle 'mileszs/ack.vim'
+Bundle 'jistr/vim-nerdtree-tabs'
+Bundle 'ervandew/supertab'
