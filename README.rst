@@ -4,10 +4,8 @@ Dots
 
 Just some dot files.
 
-Install
-=======
+To install::
 
-::
     git clone git://github.com/shadowfax-chc/dots.git
     ./dots/install.sh
 
