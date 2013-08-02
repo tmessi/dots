@@ -137,21 +137,23 @@ call vundle#rc(g:vim_home_path. "/bundle")
 
 " Bundles to install
 Bundle 'gmarik/vundle'
+
 " Syntax/filetype detection
 Bundle 'saltstack/salt-vim'
 
 " Helpful plugins
-Bundle 'scrooloose/syntastic'
-Bundle 'scrooloose/nerdtree'
-Bundle 'scrooloose/nerdcommenter'
 Bundle 'Lokaltog/vim-easymotion'
 Bundle 'Lokaltog/vim-powerline'
+Bundle 'ervandew/supertab'
+Bundle 'jistr/vim-nerdtree-tabs'
+Bundle 'mileszs/ack.vim'
+Bundle 'phleet/vim-mercenary'
+Bundle 'scrooloose/nerdcommenter'
+Bundle 'scrooloose/nerdtree'
+Bundle 'scrooloose/syntastic'
+Bundle 'sjl/gundo.vim'
+Bundle 'tpope/vim-abolish'
 Bundle 'tpope/vim-eunuch'
 Bundle 'tpope/vim-fugitive'
-Bundle 'tpope/vim-surround'
 Bundle 'tpope/vim-repeat'
-Bundle 'phleet/vim-mercenary'
-Bundle 'mileszs/ack.vim'
-Bundle 'jistr/vim-nerdtree-tabs'
-Bundle 'ervandew/supertab'
-Bundle 'sjl/gundo.vim'
+Bundle 'tpope/vim-surround'
