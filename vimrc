@@ -51,6 +51,13 @@ noremap <silent> <buffer> <leader>o :JavaImportOrganize<cr>
 " NerdTree settings
 let g:nerdtree_tabs_open_on_console_startup = 1
 
+" Gundo settings
+let g:gundo_preview_bottom = 1
+let g:gundo_right = 1
+let g:gundo_help = 0
+let g:gundo_width = 30
+let g:gundo_preview_height = 20
+
 " Colors
 highlight CursorLine cterm=underline
 highlight Normal guifg=Green guibg=Black
