@@ -5,6 +5,7 @@ complete -cf sudo
 
 # vim bindings for shell
 set -o vi
+shopt -s cdspell
 
 
 # Path
@@ -45,12 +46,13 @@ parse_git_branch ()
 export PS1="\$(parse_git_branch)$PS1"
 
 
-# Laziness
+# Silly sudo
 alias mount='sudo mount'
 alias umount='sudo umount'
 alias emerge='sudo emerge'
 alias eix='sudo eix -F'
 alias eix-sync='sudo eix-sync'
+alias eix-update='sudo eix-update'
 alias rc-update='sudo rc-update'
 alias revdep-rebuild='sudo revdep-rebuild'
 alias salt='sudo salt'
@@ -65,8 +67,9 @@ alias cdrecord='cdrecord dev=5,0,0'
 alias snv="svn"
 alias cim="vim"
 alias bim="vim"
+alias svim="vim"
 alias suod="sudo"
 alias sduo="sudo"
 
 # For spectrwm
-export LD_PRELOAD=
+unset LD_PRELOAD
