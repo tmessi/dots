@@ -18,7 +18,7 @@ for dot in $(ls); do
     fi
 done
 
-mkdir -p "$HOME/.vim/bundle"
+mkdir -p "$HOME/.vim/{bundle,swap,backup,undo}"
 
 if [ ! -d "$HOME/.vim/bundle/vundle" ]; then
     echo "Installing vundle"
