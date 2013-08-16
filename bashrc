@@ -10,6 +10,8 @@ shopt -s cdspell
 
 # Path
 PATH="/usr/local/bin:/bin:/usr/bin:/usr/local/sbin:/sbin:/usr/sbin"
+test -d "/opt/bin" &&
+PATH="$PATH:/opt/bin"
 test -d "/opt/android-sdk-update-manager/platform-tools" &&
 PATH="/opt/android-sdk-update-manager/platform-tools:$PATH"
 test -d "/opt/android-sdk-update-manager/tools" &&
