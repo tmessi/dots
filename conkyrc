@@ -1,0 +1,40 @@
+out_to_x no
+out_to_console yes
+update_interval 1.0
+total_run_times 0
+use_spacer none
+use_xft yes
+override_utf8_locale yes
+xftfont Terminus:style=Regular:pixelsize=12:antialias=true
+
+TEXT
+^fg(\#b6e77d)│^fg() ^fg(lightblue)^i(.dzen/bitmap/temp.xbm)^fg() ${weather http://weather.noaa.gov/pub/data/observations/metar/stations/ KBWI temperature}°C \
+^fg(\#b6e77d)│^fg() ^fg(lightblue)^i(.dzen/bitmap/fs_01.xbm)^fg() ${loadavg 1} \
+^fg(\#b6e77d)│^fg() ^fg(lightblue)^i(.dzen/bitmap/cpu.xbm)^fg() ${cpu}% \
+^fg(\#b6e77d)│^fg() ^fg(lightblue)^i(.dzen/bitmap/mem.xbm)^fg() $memperc% \
+${if_up wlp2s0}\
+^fg(\#b6e77d)|^fg() ^fg(\#c3f786)^i(.dzen/bitmap/wifi_02.xbm)^fg() ${wireless_essid wlp2s0} (${wireless_link_qual_perc wlp2s0}%) \
+^fg(\#c3f786)^i(.dzen/bitmap/net_down_03.xbm)^fg() ${downspeedf wlp2s0} KiB \
+${else}\
+^fg(\#b6e77d)│^fg() ^fg(\#c3f786)^i(.dzen/bitmap/net_down_03.xbm)^fg() ${downspeedf enp4s0} KiB \
+${endif}\
+^fg(\#b6e77d)│^fg() ^fg(\#c3f786)^i(.dzen/bitmap/spkr_01.xbm)^fg() ${mixer} \
+${if_match "${hddtemp /dev/sda}" == "N/A"}${else}\
+^fg(\#b6e77d)│^fg() ^fg(lightblue)^i(.dzen/bitmap/temp.xbm)^fg() sda ${hddtemp /dev/sda}°C \
+${endif}\
+${if_match "${hddtemp /dev/sdb}" == "N/A"}${else}\
+^fg(\#b6e77d)│^fg() ^fg(lightblue)^i(.dzen/bitmap/temp.xbm)^fg() sdb ${hddtemp /dev/sdb}°C \
+${endif}\
+${if_running spotify}\
+^fg(\#b6e77d)│^fg() \
+${if_match "${execp ~/bin/spotify-monitor.py playback}" == "Playing"}^fg(lightblue)^i(/home/tim/.dzen/bitmap/note.xbm)^fg()$endif\
+${if_match "${execp ~/bin/spotify-monitor.py playback}" == "Paused"}^fg(\#b6e77d)^i(/home/tim/.dzen/bitmap/pause.xbm)^fg()$endif\
+${if_match "${execp ~/bin/spotify-monitor.py playback}" == "Stopped"}^fg(\#e9897c)^i(/home/tim/.dzen/bitmap/stop.xbm)^fg()$endif ${execp ~/bin/spotify-monitor.py playing}\
+${endif}\
+${if_empty ${battery_time}}${else}\
+^fg(\#b6e77d)│^fg() ^fg(lightblue)\
+${if_match ${battery_percent} >= 50}^i(.dzen/bitmap/bat_full_01.xbm)\
+${else} ${if_match ${battery_percent}  >5}^i(.dzen/bitmap/bat_low_01.xbm)}${endif}\
+${else} ${if_match ${battery_percent} <= 5}^i(.dzen/bitmap/bat_empty_01.xbm)${endif}${endif}${endif}\
+^fg() ${battery_percent}% ${battery_time}\
+${endif}
