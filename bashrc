@@ -75,3 +75,6 @@ alias sduo="sudo"
 
 # For spectrwm
 unset LD_PRELOAD
+
+# Never auto logout
+unset TMOUT
