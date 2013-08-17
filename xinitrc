@@ -27,7 +27,4 @@ if [ -f $HOME/bin/xstartup ]; then
     $HOME/bin/xstartup
 fi
 
-if [ -f $HOME/bin/wallpaper ]; then
-    $HOME/bin/wallpaper &
-fi
 exec /usr/bin/spectrwm 2&> $HOME/.spectrwm.log
