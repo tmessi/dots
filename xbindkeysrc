@@ -1,0 +1,20 @@
+"mediakeys.py next"
+XF86AudioNext
+
+"mediakeys.py prev"
+XF86AudioPrev
+
+"mediakeys.py toggle"
+XF86AudioPlay
+
+"mediakeys.py stop"
+XF86AudioStop
+
+"soundkeys.py lower"
+XF86AudioLowerVolume
+
+"soundkeys.py raise"
+XF86AudioRaiseVolume
+
+"soundkeys.py toggle"
+XF86AudioMute

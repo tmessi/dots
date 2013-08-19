@@ -31,5 +31,8 @@
     di = diff
     bo = branch
     branches = branch
+    o = log --graph origin..HEAD
+    out = log --graph origin..HEAD
+    outgoing = log --graph origin..HEAD
 [push]
 	default = simple
