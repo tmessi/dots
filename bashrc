@@ -58,6 +58,7 @@ alias eix-update='sudo eix-update'
 alias rc-update='sudo rc-update'
 alias revdep-rebuild='sudo revdep-rebuild'
 alias salt='sudo salt'
+alias hald='sudo hald --daemon=yes --verbose=yes'
 
 # Program defaults
 alias bwm-ng='bwm-ng -I %ram0,ram1,ram2,ram3,ram4,ram5,ram6,ram7,ram8,ram9,ram10,ram11,ram12,ram13,ram14,ram15,sda,sdb,sdc,md0,lo,sit0'
