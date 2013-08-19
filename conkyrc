@@ -8,6 +8,7 @@ override_utf8_locale yes
 xftfont Terminus:style=Regular:pixelsize=12:antialias=true
 
 TEXT
+^fg(\#b6e77d)│^fg() ^fg(lightblue)^i(.dzen/bitmap/net_up_02.xbm)^fg() ${execi 120 ~/bin/updates.py} \
 ^fg(\#b6e77d)│^fg() ^fg(lightblue)^i(.dzen/bitmap/temp.xbm)^fg() ${weather http://weather.noaa.gov/pub/data/observations/metar/stations/ KBWI temperature}°C \
 ^fg(\#b6e77d)│^fg() ^fg(lightblue)^i(.dzen/bitmap/fs_01.xbm)^fg() ${loadavg 1} \
 ^fg(\#b6e77d)│^fg() ^fg(lightblue)^i(.dzen/bitmap/cpu.xbm)^fg() ${cpu}% \
@@ -27,9 +28,9 @@ ${if_match "${hddtemp /dev/sdb}" == "N/A"}${else}\
 ${endif}\
 ${if_running spotify}\
 ^fg(\#b6e77d)│^fg() \
-${if_match "${execp ~/bin/spotify-monitor.py playback}" == "Playing"}^fg(lightblue)^i(/home/tim/.dzen/bitmap/note.xbm)^fg()$endif\
-${if_match "${execp ~/bin/spotify-monitor.py playback}" == "Paused"}^fg(\#b6e77d)^i(/home/tim/.dzen/bitmap/pause.xbm)^fg()$endif\
-${if_match "${execp ~/bin/spotify-monitor.py playback}" == "Stopped"}^fg(\#e9897c)^i(/home/tim/.dzen/bitmap/stop.xbm)^fg()$endif ${execp ~/bin/spotify-monitor.py playing}\
+${if_match "${execp ~/bin/spotify-monitor.py playback}" == "Playing"}^fg(lightblue)^i(.dzen/bitmap/note.xbm)^fg()$endif\
+${if_match "${execp ~/bin/spotify-monitor.py playback}" == "Paused"}^fg(\#b6e77d)^i(.dzen/bitmap/pause.xbm)^fg()$endif\
+${if_match "${execp ~/bin/spotify-monitor.py playback}" == "Stopped"}^fg(\#e9897c)^i(.dzen/bitmap/stop.xbm)^fg()$endif ${execp ~/bin/spotify-monitor.py playing}\
 ${endif}\
 ${if_empty ${battery_time}}${else}\
 ^fg(\#b6e77d)│^fg() ^fg(lightblue)\
