@@ -39,6 +39,7 @@ ${if_match "${mpd_status}" == "Stopped"}^fg(\#e9897c)^i(.dzen/bitmap/stop.xbm)^f
 ${mpd_smart} \
 ${if_mpd_playing}\
 (${mpd_elapsed}/${mpd_length})\
+${if_match "${mpd_repeat}" == "On"} ^fg(lightblue)^i(.dzen/bitmap/repeat.xbm)^fg() $endif\
 ${endif}\
 ${endif}\
 ${if_empty ${battery_time}}${else}\
