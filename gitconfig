@@ -1,5 +1,5 @@
 [user]
-	name = shadowfax-chc
+	name = Timothy Messier
 	email = tim.messier@gmail.com
 [github]
     user = shadowfax-chc
@@ -35,4 +35,4 @@
     out = log --graph origin..HEAD
     outgoing = log --graph origin..HEAD
 [push]
-	default = simple
+	default = current
