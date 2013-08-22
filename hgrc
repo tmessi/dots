@@ -3,17 +3,66 @@ username = Timothy Messier <tim.messier@gmail.com>
 merge = vimdiff
 
 [extensions]
+convert =
+color =
 graphlog =
 highlight =
-color =
 pager =
 progress =
-convert =
 hgext.extdiff =
+rebase =
+mq =
+
+[pager]
+attend = annotate, cat, diff, export, glog, log, qdiff, incoming, outgoing, tags
+
+[extdiff]
+cmd.vimdiff = vimdiff
+opts.vimdiff = -d
+
 
 [merge-tools]
 vimdiff.executable = vim
 vimdiff.args = -d $base $local $output $other +close +close
 
-[extdiff]
-cmd.vimdiff =
+[color]
+status.modified = blue bold underline red_background
+status.added = green bold
+status.removed = red bold blue_background
+status.deleted = cyan bold underline
+status.unknown = magenta bold underline
+status.ignored = black bold
+
+# 'none' turns off all effects
+status.clean = none
+status.copied = none
+
+qseries.applied = blue bold underline
+qseries.unapplied = black bold
+qseries.missing = red bold
+
+diff.diffline = bold
+diff.extended = cyan bold
+diff.file_a = red bold
+diff.file_b = green bold
+diff.hunk = magenta
+diff.deleted = red
+diff.inserted = green
+diff.changed = white
+diff.trailingwhitespace = bold red_background
+
+resolve.unresolved = red bold
+resolve.resolved = green bold
+
+bookmarks.current = green
+
+branches.active = none
+branches.closed = black bold
+branches.current = green
+branches.inactive = none
+
+tags.normal = green
+tags.local = black bold
+
+[web]
+cacerts = /etc/ssl/certs/ca-certificates.crt
