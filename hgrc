@@ -1,0 +1,19 @@
+[ui]
+username = Timothy Messier <tim.messier@gmail.com>
+merge = vimdiff
+
+[extensions]
+graphlog =
+highlight =
+color =
+pager =
+progress =
+convert =
+hgext.extdiff =
+
+[merge-tools]
+vimdiff.executable = vim
+vimdiff.args = -d $base $local $output $other +close +close
+
+[extdiff]
+cmd.vimdiff =
