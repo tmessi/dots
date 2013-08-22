@@ -6,10 +6,11 @@ use_spacer none
 use_xft yes
 override_utf8_locale yes
 xftfont Terminus:style=Regular:pixelsize=12:antialias=true
+temperature_unit fahrenheit
 
 TEXT
 ^fg(\#b6e77d)│^fg() ${texeci 120 ~/bin/updates.py} ^fg(lightblue)^i(.dzen/bitmap/net_up_02.xbm)^fg() \
-^fg(\#b6e77d)│^fg() ^fg(lightblue)^i(.dzen/bitmap/temp.xbm)^fg() ${weather http://weather.noaa.gov/pub/data/observations/metar/stations/ KBWI temperature}°C \
+^fg(\#b6e77d)│^fg() ^fg(lightblue)^i(.dzen/bitmap/temp.xbm)^fg() ${weather http://weather.noaa.gov/pub/data/observations/metar/stations/ KBWI temperature}°F \
 ^fg(\#b6e77d)│^fg() ^fg(lightblue)^i(.dzen/bitmap/fs_01.xbm)^fg() ${loadavg 1} \
 ^fg(\#b6e77d)│^fg() ^fg(lightblue)^i(.dzen/bitmap/cpu.xbm)^fg() ${cpu}% \
 ^fg(\#b6e77d)│^fg() ^fg(lightblue)^i(.dzen/bitmap/mem.xbm)^fg() $memperc% \
