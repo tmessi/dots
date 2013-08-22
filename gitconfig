@@ -34,5 +34,6 @@
     o = log --graph origin..HEAD
     out = log --graph origin..HEAD
     outgoing = log --graph origin..HEAD
+    vimdiff = difftool --tool=vimdiff --no-prompt
 [push]
 	default = current
