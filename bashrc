@@ -65,6 +65,7 @@ alias bwm-ng='bwm-ng -I %ram0,ram1,ram2,ram3,ram4,ram5,ram6,ram7,ram8,ram9,ram10
 alias preview='feh -g 700x700 -d'
 alias mkisofs-qick='mkisofs -R -l -J'
 alias cdrecord='cdrecord dev=5,0,0'
+alias bundleupdate='vim -c BundleUpdate -c qa'
 
 # To keep typos alive
 alias snv="svn"
