@@ -41,18 +41,14 @@ export PAGER MANPAGER
 
 # Prompt
 PS1='\$ '
-parse_git_branch ()
+parse_vcs_branch ()
 {
     /usr/bin/git branch 2> /dev/null | grep '*' | sed 's#*\ \(.*\)#(git::\1)#'
-}
-parse_hg_bookmark ()
-{
-    /usr/bin/hg bookmarks 2> /dev/null | grep '*' | awk '/\*/ { printf "(hg::"$2")" }'
-    if [ ${PIPESTATUS[1]} -ne "0" ]; then
-        /usr/bin/hg branch 2> /dev/null | awk '{ printf "(hg::"$1")" }'
+    if [ ${PIPESTATUS[0]} -ne "0" ]; then
+        /usr/bin/hg bookmarks 2> /dev/null | grep '*' | awk '/\*/ { printf "(hg::"$2")" }'
     fi
 }
-export PS1="\$(parse_git_branch)\$(parse_hg_bookmark)$PS1"
+export PS1="\$(parse_vcs_branch)$PS1"
 
 
 # Silly sudo
