@@ -1,5 +1,5 @@
 [ui]
-username = Timothy Messier <tim.messier@gmail.com>
+username = timothy.f.messier <timothy.f.messier.ctr@mail.mil>
 merge = vimdiff
 
 [extensions]
@@ -20,6 +20,9 @@ attend = annotate, cat, diff, export, glog, log, qdiff, incoming, outgoing, tags
 cmd.vimdiff = vimdiff
 opts.vimdiff = -d
 
+[auth]
+atcc4.prefix = http://hg.c4doc.atc.army.mil
+atcc4.username = timothy.f.messier
 
 [merge-tools]
 vimdiff.executable = vim
