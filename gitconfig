@@ -30,6 +30,7 @@
     sum = status
     di = diff
     bo = branch
+    bookmarks = branch
     branches = branch
     o = log --graph origin..HEAD
     out = log --graph origin..HEAD

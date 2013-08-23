@@ -43,10 +43,7 @@ export PAGER MANPAGER
 PS1='\$ '
 parse_vcs_branch ()
 {
-    /usr/bin/git branch 2> /dev/null | grep '*' | sed 's#*\ \(.*\)#(git::\1)#'
-    if [ ${PIPESTATUS[0]} -ne "0" ]; then
-        /usr/bin/hg bookmarks 2> /dev/null | grep '*' | awk '/\*/ { printf "(hg::"$2")" }'
-    fi
+    /usr/bin/git bookmarks 2> /dev/null | grep '*' | sed 's#*\ \(.*\)#git|\1 #'
 }
 export PS1="\$(parse_vcs_branch)$PS1"
 
