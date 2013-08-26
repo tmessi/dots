@@ -41,11 +41,11 @@ export PAGER MANPAGER
 
 # Prompt
 PS1='\$ '
-parse_vcs_branch ()
+parse_git_branch ()
 {
-    /usr/bin/git bookmarks 2> /dev/null | grep '*' | sed 's#*\ \(.*\)#git|\1 #'
+    /usr/bin/git branch 2> /dev/null | grep '*' | sed 's#*\ \(.*\)#git|\1 #'
 }
-export PS1="\$(parse_vcs_branch)$PS1"
+export PS1="\$(parse_git_branch)$PS1"
 
 
 # Silly sudo
