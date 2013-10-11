@@ -54,11 +54,11 @@ urxvt*color15:    #e2e2e2
 
 URxvt.foreground: #b6e77d
 
-! URxvt.transparent:true
-! URxvt.shading:30
-! URxvt.background:black
-! URxvt.tint:black
-URxvt.depth: 32
-URxvt.background: [70]#000000
+URxvt.transparent:true
+URxvt.shading:30
+URxvt.background:black
+URxvt.tint:black
+! URxvt.depth: 32
+! URxvt.background: [70]#000000
 
 Xft.dpi:96
