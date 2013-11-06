@@ -37,6 +37,7 @@ Bundle 'tpope/vim-repeat'
 Bundle 'tpope/vim-speeddating'
 Bundle 'tpope/vim-surround'
 Bundle 'walm/jshint.vim'
+Bundle 'aaronbieber/quicktask'
 
 " My vim bundle
 Bundle 'shadowfax-chc/vim-fax'
