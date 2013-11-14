@@ -77,3 +77,7 @@ alias sduo="sudo"
 
 # For spectrwm
 unset LD_PRELOAD
+
+if [ -f /usr/bin/fortune ]; then
+    command fortune 95% calvin firefly
+fi
