@@ -2,6 +2,9 @@
 username = Timothy Messier <tim.messier@gmail.com>
 merge = vimdiff
 
+[auth]
+bb.prefix = https://bitbucket.org/tmessier/
+
 [extensions]
 convert =
 color =
