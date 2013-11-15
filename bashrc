@@ -40,12 +40,12 @@ export PAGER MANPAGER
 
 
 # Prompt
-PS1='\e[0m\]\$ '
+PS1='\[\e[0m\]\$ '
 parse_git_branch ()
 {
     /usr/bin/git branch 2> /dev/null | grep '*' | sed 's#*\ \(.*\)#\1#'
 }
-export PS1="\e[0;36m\]\$(parse_git_branch)$PS1"
+export PS1="\[\e[0;36m\]\$(parse_git_branch)$PS1"
 
 
 # Silly sudo
