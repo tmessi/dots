@@ -27,4 +27,6 @@ if [ -f $HOME/bin/xstartup ]; then
     $HOME/bin/xstartup
 fi
 
+xset +fp /usr/share/fonts/terminus/
+
 exec /usr/bin/spectrwm 2&> $HOME/.spectrwm.log
