@@ -102,3 +102,5 @@ unset LD_PRELOAD
 if [ -f /usr/bin/fortune ]; then
     command fortune 95% calvin firefly
 fi
+
+[[ -f $HOME/.bashrc_extra ]] && source $HOME/.bashrc_extra
