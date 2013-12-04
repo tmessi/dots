@@ -47,9 +47,9 @@ parse_git_dirty ()
 }
 parse_git_branch ()
 {
-    /usr/bin/git branch 2> /dev/null | grep '*' | sed 's#*\ \(.*\)#\1#'
+    /usr/bin/git branch 2> /dev/null | grep '*' | sed "s#*\ \(.*\)#$(parse_git_dirty)\1#"
 }
-export PS1="\[\e[0;31m\]\$(parse_git_dirty)\[\e[0;36m\]\$(parse_git_branch)$PS1"
+export PS1="\[\e[0;36m\]\$(parse_git_branch)$PS1"
 
 
 # Aliases
