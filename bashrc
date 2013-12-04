@@ -41,11 +41,15 @@ export PAGER MANPAGER
 
 # Prompt
 PS1='\[\e[0m\]\$ '
+parse_git_dirty ()
+{
+    [[ $(/usr/bin/git status 2> /dev/null | tail -n1) != "nothing to commit, working directory clean" ]] && echo "*"
+}
 parse_git_branch ()
 {
     /usr/bin/git branch 2> /dev/null | grep '*' | sed 's#*\ \(.*\)#\1#'
 }
-export PS1="\[\e[0;36m\]\$(parse_git_branch)$PS1"
+export PS1="\[\e[0;31m\]\$(parse_git_dirty)\[\e[0;36m\]\$(parse_git_branch)$PS1"
 
 
 # Aliases
