@@ -48,6 +48,23 @@ parse_git_branch ()
 export PS1="\[\e[0;36m\]\$(parse_git_branch)$PS1"
 
 
+# Aliases
+alias ls='ls -F --color=auto'    #colors
+alias l='ls -F --color=auto'    #colors
+alias ll='ls -lsah --color=auto'  #long list
+alias la='ls -AF --color=auto'  #show hidden
+alias lx='ls -lXB --color=auto'  #sort by sextension
+alias lk='ls -lSr --color=auto'  #sort by size biggest last
+alias lc='ls -ltcr --color=auto' #sort by and show chagne times
+alias lu='ls -ltur --color=auto' #sort by and show access time
+alias lt='ls -ltr --color=auto'  #sort by date
+alias lm='ls -al |more'          #pipe through more
+alias lr='ls -lR'                #recursive
+alias tree='tree -Csuh'          #alternative to recursive ls
+alias df='df -kTh'
+alias path='echo -e ${PATH//:/\\n}'
+alias grep='grep --color=auto'
+
 # Silly sudo
 alias mount='sudo mount'
 alias umount='sudo umount'
@@ -77,6 +94,10 @@ alias sduo="sudo"
 
 # For spectrwm
 unset LD_PRELOAD
+
+# Get some bash completion
+# Use eselect bashcomp to manage symlinks
+[[ -f /etc/profile.d/bash-completion.sh ]] && source /etc/profile.d/bash-completion.sh
 
 if [ -f /usr/bin/fortune ]; then
     command fortune 95% calvin firefly
