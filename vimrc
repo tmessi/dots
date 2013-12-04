@@ -38,6 +38,8 @@ Bundle 'tpope/vim-speeddating'
 Bundle 'tpope/vim-surround'
 Bundle 'walm/jshint.vim'
 Bundle 'aaronbieber/quicktask'
+Bundle 'davidhalter/jedi-vim'
+
 
 " My vim bundle
 Bundle 'shadowfax-chc/vim-fax'
