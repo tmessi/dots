@@ -1,6 +1,7 @@
 [ui]
 username = Timothy Messier <tim.messier@gmail.com>
 merge = vimdiff
+ignore = ~/.hgignore
 
 [auth]
 bb.prefix = https://bitbucket.org/tmessier/
