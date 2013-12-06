@@ -56,6 +56,9 @@ for dot in $(ls); do
     fi
 done
 
+# Cleanup 
+rm -rf "$HOME/.dzen/dzen"
+
 if [[ $pretend -eq 1 ]]; then
     echo "Would make dirs '$HOME/.vim/{bundle,swap,backup,undo}"
 else
