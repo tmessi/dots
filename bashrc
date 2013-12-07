@@ -45,11 +45,15 @@ parse_git_dirty ()
 {
     [[ $(/usr/bin/git status 2> /dev/null | tail -n1) != "nothing to commit, working directory clean" ]] && echo "*"
 }
-parse_git_branch ()
+parse_vcs_branch ()
 {
-    /usr/bin/git branch 2> /dev/null | grep '*' | sed "s#*\ \(.*\)#$(parse_git_dirty)\1#"
+    if [ -d .git ]; then
+        /usr/bin/git branch 2> /dev/null | grep '*' | sed "s/*\ \(.*\)/$(parse_git_dirty)\1/"
+    elif [ -d .hg ]; then
+        /usr/bin/hg branch 2> /dev/null
+    fi
 }
-export PS1="\[\e[0;36m\]\$(parse_git_branch)$PS1"
+export PS1="\[\e[0;36m\]\$(parse_vcs_branch)$PS1"
 
 
 # Aliases
