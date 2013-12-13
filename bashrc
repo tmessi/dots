@@ -44,7 +44,7 @@ export PAGER MANPAGER
 
 
 # Prompt
-if [ -z $SSH_CLIENT ]; then
+if [ -z "$SSH_CLIENT" ]; then
     PS1='\[\e[0m\]\$ '
 else
     PS1='\[\e[0;31m\]\h\[\e[0m\]\$ '
