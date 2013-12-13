@@ -1,5 +1,9 @@
 [[ -f /etc/bash/bashrc ]] && . /etc/bash/bashrc
 
+if [[ $- != *i* ]]; then
+    return
+fi
+
 # complete sudo commands
 complete -cf sudo
 
@@ -40,7 +44,11 @@ export PAGER MANPAGER
 
 
 # Prompt
-PS1='\[\e[0m\]\$ '
+if [ -z $SSH_CLIENT ]; then
+    PS1='\[\e[0m\]\$ '
+else
+    PS1='\[\e[0;31m\]\h\[\e[0m\]\$ '
+fi
 parse_git_dirty ()
 {
     [[ $(/usr/bin/git status 2> /dev/null | tail -n1) != "nothing to commit, working directory clean" ]] && echo "*"
