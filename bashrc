@@ -107,6 +107,7 @@ alias bim="vim"
 alias svim="vim"
 alias suod="sudo"
 alias sduo="sudo"
+alias vm="mv"
 
 # For spectrwm
 unset LD_PRELOAD
