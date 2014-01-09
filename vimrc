@@ -39,6 +39,7 @@ Bundle 'tpope/vim-surround'
 Bundle 'walm/jshint.vim'
 Bundle 'aaronbieber/quicktask'
 Bundle 'davidhalter/jedi-vim'
+Bundle 'kchmck/vim-coffee-script'
 
 
 " My vim bundle
