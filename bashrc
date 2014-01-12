@@ -26,6 +26,8 @@ test -d "$HOME/bin" &&
 PATH="$HOME/bin:$PATH"
 test -d "$HOME/bin/eclipse" &&
 PATH="$HOME/bin/eclipse:$PATH"
+test -d "/usr/local/heroku/bin" &&
+PATH="/usr/local/heroku/bin:$PATH"
 export PATH
 
 
@@ -97,8 +99,8 @@ alias hald='sudo hald --daemon=yes --verbose=yes'
 alias bwm-ng='bwm-ng -I %ram0,ram1,ram2,ram3,ram4,ram5,ram6,ram7,ram8,ram9,ram10,ram11,ram12,ram13,ram14,ram15,sda,sdb,sdc,md0,lo,sit0'
 alias preview='feh -g 700x700 -d'
 alias mkisofs-qick='mkisofs -R -l -J'
-alias cdrecord='cdrecord dev=5,0,0'
 alias bundleupdate='vim -c BundleUpdate -c qa'
+alias vobcopy='vobcopy -v -m -F 16 /mnt/tmp'
 
 # To keep typos alive
 alias snv="svn"
