@@ -32,9 +32,11 @@
     bo = branch
     bookmarks = branch
     branches = branch
-    o = log --graph origin..HEAD
-    out = log --graph origin..HEAD
-    outgoing = log --graph origin..HEAD
+    o = log --graph @{u}..HEAD
+    out = log --graph @{u}..HEAD
+    outgoing = log --graph @{u}..HEAD
+    in = log --graph HEAD..@{u}
+    incoming = log --graph HEAD..@{u}
     vimdiff = difftool --tool=vimdiff --no-prompt
 [push]
 	default = current
