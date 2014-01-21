@@ -122,4 +122,6 @@ if [ -f /usr/bin/fortune ]; then
     command fortune 95% calvin firefly
 fi
 
+
+[[ -f /usr/bin/urxvt ]] || export TERM=xterm
 [[ -f $HOME/.bashrc_extra ]] && source $HOME/.bashrc_extra
