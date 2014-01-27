@@ -40,6 +40,8 @@ Bundle 'walm/jshint.vim'
 Bundle 'aaronbieber/quicktask'
 Bundle 'davidhalter/jedi-vim'
 Bundle 'kchmck/vim-coffee-script'
+Bundle 'xolox/vim-misc'
+Bundle 'xolox/vim-easytags'
 
 
 " My vim bundle
