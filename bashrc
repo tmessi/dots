@@ -110,6 +110,7 @@ alias svim="vim"
 alias suod="sudo"
 alias sduo="sudo"
 alias vm="mv"
+alias got='git'
 
 # For spectrwm
 unset LD_PRELOAD
