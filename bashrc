@@ -45,11 +45,15 @@ MANPAGER="$PAGER"
 export PAGER MANPAGER
 
 
-# Prompt
-if [ -z "$SSH_CLIENT" ]; then
-    PS1='\[\e[0m\]\$ '
+if [[ ${EUID} == 0 ]]; then
+    PS1='\[\e[01;31m\]\$\[\e[0m\] '
 else
-    PS1='\[\e[0;31m\]\h\[\e[0m\]\$ '
+    PS1='\[\e[0m\]\$ '
+fi
+
+# Prompt
+if [ "$SSH_CLIENT" ]; then
+    PS1="\[\e[0;31m\]\h$PS1 "
 fi
 parse_git_dirty ()
 {
