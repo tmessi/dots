@@ -18,3 +18,12 @@ XF86AudioRaiseVolume
 
 "soundkeys.py toggle"
 XF86AudioMute
+
+"mediakeys.py next"
+control + b:9
+
+"mediakeys.py prev"
+control + b:8
+
+"mediakeys.py toggle"
+control + b:10
