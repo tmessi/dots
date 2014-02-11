@@ -53,7 +53,7 @@ fi
 
 # Prompt
 if [ "$SSH_CLIENT" ]; then
-    PS1="\[\e[0;31m\]\h$PS1 "
+    PS1="\[\e[0;31m\]\h$PS1"
 fi
 parse_git_dirty ()
 {
