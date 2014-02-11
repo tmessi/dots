@@ -13,11 +13,15 @@ TEXT
 ^fg(\#b6e77d)|^fg() ^fg(lightblue)^i(.dzen/bitmap/fs_01.xbm)^fg() ${loadavg 1} \
 ^fg(\#b6e77d)|^fg() ^fg(lightblue)^i(.dzen/bitmap/cpu.xbm)^fg() ${cpu}% \
 ^fg(\#b6e77d)|^fg() ^fg(lightblue)^i(.dzen/bitmap/mem.xbm)^fg() $memperc% \
+${if_up enp4s0}\
+^fg(\#b6e77d)|^fg() ^fg(\#c3f786)^i(.dzen/bitmap/net_down_03.xbm)^fg() ${downspeed enp4s0} \
+${endif}\
+${if_up enp3s0}\
+^fg(\#b6e77d)|^fg() ^fg(\#c3f786)^i(.dzen/bitmap/net_down_03.xbm)^fg() ${downspeed enp3s0} \
+${endif}\
 ${if_up wlp2s0}\
 ^fg(\#b6e77d)|^fg() ^fg(\#c3f786)^i(.dzen/bitmap/wifi_02.xbm)^fg() ${wireless_essid wlp2s0} (${wireless_link_qual_perc wlp2s0}%) \
-^fg(\#c3f786)^i(.dzen/bitmap/net_down_03.xbm)^fg() ${downspeedf wlp2s0} KiB \
-${else}\
-^fg(\#b6e77d)|^fg() ^fg(\#c3f786)^i(.dzen/bitmap/net_down_03.xbm)^fg() ${downspeedf enp4s0} KiB \
+^fg(\#c3f786)^i(.dzen/bitmap/net_down_03.xbm)^fg() ${downspeed wlp2s0} \
 ${endif}\
 ^fg(\#b6e77d)|^fg() ^fg(\#c3f786)^i(.dzen/bitmap/spkr_01.xbm)^fg() ${mixer} \
 ${if_match "${hddtemp /dev/sda}" == "N/A"}${else}\
