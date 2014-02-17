@@ -55,9 +55,15 @@ fi
 if [ "$SSH_CLIENT" ]; then
     PS1="\[\e[0;31m\]\h$PS1"
 fi
+
+if [[ -f /etc/lsb-release ]]; then
+    git_clean_msg='nothing to commit (working directory clean)'
+else
+    git_clean_msg='nothing to commit, working directory clean'
+fi
 parse_git_dirty ()
 {
-    [[ $(/usr/bin/git status 2> /dev/null | tail -n1) != "nothing to commit, working directory clean" ]] && echo "*"
+    [[ $(/usr/bin/git status 2> /dev/null | tail -n1) != "$git_clean_msg" ]] && echo "*"
 }
 parse_vcs_branch ()
 {
