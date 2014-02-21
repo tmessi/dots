@@ -56,7 +56,8 @@ if [ "$SSH_CLIENT" ]; then
     PS1="\[\e[0;31m\]\h$PS1"
 fi
 
-if [[ -f /etc/lsb-release ]]; then
+gitminor=$(git --version | cut -d '.' -f 2)
+if [[ $gitminor -lt 8 ]]; then
     git_clean_msg='nothing to commit (working directory clean)'
 else
     git_clean_msg='nothing to commit, working directory clean'
