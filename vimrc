@@ -42,6 +42,7 @@ Bundle 'davidhalter/jedi-vim'
 Bundle 'kchmck/vim-coffee-script'
 Bundle 'xolox/vim-misc'
 Bundle 'xolox/vim-easytags'
+Bundle 'airblade/vim-gitgutter'
 
 
 " My vim bundle
