@@ -43,6 +43,7 @@ Bundle 'kchmck/vim-coffee-script'
 Bundle 'xolox/vim-misc'
 Bundle 'xolox/vim-easytags'
 Bundle 'airblade/vim-gitgutter'
+Bundle 'nathanaelkane/vim-indent-guides'
 
 
 " My vim bundle
