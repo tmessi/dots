@@ -45,6 +45,7 @@ Bundle 'xolox/vim-easytags'
 Bundle 'airblade/vim-gitgutter'
 Bundle 'nathanaelkane/vim-indent-guides'
 Bundle 'michaeljsmith/vim-indent-object'
+Bundle 'dhruvasagar/vim-table-mode'
 
 
 " My vim bundle
