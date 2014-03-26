@@ -58,7 +58,7 @@ endif
 
 " Add the virtualenv's site-packages to vim path
 if has('python')
-py << EOF
+python << EOF
 import os.path
 import sys
 import vim
