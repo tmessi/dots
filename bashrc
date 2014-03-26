@@ -104,6 +104,10 @@ alias eix-update='sudo eix-update'
 alias rc-update='sudo rc-update'
 alias revdep-rebuild='sudo revdep-rebuild'
 alias salt='sudo salt'
+alias salt-key='sudo salt-key'
+alias salt-cloud='sudo salt-cloud'
+alias salt-run='sudo salt-run'
+alias salt-call='sudo salt-call'
 alias hald='sudo hald --daemon=yes --verbose=yes'
 
 # Program defaults
