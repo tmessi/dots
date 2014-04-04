@@ -1,2 +1,4 @@
 *.pyenv
 *.swp
+*.tox
+*.py[ocd]
