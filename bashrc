@@ -12,6 +12,9 @@ set -o vi
 shopt -s cdspell
 
 
+# Set go path for go development
+export GOPATH=$HOME/go
+
 # Path
 PATH="/usr/local/bin:/bin:/usr/bin:/usr/local/sbin:/sbin:/usr/sbin"
 test -d "/opt/bin" &&
@@ -29,6 +32,8 @@ PATH="$HOME/bin/eclipse:$PATH"
 test -d "/usr/local/heroku/bin" &&
 PATH="/usr/local/heroku/bin:$PATH"
 export PATH
+test -d "$GOPATH/bin" &&
+PATH="$GOPATH/bin:$PATH"
 
 
 # Editor and Pager
@@ -75,7 +80,6 @@ parse_vcs_branch ()
     fi
 }
 export PS1="\[\e[0;36m\]\$(parse_vcs_branch)$PS1"
-
 
 # Aliases
 alias ls='ls -F --color=auto'    #colors
