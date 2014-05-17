@@ -1,0 +1,7 @@
+[distutils]
+index-servers =
+    pypi
+
+[pypi]
+repositoy: http://www.python.org/pypi
+username: tim.messier
