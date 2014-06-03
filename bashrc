@@ -61,25 +61,30 @@ if [ "$SSH_CLIENT" ]; then
     PS1="\[\e[0;31m\]\h$PS1"
 fi
 
-gitminor=$(git --version | cut -d '.' -f 2)
-if [[ $gitminor -lt 8 ]]; then
-    git_clean_msg='nothing to commit (working directory clean)'
+if [ -f $HOME/.bash-git-prompt/gitprompt.sh ]; then
+    GIT_PROMPT_ONLY_IN_REPO=1
+    source $HOME/.bash-git-prompt/gitprompt.sh
 else
-    git_clean_msg='nothing to commit, working directory clean'
-fi
-parse_git_dirty ()
-{
-    [[ $(/usr/bin/git status 2> /dev/null | tail -n1) != "$git_clean_msg" ]] && echo "*"
-}
-parse_vcs_branch ()
-{
-    if [ -d .git ]; then
-        /usr/bin/git branch 2> /dev/null | grep '*' | sed "s/*\ \(.*\)/$(parse_git_dirty)\1/"
-    elif [ -d .hg ]; then
-        /usr/bin/hg branch 2> /dev/null
+    gitminor=$(git --version | cut -d '.' -f 2)
+    if [[ $gitminor -lt 8 ]]; then
+        git_clean_msg='nothing to commit (working directory clean)'
+    else
+        git_clean_msg='nothing to commit, working directory clean'
     fi
-}
-export PS1="\[\e[0;36m\]\$(parse_vcs_branch)$PS1"
+    parse_git_dirty ()
+    {
+        [[ $(/usr/bin/git status 2> /dev/null | tail -n1) != "$git_clean_msg" ]] && echo "*"
+    }
+    parse_vcs_branch ()
+    {
+        if [ -d .git ]; then
+            /usr/bin/git branch 2> /dev/null | grep '*' | sed "s/*\ \(.*\)/$(parse_git_dirty)\1/"
+        elif [ -d .hg ]; then
+            /usr/bin/hg branch 2> /dev/null
+        fi
+    }
+    export PS1="\[\e[0;36m\]\$(parse_vcs_branch)$PS1"
+fi
 
 # Aliases
 alias ls='ls -F --color=auto'    #colors

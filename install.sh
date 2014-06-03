@@ -70,6 +70,10 @@ else
     mkdir -p "$HOME/.vim/"{bundle,swap,backup,undo}
 fi
 
+if [ ! -d "$HOME/.bash-git-prompt" ]; then
+    git clone https://github.com/magicmonty/bash-git-prompt.git "$HOME/.bash-git-prompt"
+fi
+
 if [ ! -d "$HOME/.vim/bundle/vundle" ]; then
     if [[ $pretend -eq 1 ]]; then
         echo "Would install vundle"
