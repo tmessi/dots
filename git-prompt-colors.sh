@@ -8,7 +8,7 @@ GIT_PROMPT_STAGED="${Yellow}●"           # the number of staged files/director
 GIT_PROMPT_CONFLICTS="${Red}✖"        # the number of files in conflict
 GIT_PROMPT_CHANGED="${Yellow}✚"         # the number of changed files
 
-GIT_PROMPT_REMOTE=" "                 # the remote branch name (if any) and the symbols for ahead and behind
+GIT_PROMPT_REMOTE=""                 # the remote branch name (if any) and the symbols for ahead and behind
 GIT_PROMPT_UNTRACKED="${Blue}…"       # the number of untracked files/dirs
 GIT_PROMPT_STASHED="${BoldBlue}⚑"     # the number of stashed files/dir
 GIT_PROMPT_CLEAN="${BoldGreen}✔"      # a colored flag indicating a "clean" repo
