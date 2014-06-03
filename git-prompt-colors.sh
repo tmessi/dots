@@ -13,7 +13,12 @@ GIT_PROMPT_UNTRACKED="${Blue}…"       # the number of untracked files/dirs
 GIT_PROMPT_STASHED="${BoldBlue}⚑"     # the number of stashed files/dir
 GIT_PROMPT_CLEAN="${BoldGreen}✔"      # a colored flag indicating a "clean" repo
 
-GIT_PROMPT_START_USER=""
+# Prompt
+if [ "$SSH_CLIENT" ]; then
+    GIT_PROMPT_START_USER="${Red}\h"
+else
+    GIT_PROMPT_START_USER=""
+fi
 GIT_PROMPT_START_ROOT=""
 GIT_PROMPT_END_USER="${ResetColor} $ "
 GIT_PROMPT_END_ROOT="${ResetColor} # "
