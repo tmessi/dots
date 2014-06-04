@@ -38,5 +38,6 @@
     in = log --graph HEAD..@{u}
     incoming = log --graph HEAD..@{u}
     vimdiff = difftool --tool=vimdiff --no-prompt
+    rpo = remote prune origin
 [push]
 	default = current
