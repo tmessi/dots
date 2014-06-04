@@ -1,4 +1,5 @@
 XTerm*scrollBar: false
+XTerm*locale: true
 xterm*session.Mgt: false
 xterm*font: -*-terminus-medium-*-*-*-*-*-*-*-*-*-*
 

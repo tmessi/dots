@@ -153,5 +153,5 @@ if [ -f /usr/bin/fortune ]; then
 fi
 
 
-[[ -f /usr/bin/urxvt ]] || export TERM=xterm
+[[ -f /usr/bin/urxvt ]] || export TERM=xterm-256color
 [[ -f $HOME/.bashrc_extra ]] && source $HOME/.bashrc_extra
