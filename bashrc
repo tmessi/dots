@@ -88,6 +88,14 @@ if [ -f $HOME/.bash-git-prompt/gitprompt.sh ]; then
     source $HOME/.bash-git-prompt/gitprompt.sh
 fi
 
+function cd(){
+    if [ $# -eq 0 ]; then
+        builtin cd $(git rev-parse --show-toplevel 2> /dev/null)
+    else
+        builtin cd "$@"
+    fi
+}
+
 # Aliases
 alias ls='ls -F --color=auto'    #colors
 alias l='ls -F --color=auto'    #colors
