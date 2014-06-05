@@ -115,6 +115,9 @@ function ve() {
     fi
     # Install requirements.txt if available
     [[ -f requirements.txt ]] && $(which pip) install -r requirements.txt &> /dev/null
+
+    # Install dev_requirements.txt if available
+    [[ -f dev_requirements.txt ]] && $(which pip) install -r dev_requirements.txt &> /dev/null
 }
 
 # Aliases
