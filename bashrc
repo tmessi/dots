@@ -96,6 +96,27 @@ function cd(){
     fi
 }
 
+function ve() {
+    # Use cwd for virtualenv name
+    venv_name=${PWD##*/}
+
+    # If this virtualenv is not active
+    if [ "$VIRTUAL_ENV" != "$PWD/.pyenv/$venv_name" ]; then
+
+        # Deactivate current virtualenv
+        [[ $VIRTUAL_ENV ]] && deactivate
+
+        # Create new virtualenv if needed
+        [[ ! -f .pyenv/$venv_name/bin/activate ]] && rm -rf .pyenv && virtualenv .pyenv/$venv_name &> /dev/null
+
+        # Activate virtualenv
+        source .pyenv/$venv_name/bin/activate
+
+    fi
+    # Install requirements.txt if available
+    [[ -f requirements.txt ]] && $(which pip) install -r requirements.txt &> /dev/null
+}
+
 # Aliases
 alias ls='ls -F --color=auto'    #colors
 alias l='ls -F --color=auto'    #colors
