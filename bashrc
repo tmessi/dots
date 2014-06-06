@@ -39,7 +39,7 @@ PATH="$GOPATH/bin:$PATH"
 # Editor and Pager
 EDITOR="vim"
 export EDITOR
-if [ -f /usr/bin/most ]; then
+if [[ -f /usr/bin/most ]]; then
     PAGER="most"
     alias less='most'
 else
@@ -60,7 +60,7 @@ else
 fi
 
 # If sshed include hostname
-if [ "$SSH_CLIENT" ]; then
+if [[ "$SSH_CLIENT" ]]; then
     PS1="\[\e[0;31m\]\h$PS1"
 
     case ${TERM} in
@@ -83,13 +83,13 @@ else
 fi
 
 # Fancy git prompt if installed
-if [ -f $HOME/.bash-git-prompt/gitprompt.sh ]; then
+if [[ -f $HOME/.bash-git-prompt/gitprompt.sh ]]; then
     GIT_PROMPT_ONLY_IN_REPO=1
     source $HOME/.bash-git-prompt/gitprompt.sh
 fi
 
 function cd(){
-    if [ $# -eq 0 ]; then
+    if [[ $# -eq 0 ]]; then
         builtin cd $(git rev-parse --show-toplevel 2> /dev/null)
     else
         builtin cd "$@"
@@ -101,7 +101,7 @@ function ve() {
     venv_name=${PWD##*/}
 
     # If this virtualenv is not active
-    if [ "$VIRTUAL_ENV" != "$PWD/.pyenv/$venv_name" ]; then
+    if [[ "$VIRTUAL_ENV" != "$PWD/.pyenv/$venv_name" ]]; then
 
         # Deactivate current virtualenv
         [[ $VIRTUAL_ENV ]] && deactivate
@@ -182,7 +182,7 @@ unset LD_PRELOAD
 # Use eselect bashcomp to manage symlinks
 [[ -f /etc/profile.d/bash-completion.sh ]] && source /etc/profile.d/bash-completion.sh
 
-if [ -f /usr/bin/fortune ]; then
+if [[ -f /usr/bin/fortune ]]; then
     command fortune 95% calvin firefly
 fi
 
