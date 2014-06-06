@@ -42,7 +42,7 @@ done
 pushd $(dirname $0) &> /dev/null
 
 for dot in $(ls); do
-    if [[ ! $dot == "README.rst" -a ! $dot == "install.sh" ]]; then
+    if [ ! $dot == "README.rst" -a ! $dot == "install.sh" ]; then
         target="$HOME/.$dot"
 
         if [[ $pretend -eq 1 ]]; then
