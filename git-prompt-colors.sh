@@ -14,7 +14,7 @@ GIT_PROMPT_STASHED="${BoldBlue}⚑"     # the number of stashed files/dir
 GIT_PROMPT_CLEAN="${BoldGreen}✔"      # a colored flag indicating a "clean" repo
 
 # Prompt
-if [[ "$SSH_CLIENT" ]]; then
+if [ "$SSH_CLIENT" ]; then
     GIT_PROMPT_START_USER="${Red}\h"
 else
     GIT_PROMPT_START_USER=

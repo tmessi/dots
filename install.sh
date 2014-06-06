@@ -16,7 +16,7 @@ pretend=0
 bundleupdate=0
 OPTS=$(getopt -o pbh --long pretend,bundle,help -n "$name" -- "$@")
 
-if [[ $? != 0 ]]; then echo "option error" >&2; exit 1; fi
+if [ $? != 0 ]; then echo "option error" >&2; exit 1; fi
 
 eval set -- "$OPTS"
 
@@ -42,15 +42,15 @@ done
 pushd $(dirname $0) &> /dev/null
 
 for dot in $(ls); do
-    if [[ ! $dot == "README.rst" -a ! $dot == "install.sh" ]]; then
+    if [ ! $dot == "README.rst" -a ! $dot == "install.sh" ]; then
         target="$HOME/.$dot"
 
         if [[ $pretend -eq 1 ]]; then
             echo "Would set $dot"
         else
             # Make a .bak of a file or dir
-            if [[ ! -h $target ]]; then
-                if [[ -d $target -o -f $target ]]; then
+            if [ ! -h $target ]; then
+                if [ -d $target -o -f $target ]; then
                     mv $target $target.bak
                 fi
             fi
@@ -70,11 +70,11 @@ else
     mkdir -p "$HOME/.vim/"{bundle,swap,backup,undo}
 fi
 
-if [[ ! -d "$HOME/.bash-git-prompt" ]]; then
+if [ ! -d "$HOME/.bash-git-prompt" ]; then
     git clone https://github.com/magicmonty/bash-git-prompt.git "$HOME/.bash-git-prompt"
 fi
 
-if [[ ! -d "$HOME/.vim/bundle/vundle" ]]; then
+if [ ! -d "$HOME/.vim/bundle/vundle" ]; then
     if [[ $pretend -eq 1 ]]; then
         echo "Would install vundle"
     else
