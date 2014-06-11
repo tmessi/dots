@@ -108,7 +108,7 @@ if [[ $rvm -eq 1 ]]; then
         echo "Would install rvm"
     else
         echo "Installing rvm"
-        curl -sSL https://get.rvm.io | bash -s -- --ignore-dotfiles
+        curl -sSL https://get.rvm.io | bash -s -- stable --ruby --ignore-dotfiles
     fi
 fi
 
