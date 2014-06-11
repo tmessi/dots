@@ -189,3 +189,6 @@ fi
 
 [[ -f /usr/bin/urxvt ]] || export TERM=xterm-256color
 [[ -f $HOME/.bashrc_extra ]] && source $HOME/.bashrc_extra
+
+test -d $HOME/.rvm/bin &&
+export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting

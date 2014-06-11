@@ -9,12 +9,14 @@ optional args:
 
     -p|--pretend  print what install will do without doing it.
     -b|--bundle   run :BundleUpdate after install.
+    -r|--rvm      install rvm as well.
     -h|--help     print this help."
 }
 
 pretend=0
 bundleupdate=0
-OPTS=$(getopt -o pbh --long pretend,bundle,help -n "$name" -- "$@")
+rvm=0
+OPTS=$(getopt -o pbhr --long pretend,bundle,rvm,help -n "$name" -- "$@")
 
 if [[ $? != 0 ]]; then echo "option error" >&2; exit 1; fi
 
@@ -27,6 +29,9 @@ while true; do
             shift;;
         -b|--bundle)
             bundleupdate=1
+            shift;;
+        -r|--rvm)
+            rvm=1
             shift;;
         -h|--help)
             print_help
@@ -95,6 +100,15 @@ if [[ $bundleupdate -eq 1 ]]; then
     else
         echo "Running bundle update"
         vim -c BundleUpdate -c qa &> /dev/null
+    fi
+fi
+
+if [[ $rvm -eq 1 ]]; then
+    if [[ $pretend -eq 1 ]]; then
+        echo "Would install rvm"
+    else
+        echo "Installing rvm"
+        curl -sSL https://get.rvm.io | bash -s -- --ignore-dotfiles
     fi
 fi
 
