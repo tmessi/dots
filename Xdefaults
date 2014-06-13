@@ -1,5 +1,7 @@
-URxvt.perl-ext: default,url-select
+URxvt.perl-ext: default,keyboard-select,url-select
 URxvt.keysym.C-i: perl:url-select:select_next
+URxvt.keysym.M-Escape: perl:keyboard-select:activate
+URxvt.keysym.M-s: perl:keyboard-select:search
 URxvt.url-select.launcher: /usr/bin/firefox -new-tab
 URxvt.url-select.underline: true
 URxvt.scrollsytle:xterm
