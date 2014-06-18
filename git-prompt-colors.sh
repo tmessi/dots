@@ -19,6 +19,9 @@ if [[ "$SSH_CLIENT" ]]; then
 else
     GIT_PROMPT_START_USER=
 fi
+if [[ "$SRT" ]]; then
+    GIT_PROMPT_START_USER="(${Blue}srt${ResetColor}) $GIT_PROMPT_START_USER"
+fi
 GIT_PROMPT_START_ROOT=""
 GIT_PROMPT_END_USER="${ResetColor}$ "
 GIT_PROMPT_END_ROOT="${ResetColor}# "

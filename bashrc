@@ -34,8 +34,6 @@ PATH="/usr/local/heroku/bin:$PATH"
 export PATH
 test -d "$GOPATH/bin" &&
 PATH="$GOPATH/bin:$PATH"
-test -d "$HOME/opt/steam-runtime-sdk_2013-09-05/bin" &&
-PATH="$HOME/opt/steam-runtime-sdk_2013-09-05/bin:$PATH"
 
 
 # Editor and Pager
@@ -135,10 +133,18 @@ function srt() {
     fi
     STEAM_RUNTIME_ROOT="$HOME/opt/steam-runtime-sdk_2013-09-05/runtime/${STEAM_RUNTIME_TARGET_ARCH}"
     export STEAM_RUNTIME_HOST_ARCH STEAM_RUNTIME_TARGET_ARCH STEAM_RUNTIME_ROOT
+    if [[ -z $NOSRT_PATH ]]; then
+        NOSRT_PATH="$PATH"
+    fi
+    PATH="$HOME/opt/steam-runtime-sdk_2013-09-05/bin:$PATH"
+    export NOSRT_PATH PATH
+    export SRT="enabled"
 }
 
 function usrt() {
-    unset STEAM_RUNTIME_HOST_ARCH STEAM_RUNTIME_TARGET_ARCH STEAM_RUNTIME_ROOT
+    PATH="$NOSRT_PATH"
+    export PATH
+    unset STEAM_RUNTIME_HOST_ARCH STEAM_RUNTIME_TARGET_ARCH STEAM_RUNTIME_ROOT NOSRT_PATH SRT
 }
 
 # Aliases
