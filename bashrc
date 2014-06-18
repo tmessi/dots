@@ -34,6 +34,8 @@ PATH="/usr/local/heroku/bin:$PATH"
 export PATH
 test -d "$GOPATH/bin" &&
 PATH="$GOPATH/bin:$PATH"
+test -d "$HOME/opt/steam-runtime-sdk_2013-09-05/bin" &&
+PATH="$HOME/opt/steam-runtime-sdk_2013-09-05/bin:$PATH"
 
 
 # Editor and Pager
@@ -118,6 +120,25 @@ function ve() {
 
     # Install dev_requirements.txt if available
     [[ -f dev_requirements.txt ]] && $(which pip) install -r dev_requirements.txt &> /dev/null
+}
+
+function srt() {
+    if [[ $# -eq 1 ]]; then
+        STEAM_RUNTIME_TARGET_ARCH="$1"
+    else
+        STEAM_RUNTIME_TARGET_ARCH="amd64"
+    fi
+    if [[ "$(uname -m)" == "x86_64" ]]; then
+        STEAM_RUNTIME_HOST_ARCH="amd64"
+    else
+        STEAM_RUNTIME_HOST_ARCH="i386"
+    fi
+    STEAM_RUNTIME_ROOT="$HOME/opt/steam-runtime-sdk_2013-09-05/runtime/${STEAM_RUNTIME_TARGET_ARCH}"
+    export STEAM_RUNTIME_HOST_ARCH STEAM_RUNTIME_TARGET_ARCH STEAM_RUNTIME_ROOT
+}
+
+function usrt() {
+    unset STEAM_RUNTIME_HOST_ARCH STEAM_RUNTIME_TARGET_ARCH STEAM_RUNTIME_ROOT
 }
 
 # Aliases
