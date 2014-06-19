@@ -88,65 +88,6 @@ if [[ -f $HOME/.bash-git-prompt/gitprompt.sh ]]; then
     source $HOME/.bash-git-prompt/gitprompt.sh
 fi
 
-function cd(){
-    if [[ $# -eq 0 ]]; then
-        builtin cd $(git rev-parse --show-toplevel 2> /dev/null)
-    else
-        builtin cd "$@"
-    fi
-}
-
-function ve() {
-    # Use cwd for virtualenv name
-    venv_name=${PWD##*/}
-
-    # If this virtualenv is not active
-    if [[ "$VIRTUAL_ENV" != "$PWD/.pyenv/$venv_name" ]]; then
-
-        # Deactivate current virtualenv
-        [[ $VIRTUAL_ENV ]] && deactivate
-
-        # Create new virtualenv if needed
-        [[ ! -f .pyenv/$venv_name/bin/activate ]] && rm -rf .pyenv && virtualenv .pyenv/$venv_name &> /dev/null
-
-        # Activate virtualenv
-        source .pyenv/$venv_name/bin/activate
-
-    fi
-    # Install requirements.txt if available
-    [[ -f requirements.txt ]] && $(which pip) install -r requirements.txt &> /dev/null
-
-    # Install dev_requirements.txt if available
-    [[ -f dev_requirements.txt ]] && $(which pip) install -r dev_requirements.txt &> /dev/null
-}
-
-function srt() {
-    if [[ $# -eq 1 ]]; then
-        STEAM_RUNTIME_TARGET_ARCH="$1"
-    else
-        STEAM_RUNTIME_TARGET_ARCH="amd64"
-    fi
-    if [[ "$(uname -m)" == "x86_64" ]]; then
-        STEAM_RUNTIME_HOST_ARCH="amd64"
-    else
-        STEAM_RUNTIME_HOST_ARCH="i386"
-    fi
-    STEAM_RUNTIME_ROOT="$HOME/opt/steam-runtime-sdk_2013-09-05/runtime/${STEAM_RUNTIME_TARGET_ARCH}"
-    export STEAM_RUNTIME_HOST_ARCH STEAM_RUNTIME_TARGET_ARCH STEAM_RUNTIME_ROOT
-    if [[ -z $NOSRT_PATH ]]; then
-        NOSRT_PATH="$PATH"
-    fi
-    PATH="$HOME/opt/steam-runtime-sdk_2013-09-05/bin:$PATH"
-    export NOSRT_PATH PATH
-    export SRT="enabled"
-}
-
-function usrt() {
-    PATH="$NOSRT_PATH"
-    export PATH
-    unset STEAM_RUNTIME_HOST_ARCH STEAM_RUNTIME_TARGET_ARCH STEAM_RUNTIME_ROOT NOSRT_PATH SRT
-}
-
 # Aliases
 alias ls='ls -F --color=auto'    #colors
 alias l='ls -F --color=auto'    #colors
@@ -222,3 +163,62 @@ test -d $HOME/.rvm/bin &&
 export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
+
+function cd(){
+    if [[ $# -eq 0 ]]; then
+        builtin cd $(git rev-parse --show-toplevel 2> /dev/null)
+    else
+        builtin cd "$@"
+    fi
+}
+
+function ve() {
+    # Use cwd for virtualenv name
+    venv_name=${PWD##*/}
+
+    # If this virtualenv is not active
+    if [[ "$VIRTUAL_ENV" != "$PWD/.pyenv/$venv_name" ]]; then
+
+        # Deactivate current virtualenv
+        [[ $VIRTUAL_ENV ]] && deactivate
+
+        # Create new virtualenv if needed
+        [[ ! -f .pyenv/$venv_name/bin/activate ]] && rm -rf .pyenv && virtualenv .pyenv/$venv_name &> /dev/null
+
+        # Activate virtualenv
+        source .pyenv/$venv_name/bin/activate
+
+    fi
+    # Install requirements.txt if available
+    [[ -f requirements.txt ]] && $(which pip) install -r requirements.txt &> /dev/null
+
+    # Install dev_requirements.txt if available
+    [[ -f dev_requirements.txt ]] && $(which pip) install -r dev_requirements.txt &> /dev/null
+}
+
+function srt() {
+    if [[ $# -eq 1 ]]; then
+        STEAM_RUNTIME_TARGET_ARCH="$1"
+    else
+        STEAM_RUNTIME_TARGET_ARCH="amd64"
+    fi
+    if [[ "$(uname -m)" == "x86_64" ]]; then
+        STEAM_RUNTIME_HOST_ARCH="amd64"
+    else
+        STEAM_RUNTIME_HOST_ARCH="i386"
+    fi
+    STEAM_RUNTIME_ROOT="$HOME/opt/steam-runtime-sdk_2013-09-05/runtime/${STEAM_RUNTIME_TARGET_ARCH}"
+    export STEAM_RUNTIME_HOST_ARCH STEAM_RUNTIME_TARGET_ARCH STEAM_RUNTIME_ROOT
+    if [[ -z $NOSRT_PATH ]]; then
+        NOSRT_PATH="$PATH"
+    fi
+    PATH="$HOME/opt/steam-runtime-sdk_2013-09-05/bin:$PATH"
+    export NOSRT_PATH PATH
+    export SRT="enabled"
+}
+
+function usrt() {
+    PATH="$NOSRT_PATH"
+    export PATH
+    unset STEAM_RUNTIME_HOST_ARCH STEAM_RUNTIME_TARGET_ARCH STEAM_RUNTIME_ROOT NOSRT_PATH SRT
+}
