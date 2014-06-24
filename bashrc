@@ -207,18 +207,23 @@ function srt() {
     else
         STEAM_RUNTIME_HOST_ARCH="i386"
     fi
-    STEAM_RUNTIME_ROOT="$HOME/opt/steam-runtime-sdk_2013-09-05/runtime/${STEAM_RUNTIME_TARGET_ARCH}"
+    local runtime="$HOME/opt/steam-runtime-sdk_2013-09-05/runtime/"
+    STEAM_RUNTIME_ROOT="$runtime/${STEAM_RUNTIME_TARGET_ARCH}"
     export STEAM_RUNTIME_HOST_ARCH STEAM_RUNTIME_TARGET_ARCH STEAM_RUNTIME_ROOT
     if [[ -z $NOSRT_PATH ]]; then
-        NOSRT_PATH="$PATH"
+        export NOSRT_PATH="$PATH"
     fi
     PATH="$HOME/opt/steam-runtime-sdk_2013-09-05/bin:$PATH"
-    export NOSRT_PATH PATH
+    if [[ -z $NOSRT_LD_LIBRARY_PATH ]]; then
+        export NOSRT_LD_LIBRARY_PATH=$LD_LIBRARY_PATH
+    fi
+    export LD_LIBRARY_PATH="$runtime/i386/lib/i386-linux-gnu:$runtime/i386/lib:$runtime/i386/usr/lib/i386-linux-gnu:$runtime/i386/usr/lib:$runtime/amd64/lib/x86_64-linux-gnu:$runtime/amd64/lib:$runtime/amd64/usr/lib/x86_64-linux-gnu:$runtime/amd64/usr/lib:$NOSRT_LD_LIBRARY_PATH"
     export SRT="enabled"
 }
 
 function usrt() {
     PATH="$NOSRT_PATH"
+    LD_LIBRARY_PATH="$NOSRT_LD_LIBRARY_PATH"
     export PATH
-    unset STEAM_RUNTIME_HOST_ARCH STEAM_RUNTIME_TARGET_ARCH STEAM_RUNTIME_ROOT NOSRT_PATH SRT
+    unset STEAM_RUNTIME_HOST_ARCH STEAM_RUNTIME_TARGET_ARCH STEAM_RUNTIME_ROOT NOSRT_PATH SRT NOSRT_LD_LIBRARY_PATH
 }
