@@ -2,3 +2,13 @@
 *.swp
 *.tox
 *.py[ocd]
+*.project
+*/game/mod_*/[gG]amestate.txt
+*/game/mod_*/cfg/server_blacklist.txt
+*/game/mod_*/glshaders.cfg
+*/game/mod_*/modelsounds.cache
+*/game/mod_*/sound/
+*/game/mod_*/stats.txt
+*/game/mod_*/videoconfig_linux.cfg
+*/game/mod_*/voice_ban.dt
+*/game/mod_*/maps/graphs/
