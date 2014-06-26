@@ -1,6 +1,6 @@
 [user]
-	name = Timothy Messier
-	email = tim.messier@gmail.com
+    name = Timothy Messier
+    email = tim.messier@gmail.com
 [github]
     user = shadowfax-chc
 [core]
@@ -39,5 +39,8 @@
     incoming = log --graph HEAD..@{u}
     vimdiff = difftool --tool=vimdiff --no-prompt
     rpo = remote prune origin
+    unstage = reset HEAD --
+    last = log -1 HEAD
+    uncommit = reset --soft 'HEAD^'
 [push]
-	default = current
+    default = current
