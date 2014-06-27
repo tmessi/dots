@@ -59,4 +59,8 @@ URxvt.tint:black
 ! URxvt.depth: 32
 ! URxvt.background: [70]#000000
 
+URxvt.colorIT:      #87af5f
+URxvt.colorBD:      #d7d7d7
+URxvt.colorUL:      #87afd7
+
 Xft.dpi:96
