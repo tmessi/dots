@@ -39,13 +39,16 @@ PATH="$GOPATH/bin:$PATH"
 # Editor and Pager
 EDITOR="vim"
 export EDITOR
-if [[ -f /usr/bin/most ]]; then
-    PAGER="most"
-    alias less='most'
-else
-    PAGER="less -FirSwX"
-    unalias less &> /dev/null
-fi
+# Less Colors for Man Pages
+export LESS_TERMCAP_mb=$'\e[1;31m'       # begin blinking
+export LESS_TERMCAP_md=$'\e[1;'  # begin bold
+export LESS_TERMCAP_me=$'\e[0m'           # end mode
+export LESS_TERMCAP_se=$'\e[0m'           # end standout-mode
+export LESS_TERMCAP_so=$'\e[38;5;246m'    # begin standout-mode - info box
+export LESS_TERMCAP_ue=$'\e[0m'           # end underline
+export LESS_TERMCAP_us=$'\e[04;38;5;146m' # begin underline
+PAGER="less -FirSwX"
+
 MANPAGER="$PAGER"
 export PAGER MANPAGER
 
