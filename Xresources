@@ -44,7 +44,7 @@ xlock*background: black
 xlock*foreground: #b6e77d
 
 *VT100.colorBDMode:     true
-*VT100.colorBD:         red
+*VT100.colorBD:      #d7d7d7
 *VT100.colorULMode:     true
-*VT100.colorUL:         cyan
+*VT100.colorUL:      #e9897c
 *VT100.veryBoldColors: 6
