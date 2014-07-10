@@ -47,7 +47,7 @@ done
 pushd $(dirname $0) &> /dev/null
 
 for dot in $(ls); do
-    if [[ ! $dot == "README.rst" ]] && [[ ! $dot == "install.sh" ]]; then
+    if [[ ! $dot == "README.rst" ]] && [[ ! $dot == "install.sh" ]] && [[ ! $dot == "terminfo" ]]; then
         target="$HOME/.$dot"
 
         if [[ $pretend -eq 1 ]]; then
@@ -65,6 +65,35 @@ for dot in $(ls); do
         fi
     fi
 done
+
+# Terminfo if needed
+if [[ -f /usr/share/terminfo/r/rxvt-unicode ]] && [[ -f /usr/share/terminfo/r/rxvt-unicode-256color ]]; then
+    # No need for local terminfo, lets use the system one
+    if [[ -d "$HOME/.terminfo" ]]; then
+        if [[ $pretend -eq 1 ]]; then
+            echo "Would remove $HOME/.terminfo"
+        else
+            echo "Remove $HOME/.terminfo"
+            rm -rf "$HOME/.terminfo"
+        fi
+    fi
+else
+    dot="terminfo"
+    target="$HOME/.$dot"
+    if [[ $pretend -eq 1 ]]; then
+        echo "Would set $dot"
+    else
+        # Make a .bak of a file or dir
+        if [[ ! -h $target ]]; then
+            if [[ -d $target ]] || [[ -f $target ]]; then
+                mv $target $target.bak
+            fi
+        fi
+
+        echo "Setting $dot"
+        ln -sf "$PWD/$dot" "$target"
+    fi
+fi
 
 # Cleanup
 rm -rf "$HOME/.dzen/dzen"

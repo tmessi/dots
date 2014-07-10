@@ -157,9 +157,6 @@ if [[ -f /usr/bin/fortune ]]; then
     command fortune 95% calvin firefly
 fi
 
-
-[[ ! -f /usr/share/terminfo/r/rxvt-unicode ]] && [[ $TERM == 'rxvt-unicode' ]] && export TERM=xterm
-[[ ! -f /usr/share/terminfo/r/rxvt-unicode-256color ]] && [[ $TERM == 'rxvt-unicode-256color' ]] && export TERM=xterm-256color
 [[ -f $HOME/.bashrc_extra ]] && source $HOME/.bashrc_extra
 
 test -d $HOME/.rvm/bin &&
