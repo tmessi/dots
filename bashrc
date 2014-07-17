@@ -196,6 +196,10 @@ function ve() {
     [[ -f dev_requirements.txt ]] && $(which pip) install -r dev_requirements.txt &> /dev/null
 }
 
+function rmpyc() {
+    find . -name "*.pyc" -exec rm -rf {} \;
+}
+
 function srt() {
     if [[ $# -eq 1 ]]; then
         STEAM_RUNTIME_TARGET_ARCH="$1"
