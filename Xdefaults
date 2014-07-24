@@ -1,3 +1,4 @@
+! Plugins and settings
 URxvt.perl-ext: default,keyboard-select,url-select
 URxvt.keysym.C-i: perl:url-select:select_next
 URxvt.keysym.M-Escape: perl:keyboard-select:activate
@@ -8,7 +9,8 @@ URxvt.scrollsytle:xterm
 URxvt.scrollBar:false
 URxvt.font:-*-terminus-medium-*-*-*-12-*-*-*-*-*-*-*
 URxvt.urgentOnBell: true
-! :Bind C-0, C-+ and C-= to activate small, medium, and big font size resp.
+
+! Bind C-0, C-+ and C-= to activate small, medium, and big font size resp.
 URxvt.keysym.C-0: command:\033]710;-*-terminus-medium-*-*-*-12-*-*-*-*-*-*-*\007
 URxvt.keysym.C-minus: command:\033]710;-*-terminus-medium-*-*-*-16-*-*-*-*-*-*-*\007
 URxvt.keysym.C-equal: command:\033]710;-*-terminus-medium-*-*-*-20-*-*-*-*-*-*-*\007
@@ -50,10 +52,11 @@ urxvt*color12:    #b6defb
 urxvt*color13:    #fba1fb
 urxvt*color15:    #e2e2e2
 
+! Other color settings
 URxvt.foreground: #b6e77d
 
 URxvt.transparent:true
-URxvt.shading:30
+URxvt.shading:25
 URxvt.background:black
 URxvt.tint:black
 ! URxvt.depth: 32
