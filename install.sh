@@ -96,7 +96,7 @@ else
 fi
 
 # Cleanup
-rm -rf "$HOME/.dzen/dzen"
+rm -rf "$HOME/.dzen/dzen $HOME/.terminfo/terminfo"
 
 if [[ $pretend -eq 1 ]]; then
     echo "Would make dirs '$HOME/.vim/{bundle,swap,backup,undo}"
