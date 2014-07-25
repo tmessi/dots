@@ -1,0 +1,38 @@
+# vim: set filetype=sh :
+
+# Default prompt
+if [[ ${EUID} == 0 ]]; then
+    PS1='\[\e[01;31m\]\$\[\e[0m\] '
+else
+    PS1='\[\e[0m\]\$ '
+fi
+
+# If sshed include hostname
+if [[ "$SSH_CLIENT" ]]; then
+    PS1="\[\e[0;31m\]\h$PS1"
+    # Set host and pwd in X window title
+    case ${TERM} in
+        xterm*|rxvt*)
+            PROMPT_COMMAND='echo -ne "\033]0;${HOSTNAME}|${PWD/#$HOME/~}\007"'
+            ;;
+        screen*)
+            PROMPT_COMMAND='echo -ne "\033_;${HOSTNAME}|${PWD/#$HOME/~}\033\\"'
+            ;;
+    esac
+else
+    # Set pwd in X window title
+    case ${TERM} in
+        xterm*|rxvt*)
+            PROMPT_COMMAND='echo -ne "\033]0;${PWD/#$HOME/~}\007"'
+            ;;
+        screen*)
+            PROMPT_COMMAND='echo -ne "\033_;${PWD/#$HOME/~}\033\\"'
+            ;;
+    esac
+fi
+
+# Fancy git prompt if installed
+if [[ -f $HOME/.bash-git-prompt/gitprompt.sh ]]; then
+    GIT_PROMPT_ONLY_IN_REPO=1
+    source $HOME/.bash-git-prompt/gitprompt.sh
+fi
