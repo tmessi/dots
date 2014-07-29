@@ -3,7 +3,7 @@
 # ls
 if [[ -f /usr/bin/ls++ ]]; then
     alias ls='ls -F --color=auto'    #colors
-    alias l='ls -F --color=auto'    #colors
+    alias l='ls++ -F'    #colors
     alias ll='ls++ -ah'  #long list
     alias la='ls++ -A'  #show hidden
     alias lx='ls++ XB'  #sort by sextension
