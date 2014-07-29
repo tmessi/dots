@@ -3,16 +3,16 @@
 # ls
 if [[ -f /usr/bin/ls++ ]]; then
     alias ls='ls -F --color=auto'    #colors
-    alias l='ls++ -F'    #colors
-    alias ll='ls++ -ah'  #long list
-    alias la='ls++ -A'  #show hidden
-    alias lx='ls++ XB'  #sort by sextension
-    alias lk='ls++ -Sr'  #sort by size biggest last
-    alias lc='ls++ -tcr' #sort by and show chagne times
-    alias lu='ls++ -tur' #sort by and show access time
-    alias lt='ls++ -tr'  #sort by date
-    alias lm='ls++ -a |more'          #pipe through more
-    alias lr='ls++ -R'                #recursive
+    alias l='ls++ --potsf -F'    #colors
+    alias ll='ls++ --potsf -ah'  #long list
+    alias la='ls++ --potsf -A'  #show hidden
+    alias lx='ls++ --potsf -B'  #sort by sextension
+    alias lk='ls++ --potsf -Sr'  #sort by size biggest last
+    alias lc='ls++ --potsf -tcr' #sort by and show chagne times
+    alias lu='ls++ --potsf -tur' #sort by and show access time
+    alias lt='ls++ --potsf -tr'  #sort by date
+    alias lm='ls++ --potsf -a |more'          #pipe through more
+    alias lr='ls++ --potsf -R'                #recursive
 else
     alias ls='ls -F --color=auto'    #colors
     alias l='ls -F --color=auto'    #colors
