@@ -1,17 +1,33 @@
 # vim: set filetype=sh :
 
+# ls
+if [[ -f /usr/bin/ls++ ]]; then
+    alias ls='ls -F --color=auto'    #colors
+    alias l='ls -F --color=auto'    #colors
+    alias ll='ls++ -ah'  #long list
+    alias la='ls++ -A'  #show hidden
+    alias lx='ls++ XB'  #sort by sextension
+    alias lk='ls++ -Sr'  #sort by size biggest last
+    alias lc='ls++ -tcr' #sort by and show chagne times
+    alias lu='ls++ -tur' #sort by and show access time
+    alias lt='ls++ -tr'  #sort by date
+    alias lm='ls++ -a |more'          #pipe through more
+    alias lr='ls++ -R'                #recursive
+else
+    alias ls='ls -F --color=auto'    #colors
+    alias l='ls -F --color=auto'    #colors
+    alias ll='ls -lsah --color=auto'  #long list
+    alias la='ls -AF --color=auto'  #show hidden
+    alias lx='ls -lXB --color=auto'  #sort by sextension
+    alias lk='ls -lSr --color=auto'  #sort by size biggest last
+    alias lc='ls -ltcr --color=auto' #sort by and show chagne times
+    alias lu='ls -ltur --color=auto' #sort by and show access time
+    alias lt='ls -ltr --color=auto'  #sort by date
+    alias lm='ls -al |more'          #pipe through more
+    alias lr='ls -lR'                #recursive
+fi
+
 # short cuts
-alias ls='ls -F --color=auto'    #colors
-alias l='ls -F --color=auto'    #colors
-alias ll='ls -lsah --color=auto'  #long list
-alias la='ls -AF --color=auto'  #show hidden
-alias lx='ls -lXB --color=auto'  #sort by sextension
-alias lk='ls -lSr --color=auto'  #sort by size biggest last
-alias lc='ls -ltcr --color=auto' #sort by and show chagne times
-alias lu='ls -ltur --color=auto' #sort by and show access time
-alias lt='ls -ltr --color=auto'  #sort by date
-alias lm='ls -al |more'          #pipe through more
-alias lr='ls -lR'                #recursive
 alias tree='tree -Csuh'          #alternative to recursive ls
 alias df='df -kTh'
 alias path='echo -e ${PATH//:/\\n}'
