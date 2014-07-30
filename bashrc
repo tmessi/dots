@@ -37,6 +37,9 @@ export PAGER MANPAGER
 # Use eselect bashcomp to manage symlinks
 [[ -f /etc/profile.d/bash-completion.sh ]] && source /etc/profile.d/bash-completion.sh
 
+# Completions not managed via Gentoo
+[[ -f $HOME/.bash_comp ]] && source $HOME/.bash_comp
+
 # rvm settings
 [[ -f $HOME/.bash_rvm ]] && source $HOME/.bash_rvm
 

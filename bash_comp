@@ -1,0 +1,3 @@
+# vim: set filetype=sh :
+
+[[ -f /usr/bin/gulp ]] && eval "$(gulp --completion=bash)"
