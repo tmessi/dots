@@ -3,7 +3,12 @@
 # Exit if non-interactive
 [[ $- != *i* ]] && return
 
-unset LD_PRELOAD  # For spectrwm
+# For spectrwm
+if [[ -f /usr/lib64/libswmhack.so ]]; then
+    LD_PRELOAD='/usr/lib64/libswmhack.so'
+else
+    unset LD_PRELOAD
+fi
 complete -cf sudo  # complete sudo commands
 set -o vi  # vim bindings for shell
 shopt -s cdspell  # correct spelling on cd
