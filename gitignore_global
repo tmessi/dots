@@ -3,6 +3,7 @@
 *.tox
 *.py[ocd]
 *.project
+*.orig
 */game/mod_*/[gG]amestate.txt
 */game/mod_*/cfg/server_blacklist.txt
 */game/mod_*/glshaders.cfg
