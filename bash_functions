@@ -8,6 +8,18 @@ function cd(){
     fi
 }
 
+function getyn() {
+    while true; do
+        read -p "$1" yn
+        case $yn in
+            [Yy]*) ret=0; break;;
+            [Nn]*) ret=1; break;;
+            *) echo 'Please answer yes or no.';;
+        esac
+    done
+    return $ret
+}
+
 function ve() {
     # Set root point for virtualenv creation to git top level
     ve_root=$(git rev-parse --show-toplevel 2> /dev/null)
@@ -31,11 +43,20 @@ function ve() {
         source $ve_root/.pyenv/$venv_name/bin/activate
 
     fi
+
+    # Ensure using correct pip
+    pip_bin=$(which pip)
+
     # Install requirements.txt if available
-    [[ -f $ve_root/requirements.txt ]] && $(which pip) install -r $ve_root/requirements.txt &> /dev/null
+    [[ -f $ve_root/requirements.txt ]] && $pip_bin install -r $ve_root/requirements.txt &> /dev/null
 
     # Install dev_requirements.txt if available
-    [[ -f $ve_root/dev_requirements.txt ]] && $(which pip) install -r $ve_root/dev_requirements.txt &> /dev/null
+    [[ -f $ve_root/dev_requirements.txt ]] && $pip_bin install -r $ve_root/dev_requirements.txt &> /dev/null
+
+    # Attempt to find other requirement files...
+    for req in $(find . -type f -wholename '*requirement*'); do
+        getyn "Install $req? [y/n]: " && $pip_bin install -r $req &> /dev/null
+    done
 }
 
 function rmpyc() {
