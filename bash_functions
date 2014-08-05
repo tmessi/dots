@@ -9,27 +9,33 @@ function cd(){
 }
 
 function ve() {
-    # Use cwd for virtualenv name
-    venv_name=${PWD##*/}
+    # Set root point for virtualenv creation to git top level
+    ve_root=$(git rev-parse --show-toplevel 2> /dev/null)
+
+    # Fall back to PWD if not in a git repo
+    [[ ! $ve_root ]] && ve_root="$PWD"
+
+    # Dirname of ve_root for name of virtualenv
+    venv_name=${ve_root##*/}
 
     # If this virtualenv is not active
-    if [[ "$VIRTUAL_ENV" != "$PWD/.pyenv/$venv_name" ]]; then
+    if [[ "$VIRTUAL_ENV" != "$ve_root/.pyenv/$venv_name" ]]; then
 
         # Deactivate current virtualenv
         [[ $VIRTUAL_ENV ]] && deactivate
 
         # Create new virtualenv if needed
-        [[ ! -f .pyenv/$venv_name/bin/activate ]] && rm -rf .pyenv && virtualenv .pyenv/$venv_name &> /dev/null
+        [[ ! -f $ve_root/.pyenv/$venv_name/bin/activate ]] && rm -rf $ve_root/.pyenv && virtualenv $ve_root/.pyenv/$venv_name &> /dev/null
 
         # Activate virtualenv
-        source .pyenv/$venv_name/bin/activate
+        source $ve_root/.pyenv/$venv_name/bin/activate
 
     fi
     # Install requirements.txt if available
-    [[ -f requirements.txt ]] && $(which pip) install -r requirements.txt &> /dev/null
+    [[ -f $ve_root/requirements.txt ]] && $(which pip) install -r $ve_root/requirements.txt &> /dev/null
 
     # Install dev_requirements.txt if available
-    [[ -f dev_requirements.txt ]] && $(which pip) install -r dev_requirements.txt &> /dev/null
+    [[ -f $ve_root/dev_requirements.txt ]] && $(which pip) install -r $ve_root/dev_requirements.txt &> /dev/null
 }
 
 function rmpyc() {
