@@ -53,10 +53,6 @@ function ve() {
     # Install dev_requirements.txt if available
     [[ -f $ve_root/dev_requirements.txt ]] && $pip_bin install -r $ve_root/dev_requirements.txt &> /dev/null
 
-    # Attempt to find other requirement files...
-    for req in $(find . -type f -wholename '*requirement*'); do
-        getyn "Install $req? [y/n]: " && $pip_bin install -r $req &> /dev/null
-    done
 }
 
 function rmpyc() {
