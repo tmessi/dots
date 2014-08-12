@@ -99,14 +99,18 @@ fi
 rm -rf "$HOME/.dzen/dzen"
 rm -rf "$HOME/.terminfo/terminfo"
 
+if [[ ! -d "$HOME/.bash-git-prompt" ]]; then
+    if [[ $pretend -eq 1 ]]; then
+        echo "Would install bash-git-prompt"
+    else
+        git clone https://github.com/magicmonty/bash-git-prompt.git "$HOME/.bash-git-prompt"
+    fi
+fi
+
 if [[ $pretend -eq 1 ]]; then
     echo "Would make dirs '$HOME/.vim/{bundle,swap,backup,undo}"
 else
     mkdir -p "$HOME/.vim/"{bundle,swap,backup,undo}
-fi
-
-if [[ ! -d "$HOME/.bash-git-prompt" ]]; then
-    git clone https://github.com/magicmonty/bash-git-prompt.git "$HOME/.bash-git-prompt"
 fi
 
 if [[ ! -d "$HOME/.vim/bundle/vundle" ]]; then
