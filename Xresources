@@ -1,7 +1,25 @@
-XTerm*scrollBar: false
-XTerm*locale: true
-xterm*session.Mgt: false
-xterm*font: -*-terminus-medium-*-*-*-*-*-*-*-*-*-*
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+! rxvt-unicode settings
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+! Plugins and settings
+URxvt.perl-ext:             default,keyboard-select,url-select
+URxvt.keysym.C-i:           perl:url-select:select_next
+URxvt.keysym.M-bracketleft: perl:keyboard-select:activate
+URxvt.keysym.M-s:           perl:keyboard-select:search
+URxvt.url-select.launcher:  /usr/bin/firefox -new-tab
+URxvt.url-select.underline: true
+URxvt.scrollsytle:          xterm
+URxvt.scrollBar:            false
+URxvt.font:                 -*-terminus-medium-*-*-*-12-*-*-*-*-*-*-*
+URxvt.urgentOnBell:         true
+URxvt.tripleclickwords:     true
+
+! Bind C-0, C-+ and C-= to activate small, medium, and big font size resp.
+URxvt.keysym.C-0:           command:\033]710;-*-terminus-medium-*-*-*-12-*-*-*-*-*-*-*\007
+URxvt.keysym.C-minus:       command:\033]710;-*-terminus-medium-*-*-*-16-*-*-*-*-*-*-*\007
+URxvt.keysym.C-equal:       command:\033]710;-*-terminus-medium-*-*-*-20-*-*-*-*-*-*-*\007
+URxvt.keysym.C-9:           command:\033]710;-*-terminus-medium-*-*-*-11-*-*-*-*-*-*-*\007
 
 ! Normal
 ! color0    black
@@ -13,12 +31,13 @@ xterm*font: -*-terminus-medium-*-*-*-*-*-*-*-*-*-*
 ! color6    cyan
 ! color7    white
 
-xterm*color0:    #6c6c6c
-xterm*color1:    #e9897c
-xterm*color2:    #b6e77d
-xterm*color3:    #ecebbe
-xterm*color5:    #ea96eb
-xterm*color7:    #f2f2f2
+URxvt.color0:  #000000
+URxvt.color1:  #e9897c
+URxvt.color2:  #b6e77d
+URxvt.color3:  #ecebbe
+URxvt.color4:  #a9cdeb
+URxvt.color5:  #ea96eb
+URxvt.color7:  #f2f2f2
 
 ! Light
 ! color8    black
@@ -30,21 +49,100 @@ xterm*color7:    #f2f2f2
 ! color14    cyan
 ! color15    white
 
-xterm*color8:    #747474
-xterm*color9:    #f99286
-xterm*color10:    #c3f786
-xterm*color11:    #fcfbcc
-xterm*color12:    #b6defb
-xterm*color13:    #fba1fb
-xterm*color15:    #e2e2e2
+URxvt.color8:  #747474
+URxvt.color9:  #f99286
+URxvt.color10: #c3f786
+URxvt.color11: #fcfbcc
+URxvt.color12: #b6defb
+URxvt.color13: #fba1fb
+URxvt.color15: #e2e2e2
 
-xterm*background: black
-xterm*foreground: #b6e77d
-xlock*background: black
-xlock*foreground: #b6e77d
+! Other color settings
+! colorIT  italics
+! colorBD  bold
+! colorUL  underline
 
-*VT100.colorBDMode:     true
-*VT100.colorBD:      #d7d7d7
-*VT100.colorULMode:     true
-*VT100.colorUL:      #e9897c
+URxvt.colorIT: #87af5f
+URxvt.colorBD: #d7d7d7
+URxvt.colorUL: #e9897c
+
+URxvt.foreground: #b6e77d
+
+! Use for "fake" transparency
+URxvt.transparent: true
+URxvt.shading:     10
+URxvt.background:  black
+URxvt.tint:        black
+
+! Use for true transparency
+! URxvt.depth: 32
+! URxvt.background: [70]#000000
+
+! Print to file instead of printer
+URxvt.print-pipe: cat > $(TMPDIR=$HOME mktemp urxvt.XXXXXX)
+
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+! xterm settings
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+XTerm*scrollBar:   false
+XTerm*locale:      true
+XTerm*session.Mgt: false
+XTerm*font:        -*-terminus-medium-*-*-*-12-*-*-*-*-*-*-*
+
+! Normal
+! color0    black
+! color1    red
+! color2    green
+! color3    yellow
+! color4    blue
+! color5    purple
+! color6    cyan
+! color7    white
+
+XTerm*color0:  #6c6c6c
+XTerm*color1:  #e9897c
+XTerm*color2:  #b6e77d
+XTerm*color3:  #ecebbe
+XTerm*color5:  #ea96eb
+XTerm*color7:  #f2f2f2
+
+! Light
+! color8    black
+! color9    red
+! color10    green
+! color11    yellow
+! color12    blue
+! color13    purple
+! color14    cyan
+! color15    white
+
+XTerm*color8:  #747474
+XTerm*color9:  #f99286
+XTerm*color10: #c3f786
+XTerm*color11: #fcfbcc
+XTerm*color12: #b6defb
+XTerm*color13: #fba1fb
+XTerm*color15: #e2e2e2
+
+XTerm*background: black
+XTerm*foreground: #b6e77d
+
+! Other color settings
+! colorBD  bold
+! colorUL  underline
+
+*VT100.colorBDMode:    true
+*VT100.colorULMode:    true
+*VT100.colorBD:        #d7d7d7
+*VT100.colorUL:        #e9897c
 *VT100.veryBoldColors: 6
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+! other settings
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+Xft.dpi:          96
+XLock*background: black
+XLock*foreground: #b6e77d
