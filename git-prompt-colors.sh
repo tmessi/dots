@@ -15,9 +15,9 @@ GIT_PROMPT_CLEAN="${BoldGreen}✔"      # a colored flag indicating a "clean" re
 
 # Prompt
 if [[ "$SSH_CLIENT" ]]; then
-    GIT_PROMPT_START_USER="${Red}\h"
+    GIT_PROMPT_START_USER="${Red}\h${IntenseBlack}$(jobscount)"
 else
-    GIT_PROMPT_START_USER=
+    GIT_PROMPT_START_USER="${IntenseBlack}$(jobscount)"
 fi
 if [[ "$SRT" ]]; then
     GIT_PROMPT_START_USER="(${Blue}srt${ResetColor}) $GIT_PROMPT_START_USER"

@@ -1,5 +1,10 @@
 # vim: set filetype=sh :
 
+jobscount() {
+    local background=$(jobs -p | wc -l)
+    ((background)) && echo -n "(${background})"
+}
+
 # Default prompt
 if [[ ${EUID} == 0 ]]; then
     PS1='\[\e[01;31m\]\$\[\e[0m\] '
