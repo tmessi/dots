@@ -54,4 +54,4 @@ export PAGER MANPAGER
 # Anything specific to this host
 [[ -f $HOME/.bashrc_extra ]] && source $HOME/.bashrc_extra
 
-[[ -f /usr/bin/fortune ]] && command fortune 95% calvin firefly
+[[ -f /usr/bin/fortune ]] && command fortune firefly calvin futurama hitchhiker
