@@ -39,6 +39,7 @@
     incoming = log --graph HEAD..@{u}
     vimdiff = difftool --tool=vimdiff --no-prompt
     rpo = remote prune origin
+    pb = "!git branch --merged | grep -v "\\*" | xargs -n 1 git branch -d"
     unstage = reset HEAD --
     last = log -1 HEAD
     uncommit = reset --soft 'HEAD^'
