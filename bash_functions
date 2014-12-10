@@ -41,7 +41,7 @@ function ve() {
         [[ $VIRTUAL_ENV ]] && deactivate
 
         # Create new virtualenv if needed
-        [[ ! -f $ve_root/.pyenv/$venv_name/bin/activate ]] && rm -rf $ve_root/.pyenv && virtualenv $ve_root/.pyenv/$venv_name &> /dev/null
+        [[ ! -f $ve_root/.pyenv/$venv_name/bin/activate ]] && rm -rf $ve_root/.pyenv/$venv_name && virtualenv $ve_root/.pyenv/$venv_name &> /dev/null
 
         # Activate virtualenv
         source $ve_root/.pyenv/$venv_name/bin/activate
