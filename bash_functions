@@ -30,6 +30,10 @@ function ve() {
     # Dirname of ve_root for name of virtualenv
     venv_name=${ve_root##*/}
 
+    if [[ $1 ]]; then
+        venv_name="${venv_name}_${1}"
+    fi
+
     # If this virtualenv is not active
     if [[ "$VIRTUAL_ENV" != "$ve_root/.pyenv/$venv_name" ]]; then
 
@@ -47,11 +51,16 @@ function ve() {
     # Ensure using correct pip
     pip_bin=$(which pip)
 
-    # Install requirements.txt if available
-    [[ -f $ve_root/requirements.txt ]] && $pip_bin install -r $ve_root/requirements.txt &> /dev/null
+    if [[ $1 ]]; then
+        # Install custom requirements.txt if available
+        [[ -f $ve_root/${1}_requirements.txt ]] && $pip_bin install -r $ve_root/${1}_requirements.txt &> /dev/null
+    else
+        # Install requirements.txt if available
+        [[ -f $ve_root/requirements.txt ]] && $pip_bin install -r $ve_root/requirements.txt &> /dev/null
 
-    # Install dev_requirements.txt if available
-    [[ -f $ve_root/dev_requirements.txt ]] && $pip_bin install -r $ve_root/dev_requirements.txt &> /dev/null
+        # Install dev_requirements.txt if available
+        [[ -f $ve_root/dev_requirements.txt ]] && $pip_bin install -r $ve_root/dev_requirements.txt &> /dev/null
+    fi
 
 }
 
