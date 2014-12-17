@@ -74,7 +74,7 @@ function ws () {
 function vws () {
     if [[ $1 ]]; then
         cd ~/workspace/$1
-        if [[ -f "$PWD/.vagrantfile" || -f "$PWD/.Vagrantfile" ]]; then
+        if [[ -f "$PWD/vagrantfile" || -f "$PWD/Vagrantfile" ]]; then
             vagrant up && vagrant ssh -p
         fi
     fi
