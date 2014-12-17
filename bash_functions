@@ -64,6 +64,22 @@ function ve() {
 
 }
 
+function ws () {
+    if [[ $1 ]]; then
+        cd ~/workspace/$1
+        [[ -f "$PWD/requirements.txt" ]] && ve
+    fi
+}
+
+function vws () {
+    if [[ $1 ]]; then
+        cd ~/workspace/$1
+        if [[ -f "$PWD/.vagrantfile" || -f "$PWD/.Vagrantfile" ]]; then
+            vagrant up && vagrant ssh -p
+        fi
+    fi
+}
+
 function rmpyc() {
     find . -name "*.pyc" -exec rm -rf {} \;
 }
