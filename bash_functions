@@ -81,7 +81,11 @@ function vws () {
 }
 
 function rmpyc() {
-    find . -name "*.pyc" -exec rm -rf {} \;
+    local path=$PWD
+    if [[ $1 ]]; then
+        path=$1
+    fi
+    find $path -not -path '*/\.*' -name "*.pyc" -exec rm -rf {} \;
 }
 
 function srt() {
