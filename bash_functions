@@ -88,6 +88,30 @@ function rmpyc() {
     find $path -not -path '*/\.*' -name "*.pyc" -exec rm -rf {} \;
 }
 
+function djtest() {
+    if [[ ! -x ./manage.py ]]; then
+        echo "No executatble manage.py"
+        return
+    fi
+    local input=$1; shift
+    if [[ -f $input ]]; then
+        test_files="$input"
+    elif [[ -d $input ]]; then
+        test_files=$(find $input -type f -name 'test*.py')
+    fi
+    for test_file in $test_files; do
+        test_file_no_ext=${test_file%%.*}
+        test_spec=${test_file_no_ext//\//.}
+        echo $test_spec
+        ./manage.py test $test_spec $@
+        local ret=$?
+        if [[ $ret -ne 0 ]]; then
+            echo 'Test failed, skipping additional test files'
+            return $ret
+        fi
+    done
+}
+
 function srt() {
     if [[ $# -eq 1 ]]; then
         STEAM_RUNTIME_TARGET_ARCH="$1"
