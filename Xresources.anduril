@@ -4,7 +4,7 @@ URxvt.keysym.C-minus:       command:\033]710;-*-terminus-medium-*-*-*-32-*-*-*-*
 URxvt.keysym.C-equal:       command:\033]710;-*-terminus-medium-*-*-*-40-*-*-*-*-*-*-*\007
 URxvt.keysym.C-9:           command:\033]710;-*-terminus-medium-*-*-*-20-*-*-*-*-*-*-*\007
 
-Xft.dpi: 180
+Xft.dpi: 96
 Xft.autohint: 0
 Xft.lcdfilter: lcddefault
 Xft.hintstyle: hintfull
@@ -12,4 +12,4 @@ Xft.hinting: 1
 Xft.antialias: 1
 Xft.rgba: rgb
 
-Xcursor.size: 32
+Xcursor.size: 64

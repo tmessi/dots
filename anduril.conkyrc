@@ -25,7 +25,7 @@ ${if_match "${execp ~/bin/spotify-monitor.py playback}" == "Paused"}^fg(\#b6e77d
 ${if_match "${execp ~/bin/spotify-monitor.py playback}" == "Stopped"}^fg(\#e9897c)^i(.dzen/bitmap/stop.xbm)^fg()$endif ${execp ~/bin/spotify-monitor.py playing}\
 ${endif} \
 ^fg(\#b6e77d)|^fg()\
-${if_match ${battery_percent} >=50} ^fg(lightblue)^i(.dzen/bitmap/bat_full_01.xbm)^fg()\
+${if_match ${battery_percent} >=40} ^fg(lightblue)^i(.dzen/bitmap/bat_full_01.xbm)^fg()\
 ${else}${if_match ${battery_percent} >10} ^fg(yellow)^i(.dzen/bitmap/bat_low_01.xbm)\
 ${else} ^fg(red)^i(.dzen/bitmap/bat_empty_01.xbm)${endif}${endif}\
  ${battery_percent}% ${battery_time}\
