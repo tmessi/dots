@@ -55,7 +55,8 @@ alias hald='sudo hald --daemon=yes --verbose=yes'
 alias bwm-ng='bwm-ng -I %ram0,ram1,ram2,ram3,ram4,ram5,ram6,ram7,ram8,ram9,ram10,ram11,ram12,ram13,ram14,ram15,sda,sdb,sdc,md0,lo,sit0'
 alias preview='feh -g 700x700 -d'
 alias mkisofs-qick='mkisofs -R -l -J'
-alias bundleupdate='vim -c BundleUpdate -c qa'
+alias bundleupdate='vim -c PluginUpdate -c qa'
+alias pluginupdate='vim -c PluginUpdate -c qa'
 alias vobcopy='vobcopy -v -m -F 16 /mnt/tmp'
 
 # To keep typos alive
