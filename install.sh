@@ -8,7 +8,7 @@ function print_help() {
 optional args:
 
     -p|--pretend  print what install will do without doing it.
-    -b|--bundle   run :BundleUpdate after install.
+    -b|--bundle   run :PluginUpdate after install.
     -r|--rvm      install rvm as well.
     -h|--help     print this help."
 }
@@ -121,7 +121,7 @@ if [[ ! -d "$HOME/.vim/bundle/vundle" ]]; then
         git clone https://github.com/gmarik/vundle.git "$HOME/.vim/bundle/vundle" &> /dev/null
         if [[ $bundleupdate -eq 0 ]]; then
             echo "Now start vim and run:"
-            echo ":BundleInstall"
+            echo ":PluginInstall"
         fi
     fi
 else
@@ -130,10 +130,10 @@ fi
 
 if [[ $bundleupdate -eq 1 ]]; then
     if [[ $pretend -eq 1 ]]; then
-        echo "Would run :BundleUpdate"
+        echo "Would run :PluginUpdate"
     else
         echo "Running bundle update"
-        vim -c BundleUpdate -c qa &> /dev/null
+        vim -c PluginUpdate -c qa &> /dev/null
     fi
 fi
 
