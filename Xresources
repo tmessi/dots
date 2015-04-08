@@ -32,11 +32,11 @@ URxvt.keysym.C-9:           command:\033]710;-*-terminus-medium-*-*-*-11-*-*-*-*
 ! color7    white
 
 URxvt.color0:  #000000
-URxvt.color1:  #cc6666
-URxvt.color2:  #b5bd68
-URxvt.color3:  #f0c674
-URxvt.color4:  #81a2be
-URxvt.color5:  #b294bb
+URxvt.color1:  #e9897c
+URxvt.color2:  #b6e77d
+URxvt.color3:  #ecebbe
+URxvt.color4:  #a9cdeb
+URxvt.color5:  #ea96eb
 URxvt.color6:  #81a2be
 URxvt.color7:  #f2f2f2
 
@@ -50,21 +50,22 @@ URxvt.color7:  #f2f2f2
 ! color14    cyan
 ! color15    white
 
+URxvt.color8:  #747474
 URxvt.color9:  #cc6666
 URxvt.color10:  #b5bd68
 URxvt.color11:  #f0c674
 URxvt.color12:  #81a2be
 URxvt.color13:  #b294bb
-URxvt.color14:  #81a2be
+URxvt.color15: #e2e2e2
 
 ! Other color settings
 ! colorIT  italics
 ! colorBD  bold
 ! colorUL  underline
 
-URxvt.colorIT: #87af5f
-URxvt.colorBD: #d7d7d7
-URxvt.colorUL: #e9897c
+URxvt.colorIT: #b294bb
+URxvt.colorBD: #81a2be
+URxvt.colorUL: #cc6666
 
 URxvt.foreground: #b6e77d
 
