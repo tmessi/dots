@@ -1,0 +1,15 @@
+source! $HOME/.pentadactylrc
+
+hi Normal   color: #b6e77d; background: black; font-family: Terminus; padding: 0px; font-size-adjust: 1.5;
+hi CmdLine  color: #b6e77d; background: black; font-family: Terminus; padding: 0px; font-size-adjust: 1.5;
+hi CompDesc color: #b6e77d; width: 50%; font-size-adjust: 1.5;
+hi CompTitle color: magenta; background: black; font-weight: bold; font-size-adjust: 1.5;
+hi CompItem[selected] background: gray; font-size-adjust: 1.5;
+hi ModeMsg color: #b6e77d; background: black; font-size-adjust: 1.5;
+hi StatusLine  color: #b6e77d; background: black; font-family: Terminus; padding: 0px; font-size-adjust: 1.5;
+hi StatusLineBroken  color: #FFa0a0; background: black; font-family: Terminus; padding: 0px; font-size-adjust: 1.5;
+hi StatusLineExtended  color: #a0FFa0; background: black; font-family: Terminus; padding: 0px; font-size-adjust: 1.5;
+hi StatusLineNormal  color: #b6e77d; background: black; font-family: Terminus; padding: 0px; font-size-adjust: 1.5;
+hi StatusLineSecure  color: #a0a0FF; background: black; font-family: Terminus; padding: 0px; font-size-adjust: 1.5;
+
+" vim: set ft=pentadactyl:

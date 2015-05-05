@@ -31,6 +31,7 @@ PAGER="less -FirSwX"
 MANPAGER="$PAGER"
 export PAGER MANPAGER
 
+[[ -f $HOME/.pentadactylrc.$HOSTNAME ]] && export PENTADACTYL_INIT=":source $HOME/.pentadactylrc.$HOSTNAME"
 
 # Prompt and window title of X terminals
 [[ -f $HOME/.bash_prompt ]] && source $HOME/.bash_prompt
