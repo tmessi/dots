@@ -11,8 +11,8 @@ TEXT
 ^fg(\#b6e77d)|^fg() ${texeci 1200 ~/bin/updates.py} ^fg(lightblue)^i(.dzen/bitmap/net_up_02.xbm)^fg() \
 ^fg(\#b6e77d)|^fg() ^fg(lightblue)^i(.dzen/bitmap/temp.xbm)^fg() ${weather http://weather.noaa.gov/pub/data/observations/metar/stations/ KBWI temperature}°C \
 ^fg(\#b6e77d)|^fg() ^fg(lightblue)^i(.dzen/bitmap/fs_01.xbm)^fg() ${loadavg 1} \
-^fg(\#b6e77d)|^fg() ^fg(lightblue)^i(.dzen/bitmap/cpu.xbm)^fg() ${cpu}% \
-^fg(\#b6e77d)|^fg() ^fg(lightblue)^i(.dzen/bitmap/mem.xbm)^fg() ${memperc}% \
+^fg(\#b6e77d)|^fg() ^fg(lightblue)^i(.dzen/bitmap/cpu.xbm)^fg() ${cpu}% ^fg(lightblue)^i(.dzen/bitmap/temp.xbm)^fg() ${acpitemp}°C \
+^fg(\#b6e77d)|^fg() ^fg(lightblue)^i(.dzen/bitmap/mem.xbm)^fg() ${memperc}% ${swapperc}% \
 ${if_up wlp3s0}\
 ^fg(\#b6e77d)|^fg() ^fg(\#c3f786)^i(.dzen/bitmap/wifi_02.xbm)^fg() ${wireless_essid wlp3s0} (${wireless_link_qual_perc wlp3s0}%) \
 ^fg(\#c3f786)^i(.dzen/bitmap/net_down_03.xbm)^fg() ${downspeed wlp3s0} \
