@@ -13,29 +13,16 @@ TEXT
 ^fg(\#b6e77d)|^fg() ^fg(lightblue)^i(.dzen/bitmap/fs_01.xbm)^fg() ${loadavg 1} \
 ^fg(\#b6e77d)|^fg() ^fg(lightblue)^i(.dzen/bitmap/cpu.xbm)^fg() ${cpu}% ^fg(lightblue)^i(.dzen/bitmap/temp.xbm)^fg() ${acpitemp}°C \
 ^fg(\#b6e77d)|^fg() ^fg(lightblue)^i(.dzen/bitmap/mem.xbm)^fg() ${memperc}% ${swapperc}% \
-${if_up enp4s0}\
-^fg(\#b6e77d)|^fg() ^fg(\#c3f786)^i(.dzen/bitmap/net_down_03.xbm)^fg() ${downspeed enp4s0} \
+${if_up enp3s0}\
+^fg(\#b6e77d)|^fg() ^fg(\#c3f786)^i(.dzen/bitmap/net_down_03.xbm)^fg() ${downspeed enp3s0} \
 ${endif}\
 ^fg(\#b6e77d)|^fg() ^fg(\#c3f786)^i(.dzen/bitmap/spkr_01.xbm)^fg() ${mixer} \
 ${if_match "${hddtemp /dev/sda}" == "N/A"}${else}\
 ^fg(\#b6e77d)|^fg() ^fg(lightblue)^i(.dzen/bitmap/temp.xbm)^fg() sda ${hddtemp /dev/sda}°C \
-${endif}\
-${if_match "${hddtemp /dev/sdb}" == "N/A"}${else}\
-^fg(\#b6e77d)|^fg() ^fg(lightblue)^i(.dzen/bitmap/temp.xbm)^fg() sdb ${hddtemp /dev/sdb}°C \
 ${endif}\
 ${if_running spotify}\
 ^fg(\#b6e77d)|^fg() \
 ${if_match "${execp ~/bin/spotify-monitor.py playback}" == "Playing"}^fg(lightblue)^i(.dzen/bitmap/note.xbm)^fg()$endif\
 ${if_match "${execp ~/bin/spotify-monitor.py playback}" == "Paused"}^fg(\#b6e77d)^i(.dzen/bitmap/pause.xbm)^fg()$endif\
 ${if_match "${execp ~/bin/spotify-monitor.py playback}" == "Stopped"}^fg(\#e9897c)^i(.dzen/bitmap/stop.xbm)^fg()$endif ${execp ~/bin/spotify-monitor.py playing}\
-${else} ${if_running mpd}\
-^fg(\#b6e77d)|^fg() \
-${if_match "${mpd_status}" == "Playing"}^fg(lightblue)^i(.dzen/bitmap/note.xbm)^fg()$endif\
-${if_match "${mpd_status}" == "Paused"}^fg(\#b6e77d)^i(.dzen/bitmap/pause.xbm)^fg()$endif\
-${if_match "${mpd_status}" == "Stopped"}^fg(\#e9897c)^i(.dzen/bitmap/stop.xbm)^fg()$endif \
-${mpd_smart} \
-${if_mpd_playing}\
-(${mpd_elapsed}/${mpd_length})\
-${if_match "${mpd_repeat}" == "On"} ^fg(lightblue)^i(.dzen/bitmap/repeat.xbm)^fg() $endif\
-${endif}\
 ${endif}\
