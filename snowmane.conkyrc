@@ -13,18 +13,18 @@ TEXT
 ^fg(\#b6e77d)|^fg() ^fg(lightblue)^i(.dzen/bitmap/fs_01.xbm)^fg() ${loadavg 1} \
 ^fg(\#b6e77d)|^fg() ^fg(lightblue)^i(.dzen/bitmap/cpu.xbm)^fg() \
 ${if_match ${cpu} >=90}^fg(red)\
-${else}${if_match ${cpu} >=70}^fg(yellow)\${endif}${endif}\
+${else}${if_match ${cpu} >=70}^fg(yellow)${endif}${endif}\
 ${cpu}^fg()% \
 ^fg(lightblue)^i(.dzen/bitmap/temp.xbm)^fg() \
 ${if_match ${acpitemp} >=40}^fg(red)\
-${else}${if_match ${acpitemp} >=35}^fg(yellow)\${endif}${endif}\
+${else}${if_match ${acpitemp} >=35}^fg(yellow)${endif}${endif}\
 ${acpitemp}^fg()°C \
 ^fg(\#b6e77d)|^fg() ^fg(lightblue)^i(.dzen/bitmap/mem.xbm)^fg() \
 ${if_match ${memperc} >=90}^fg(red)\
-${else}${if_match ${memperc} >=70}^fg(yellow)\${endif}${endif}\
+${else}${if_match ${memperc} >=70}^fg(yellow)${endif}${endif}\
 ${memperc}^fg()% \
 ${if_match ${swapperc} >=80}^fg(red)\
-${else}${if_match ${swapperc} >0}^fg(yellow)\${endif}${endif}\
+${else}${if_match ${swapperc} >0}^fg(yellow)${endif}${endif}\
 ${swapperc}^fg()% \
 ${if_up enp3s0}\
 ^fg(\#b6e77d)|^fg() ^fg(\#c3f786)^i(.dzen/bitmap/net_down_03.xbm)^fg() ${downspeed enp3s0} \
