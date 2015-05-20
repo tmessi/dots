@@ -15,10 +15,6 @@ TEXT
 ${if_match ${cpu} >=90}^fg(red)\
 ${else}${if_match ${cpu} >=70}^fg(yellow)${endif}${endif}\
 ${cpu}^fg()% \
-^fg(lightblue)^i(.dzen/bitmap/temp.xbm)^fg() \
-${if_match ${acpitemp} >=40}^fg(red)\
-${else}${if_match ${acpitemp} >=35}^fg(yellow)${endif}${endif}\
-${acpitemp}^fg()°C \
 ^fg(\#b6e77d)|^fg() ^fg(lightblue)^i(.dzen/bitmap/mem.xbm)^fg() \
 ${if_match ${memperc} >=90}^fg(red)\
 ${else}${if_match ${memperc} >=70}^fg(yellow)${endif}${endif}\
