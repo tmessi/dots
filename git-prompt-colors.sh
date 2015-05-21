@@ -1,13 +1,14 @@
 override_git_prompt_colors() {
     # http://unix.stackexchange.com/questions/124407/what-color-codes-can-i-use-in-my-ps1-prompt
-    GreenWithBg="\[\e[38;5;10;48;5;234m\]"
-    CyanWithBg="\[\e[38;5;12;48;5;234m\]"
-    YellowWithBg="\[\e[38;5;11;48;5;234m\]"
-    RedWithBg="\[\e[38;5;9;48;5;234m\]"
-    BlueWithBg="\[\e[38;5;27;48;5;234m\]"
-    GrayWithBg="\[\e[38;5;252;48;5;234m\]"
-    ResetWithBg="\[\e[0;0;48;5;234m\]"
-    BgToFg="\[\e[38;5;234m\]"
+    Bg="48;5;235";
+    GreenWithBg="\[\e[38;5;10;${Bg}m\]"
+    CyanWithBg="\[\e[38;5;12;${Bg}m\]"
+    YellowWithBg="\[\e[38;5;11;${Bg}m\]"
+    RedWithBg="\[\e[38;5;9;${Bg}m\]"
+    BlueWithBg="\[\e[38;5;39;${Bg}m\]"
+    GrayWithBg="\[\e[38;5;252;${Bg}m\]"
+    ResetWithBg="\[\e[0;0;${Bg}m\]"
+    BgToFg="\[\e[38;5;235m\]"
 
     GIT_PROMT_THEME_NAME="fax"
 
