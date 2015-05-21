@@ -1,13 +1,13 @@
 override_git_prompt_colors() {
     # http://unix.stackexchange.com/questions/124407/what-color-codes-can-i-use-in-my-ps1-prompt
-    GreenWithBg="\[\e[38;5;10;48;5;233m\]"
-    CyanWithBg="\[\e[38;5;12;48;5;233m\]"
-    YellowWithBg="\[\e[38;5;11;48;5;233m\]"
-    RedWithBg="\[\e[38;5;9;48;5;233m\]"
-    BlueWithBg="\[\e[38;5;27;48;5;233m\]"
-    GrayWithBg="\[\e[38;5;252;48;5;233m\]"
-    ResetWithBg="\[\e[0;0;48;5;233m\]"
-    BgToFg="\[\e[38;5;233m\]"
+    GreenWithBg="\[\e[38;5;10;48;5;234m\]"
+    CyanWithBg="\[\e[38;5;12;48;5;234m\]"
+    YellowWithBg="\[\e[38;5;11;48;5;234m\]"
+    RedWithBg="\[\e[38;5;9;48;5;234m\]"
+    BlueWithBg="\[\e[38;5;27;48;5;234m\]"
+    GrayWithBg="\[\e[38;5;252;48;5;234m\]"
+    ResetWithBg="\[\e[0;0;48;5;234m\]"
+    BgToFg="\[\e[38;5;234m\]"
 
     GIT_PROMT_THEME_NAME="fax"
 
@@ -21,7 +21,7 @@ override_git_prompt_colors() {
     GIT_PROMPT_CONFLICTS="${RedWithBg}✖"    # the number of files in conflict
     GIT_PROMPT_CHANGED="${YellowWithBg}✚"   # the number of changed files
 
-    GIT_PROMPT_REMOTE=""                   # the remote branch name (if any) and the symbols for ahead and behind
+    GIT_PROMPT_REMOTE="${ResetWithBg}"                   # the remote branch name (if any) and the symbols for ahead and behind
     GIT_PROMPT_UNTRACKED="${BlueWithBg}…"    # the number of untracked files/dirs
     GIT_PROMPT_STASHED="${BlueWithBg}⚑"  # the number of stashed files/dir
     GIT_PROMPT_CLEAN="${GreenWithBg}✔"   # a colored flag indicating a "clean" repo
@@ -54,10 +54,10 @@ override_git_prompt_colors() {
     GIT_PROMPT_END_ROOT="${RedWithBg}#${ResetColor}${BgToFg}${ResetColor} "
 
     ## Please do not add colors to these symbols
-    GIT_PROMPT_SYMBOLS_AHEAD="↑·"           # The symbol for "n versions ahead of origin"
-    GIT_PROMPT_SYMBOLS_BEHIND="↓·"          # The symbol for "n versions behind of origin"
-    # GIT_PROMPT_SYMBOLS_PREHASH=":"            # Written before hash of commit, if no name could be found
-    # GIT_PROMPT_SYMBOLS_NO_REMOTE_TRACKING="L" # This symbol is written after the branch, if the branch is not tracked
+    GIT_PROMPT_SYMBOLS_AHEAD="${ResetWithBg}↑·"           # The symbol for "n versions ahead of origin"
+    GIT_PROMPT_SYMBOLS_BEHIND="${ResetWithBg}↓·"          # The symbol for "n versions behind of origin"
+    GIT_PROMPT_SYMBOLS_PREHASH="${ResetWithBg}:"            # Written before hash of commit, if no name could be found
+    GIT_PROMPT_SYMBOLS_NO_REMOTE_TRACKING="${ResetWithBg}L" # This symbol is written after the branch, if the branch is not tracked
 
     GIT_PROMPT_LEADING_SPACE=0
 }
