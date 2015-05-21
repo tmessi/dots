@@ -1,20 +1,30 @@
 override_git_prompt_colors() {
+    # http://unix.stackexchange.com/questions/124407/what-color-codes-can-i-use-in-my-ps1-prompt
+    GreenWithBg="\[\e[38;5;10;48;5;233m\]"
+    CyanWithBg="\[\e[38;5;12;48;5;233m\]"
+    YellowWithBg="\[\e[38;5;11;48;5;233m\]"
+    RedWithBg="\[\e[38;5;9;48;5;233m\]"
+    BlueWithBg="\[\e[38;5;27;48;5;233m\]"
+    GrayWithBg="\[\e[38;5;252;48;5;233m\]"
+    ResetWithBg="\[\e[0;0;48;5;233m\]"
+    BgToFg="\[\e[38;5;233m\]"
+
     GIT_PROMT_THEME_NAME="fax"
 
     # These are the color definitions used by gitprompt.sh
     GIT_PROMPT_PREFIX=""                 # start of the git info string
     GIT_PROMPT_SUFFIX=""                 # the end of the git info string
-    # GIT_PROMPT_SEPARATOR="|"           # separates each item
+    GIT_PROMPT_SEPARATOR="${ResetWithBg}|"           # separates each item
 
-    GIT_PROMPT_BRANCH="${Cyan}"           # the git branch that is active in the current directory
-    GIT_PROMPT_STAGED="${Yellow}●"    # the number of staged files/directories
-    GIT_PROMPT_CONFLICTS="${Red}✖"    # the number of files in conflict
-    GIT_PROMPT_CHANGED="${Yellow}✚"   # the number of changed files
+    GIT_PROMPT_BRANCH="${CyanWithBg}"           # the git branch that is active in the current directory
+    GIT_PROMPT_STAGED="${YellowWithBg}●"    # the number of staged files/directories
+    GIT_PROMPT_CONFLICTS="${RedWithBg}✖"    # the number of files in conflict
+    GIT_PROMPT_CHANGED="${YellowWithBg}✚"   # the number of changed files
 
     GIT_PROMPT_REMOTE=""                   # the remote branch name (if any) and the symbols for ahead and behind
-    GIT_PROMPT_UNTRACKED="${Blue}…"    # the number of untracked files/dirs
-    GIT_PROMPT_STASHED="${BoldBlue}⚑"  # the number of stashed files/dir
-    GIT_PROMPT_CLEAN="${BoldGreen}✔"   # a colored flag indicating a "clean" repo
+    GIT_PROMPT_UNTRACKED="${BlueWithBg}…"    # the number of untracked files/dirs
+    GIT_PROMPT_STASHED="${BlueWithBg}⚑"  # the number of stashed files/dir
+    GIT_PROMPT_CLEAN="${GreenWithBg}✔"   # a colored flag indicating a "clean" repo
 
     ## For the command indicator, the placeholder _LAST_COMMAND_STATE_
     ## will be replaced with the exit code of the last command
@@ -28,20 +38,20 @@ override_git_prompt_colors() {
     ## template for displaying the current virtual environment
     ## use the placeholder _VIRTUALENV_ will be replaced with
     ## the name of the current virtual environment (currently CONDA and VIRTUAL_ENV)
-    GIT_PROMPT_VIRTUALENV="(${Blue}_VIRTUALENV_${ResetColor})"
+    GIT_PROMPT_VIRTUALENV="${BlueWithBg}_VIRTUALENV_${ResetWithBg}|"
 
     # Prompt
     if [[ "$SSH_CLIENT" ]]; then
-        GIT_PROMPT_START_USER="${Red}\h${IntenseBlack}$(jobscount)"
+        GIT_PROMPT_START_USER="${RedWithBg}\h${GrayWithBg}$(jobscount)"
     else
-        GIT_PROMPT_START_USER="${IntenseBlack}$(jobscount)"
+        GIT_PROMPT_START_USER="${GrayWithBg}$(jobscount)"
     fi
     if [[ "$SRT" ]]; then
-        GIT_PROMPT_START_USER="(${Blue}srt${ResetColor}) $GIT_PROMPT_START_USER"
+        GIT_PROMPT_START_USER="(${BlueWithBg}srt${ResetWithBg}) $GIT_PROMPT_START_USER"
     fi
     GIT_PROMPT_START_ROOT=""
-    GIT_PROMPT_END_USER="${ResetColor}$ "
-    GIT_PROMPT_END_ROOT="${Red}#${ResetColor} "
+    GIT_PROMPT_END_USER="${ResetWithBg}\$${ResetColor}${BgToFg}${ResetColor} "
+    GIT_PROMPT_END_ROOT="${RedWithBg}#${ResetColor}${BgToFg}${ResetColor} "
 
     ## Please do not add colors to these symbols
     GIT_PROMPT_SYMBOLS_AHEAD="↑·"           # The symbol for "n versions ahead of origin"
