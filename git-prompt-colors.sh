@@ -6,7 +6,7 @@ override_git_prompt_colors() {
     GIT_PROMPT_SUFFIX=""                 # the end of the git info string
     # GIT_PROMPT_SEPARATOR="|"           # separates each item
 
-    GIT_PROMPT_BRANCH="${Cyan}"           # the git branch that is active in the current directory
+    GIT_PROMPT_BRANCH="${Cyan}"           # the git branch that is active in the current directory
     GIT_PROMPT_STAGED="${Yellow}●"    # the number of staged files/directories
     GIT_PROMPT_CONFLICTS="${Red}✖"    # the number of files in conflict
     GIT_PROMPT_CHANGED="${Yellow}✚"   # the number of changed files
