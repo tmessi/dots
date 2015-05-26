@@ -82,7 +82,7 @@ if [[ ! $(which lsb_release) ]] || [[ "$(lsb_release -si)" != "Gentoo" ]]; then
             fi
 
             echo "Setting $dot"
-            ln -sf "$PWD/$dot" "$target"
+            ln -sf "$PWD/non-gentoo/$dot" "$target"
         fi
     done
 fi
