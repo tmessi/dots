@@ -45,7 +45,7 @@ override_git_prompt_colors() {
 
     # Prompt
     if [[ "$SSH_CLIENT" ]]; then
-        GIT_PROMPT_START_USER="${RedBg}\h${RedWithBg}${GrayWithBg}$(jobscount)"
+        GIT_PROMPT_START_USER="${RedBg}\h${RedWithBg} ${GrayWithBg}$(jobscount)"
     else
         GIT_PROMPT_START_USER="${GrayWithBg}$(jobscount)"
     fi
