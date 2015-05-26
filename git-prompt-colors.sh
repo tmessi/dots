@@ -10,6 +10,7 @@ override_git_prompt_colors() {
     ResetWithBg="\[\e[0;0;${Bg}m\]"
     BgToFg="\[\e[38;5;235m\]"
     RedBg="\[\e[38;5;235;48;5;9m\]"
+    BlueWithRedBg="\[\e[38;5;39;48;5;9m\]"
     BlueBg="\[\e[38;5;235;48;5;39m\]"
 
     GIT_PROMT_THEME_NAME="fax"
@@ -38,15 +39,12 @@ override_git_prompt_colors() {
     # GIT_PROMPT_COMMAND_OK="${Green}✔"    # indicator if the last command returned with an exit code of 0
     # GIT_PROMPT_COMMAND_FAIL="${Red}✘-_LAST_COMMAND_STATE_"    # indicator if the last command returned with an exit code of other than 0
 
-    ## template for displaying the current virtual environment
-    ## use the placeholder _VIRTUALENV_ will be replaced with
-    ## the name of the current virtual environment (currently CONDA and VIRTUAL_ENV)
-    GIT_PROMPT_VIRTUALENV="${BlueBg}_VIRTUALENV_${BlueWithBg}${ResetWithBg} "
-
     # Prompt
     if [[ "$SSH_CLIENT" ]]; then
+        GIT_PROMPT_VIRTUALENV="${BlueBg}_VIRTUALENV_${BlueWithRedBg} "
         GIT_PROMPT_START_USER="${RedBg}\h${RedWithBg} ${GrayWithBg}$(jobscount)"
     else
+        GIT_PROMPT_VIRTUALENV="${BlueBg}_VIRTUALENV_${BlueWithBg}${ResetWithBg} "
         GIT_PROMPT_START_USER="${GrayWithBg}$(jobscount)"
     fi
     if [[ "$SRT" ]]; then
