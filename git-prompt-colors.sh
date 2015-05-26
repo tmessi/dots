@@ -9,6 +9,7 @@ override_git_prompt_colors() {
     GrayWithBg="\[\e[38;5;252;${Bg}m\]"
     ResetWithBg="\[\e[0;0;${Bg}m\]"
     BgToFg="\[\e[38;5;235m\]"
+    RedBg="\[\e[38;5;235;48;5;9m\]"
     BlueBg="\[\e[38;5;235;48;5;39m\]"
 
     GIT_PROMT_THEME_NAME="fax"
@@ -44,7 +45,7 @@ override_git_prompt_colors() {
 
     # Prompt
     if [[ "$SSH_CLIENT" ]]; then
-        GIT_PROMPT_START_USER="${RedWithBg}\h${GrayWithBg}$(jobscount)"
+        GIT_PROMPT_START_USER="${RedBg}\h${RedWithBg}${GrayWithBg}$(jobscount)"
     else
         GIT_PROMPT_START_USER="${GrayWithBg}$(jobscount)"
     fi
