@@ -9,6 +9,7 @@ override_git_prompt_colors() {
     GrayWithBg="\[\e[38;5;252;${Bg}m\]"
     ResetWithBg="\[\e[0;0;${Bg}m\]"
     BgToFg="\[\e[38;5;235m\]"
+    BlueBg="\[\e[38;5;235;48;5;39m\]"
 
     GIT_PROMT_THEME_NAME="fax"
 
@@ -39,7 +40,7 @@ override_git_prompt_colors() {
     ## template for displaying the current virtual environment
     ## use the placeholder _VIRTUALENV_ will be replaced with
     ## the name of the current virtual environment (currently CONDA and VIRTUAL_ENV)
-    GIT_PROMPT_VIRTUALENV="${BlueWithBg}_VIRTUALENV_${ResetWithBg}|"
+    GIT_PROMPT_VIRTUALENV="${BlueBg}_VIRTUALENV_${BlueWithBg}${ResetWithBg} "
 
     # Prompt
     if [[ "$SSH_CLIENT" ]]; then
