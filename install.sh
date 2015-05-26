@@ -47,7 +47,7 @@ done
 pushd $(dirname $0) &> /dev/null
 
 for dot in $(ls); do
-    if [[ ! $dot == "README.rst" ]] && [[ ! $dot == "install.sh" ]] && [[ ! $dot == "terminfo" ]]; then
+    if [[ ! $dot == "README.rst" ]] && [[ ! $dot == "install.sh" ]] && [[ ! $dot == "terminfo" ]] && [[ ! $dot == "non-gentoo" ]]; then
         target="$HOME/.$dot"
 
         if [[ $pretend -eq 1 ]]; then
@@ -65,6 +65,27 @@ for dot in $(ls); do
         fi
     fi
 done
+
+# Do non-gentoo stuff if not on gentoo
+if [[ ! $(which lsb_release) ]] || [[ "$(lsb_release -si)" != "Gentoo" ]]; then
+    for dot in $(ls "non-gentoo"); do
+        target="$HOME/.$dot"
+
+        if [[ $pretend -eq 1 ]]; then
+            echo "Would set $dot"
+        else
+            # Make a .bak of a file or dir
+            if [[ ! -h $target ]]; then
+                if [[ -d $target ]] || [[ -f $target ]]; then
+                    mv $target $target.bak
+                fi
+            fi
+
+            echo "Setting $dot"
+            ln -sf "$PWD/$dot" "$target"
+        fi
+    done
+fi
 
 # Terminfo if needed
 if [[ -f /usr/share/terminfo/r/rxvt-unicode ]] && [[ -f /usr/share/terminfo/r/rxvt-unicode-256color ]]; then
