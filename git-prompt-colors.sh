@@ -20,7 +20,7 @@ override_git_prompt_colors() {
     GIT_PROMT_THEME_NAME="fax"
 
     GIT_PROMPT_PREFIX="${GreenWithBg}"                    # start of the git info string
-    GIT_PROMPT_SUFFIX="${ResetWithBg} ${ResetGreenBg} "    # the end of the git info string
+    GIT_PROMPT_SUFFIX="${ResetWithBg}${ResetGreenBg} "    # the end of the git info string
     GIT_PROMPT_SEPARATOR="${GreenWithBg}│"                  # separates each item
 
     GIT_PROMPT_BRANCH="${CyanWithBg}"                       # the git branch that is active in the current directory
