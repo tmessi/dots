@@ -10,6 +10,7 @@ override_git_prompt_colors() {
     BgToFg="\[\e[38;${BgGray}m\]"
     RedBg="\[\e[38;${BgGray};48;5;9m\]"
     BlueWithRedBg="\[\e[38;5;39;48;5;9m\]"
+    RedWithGreenBg="\[\e[38;5;9;48;5;10m\]"
     GreenBg="\[\e[38;${BgGray};48;5;10m\]"
     BlueBg="\[\e[38;${BgGray};48;5;39m\]"
     ResetWithBg="\[\e[0;0;48;${BgGray}m\]"
@@ -18,6 +19,19 @@ override_git_prompt_colors() {
     RedReset="\[\e[38;5;9m\]"
 
     GIT_PROMT_THEME_NAME="fax"
+    if [[ "$SSH_CLIENT" ]]; then
+        local repo=`git rev-parse --show-toplevel 2> /dev/null`
+        if [[ ! -e "$repo" ]]; then
+            host_end_color="${RedWithGreenBg}"
+        else
+            host_end_color="${RedWithBg}"
+        fi
+        virtenv_suffix="${BlueWithRedBg} "
+        host_prefix="${RedBg}\h${host_end_color} "
+    else
+        virtenv_suffix="${BlueWithBg} "
+        host_prefix=""
+    fi
 
     GIT_PROMPT_PREFIX="${GreenWithBg}"                    # start of the git info string
     GIT_PROMPT_SUFFIX="${ResetWithBg}${ResetGreenBg} "    # the end of the git info string
@@ -48,16 +62,9 @@ override_git_prompt_colors() {
     # GIT_PROMPT_COMMAND_FAIL="${Red}✘-_LAST_COMMAND_STATE_"    # indicator if the last command returned with an exit code of other than 0
 
     # Prompt
-    if [[ "$SSH_CLIENT" ]]; then
-        GIT_PROMPT_VIRTUALENV="${BlueBg}_VIRTUALENV_${BlueWithRedBg} "
-        GIT_PROMPT_START_USER="${RedBg}\h${RedWithBg} ${GrayWithBg}$(jobscount)"
-    else
-        GIT_PROMPT_VIRTUALENV="${BlueBg}_VIRTUALENV_${BlueWithBg}${ResetWithBg} "
-        GIT_PROMPT_START_USER="${GrayWithBg}$(jobscount)"
-    fi
-    if [[ "$SRT" ]]; then
-        GIT_PROMPT_START_USER="(${BlueWithBg}srt${ResetWithBg}) $GIT_PROMPT_START_USER"
-    fi
+    GIT_PROMPT_VIRTUALENV="${BlueBg}_VIRTUALENV_${virtenv_suffix}"
+    #GIT_PROMPT_START_USER="${GrayWithBg}$(jobscount)"
+    GIT_PROMPT_START_USER="${host_prefix}"
     GIT_PROMPT_START_ROOT="${GIT_PROMPT_START_USER}"
     GIT_PROMPT_END_USER="${GreenBg}\$${ResetColor}${GreenReset}${ResetColor} "
     GIT_PROMPT_END_ROOT="${RedBg}#${ResetColor}${RedReset}${ResetColor} "
