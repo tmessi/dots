@@ -1,34 +1,43 @@
 override_git_prompt_colors() {
     # http://unix.stackexchange.com/questions/124407/what-color-codes-can-i-use-in-my-ps1-prompt
-    Bg="48;5;235";
-    GreenWithBg="\[\e[38;5;10;${Bg}m\]"
-    CyanWithBg="\[\e[38;5;12;${Bg}m\]"
-    YellowWithBg="\[\e[38;5;11;${Bg}m\]"
-    RedWithBg="\[\e[38;5;9;${Bg}m\]"
-    BlueWithBg="\[\e[38;5;39;${Bg}m\]"
-    GrayWithBg="\[\e[38;5;252;${Bg}m\]"
-    ResetWithBg="\[\e[0;0;${Bg}m\]"
-    BgToFg="\[\e[38;5;235m\]"
-    RedBg="\[\e[38;5;235;48;5;9m\]"
+    BgGray="5;235";
+    GreenWithBg="\[\e[38;5;10;48;${BgGray}m\]"
+    CyanWithBg="\[\e[38;5;12;48;${BgGray}m\]"
+    YellowWithBg="\[\e[38;5;11;48;${BgGray}m\]"
+    RedWithBg="\[\e[38;5;9;48;${BgGray}m\]"
+    BlueWithBg="\[\e[38;5;39;48;${BgGray}m\]"
+    GrayWithBg="\[\e[38;5;252;48;${BgGray}m\]"
+    BgToFg="\[\e[38;${BgGray}m\]"
+    RedBg="\[\e[38;${BgGray};48;5;9m\]"
     BlueWithRedBg="\[\e[38;5;39;48;5;9m\]"
-    BlueBg="\[\e[38;5;235;48;5;39m\]"
+    GreenBg="\[\e[38;${BgGray};48;5;10m\]"
+    BlueBg="\[\e[38;${BgGray};48;5;39m\]"
+    ResetWithBg="\[\e[0;0;48;${BgGray}m\]"
+    ResetGreenBg="\[\e[38;${BgGray};48;5;10m\]"
+    GreenReset="\[\e[38;5;10;48;0;0m\]"
+    RedReset="\[\e[38;5;9;48;0;0m\]"
 
     GIT_PROMT_THEME_NAME="fax"
 
     # These are the color definitions used by gitprompt.sh
-    GIT_PROMPT_PREFIX=""                 # start of the git info string
-    GIT_PROMPT_SUFFIX=""                 # the end of the git info string
-    GIT_PROMPT_SEPARATOR="${ResetWithBg}|"           # separates each item
+    GIT_PROMPT_PREFIX="${GreenWithBg}"                    # start of the git info string
+    GIT_PROMPT_SUFFIX="${ResetWithBg} ${ResetGreenBg} "    # the end of the git info string
+    GIT_PROMPT_SEPARATOR="${GreenWithBg}│"                  # separates each item
 
-    GIT_PROMPT_BRANCH="${CyanWithBg}"           # the git branch that is active in the current directory
-    GIT_PROMPT_STAGED="${YellowWithBg}●"    # the number of staged files/directories
-    GIT_PROMPT_CONFLICTS="${RedWithBg}✖"    # the number of files in conflict
-    GIT_PROMPT_CHANGED="${YellowWithBg}✚"   # the number of changed files
+    GIT_PROMPT_BRANCH="${CyanWithBg}"                       # the git branch that is active in the current directory
+    GIT_PROMPT_STAGED="${YellowWithBg}●"                    # the number of staged files/directories
+    GIT_PROMPT_CONFLICTS="${RedWithBg}✖"                    # the number of files in conflict
+    GIT_PROMPT_CHANGED="${YellowWithBg}✚"                   # the number of changed files
 
-    GIT_PROMPT_REMOTE="${ResetWithBg}"                   # the remote branch name (if any) and the symbols for ahead and behind
-    GIT_PROMPT_UNTRACKED="${BlueWithBg}…"    # the number of untracked files/dirs
-    GIT_PROMPT_STASHED="${BlueWithBg}⚑"  # the number of stashed files/dir
-    GIT_PROMPT_CLEAN="${GreenWithBg}✔"   # a colored flag indicating a "clean" repo
+    GIT_PROMPT_REMOTE="${ResetWithBg}"                      # the remote branch name (if any) and the symbols for ahead and behind
+    GIT_PROMPT_UNTRACKED="${BlueWithBg}…"                   # the number of untracked files/dirs
+    GIT_PROMPT_STASHED="${BlueWithBg}⚑"                     # the number of stashed files/dir
+    GIT_PROMPT_CLEAN="${GreenWithBg}✔"                      # a colored flag indicating a "clean" repo
+
+    GIT_PROMPT_SYMBOLS_AHEAD="${ResetWithBg}↑·"             # The symbol for "n versions ahead of origin"
+    GIT_PROMPT_SYMBOLS_BEHIND="${ResetWithBg}↓·"            # The symbol for "n versions behind of origin"
+    GIT_PROMPT_SYMBOLS_PREHASH="${ResetWithBg}:"            # Written before hash of commit, if no name could be found
+    GIT_PROMPT_SYMBOLS_NO_REMOTE_TRACKING="${ResetWithBg}✭" # This symbol is written after the branch, if the branch is not tracked
 
     ## For the command indicator, the placeholder _LAST_COMMAND_STATE_
     ## will be replaced with the exit code of the last command
@@ -50,20 +59,11 @@ override_git_prompt_colors() {
     if [[ "$SRT" ]]; then
         GIT_PROMPT_START_USER="(${BlueWithBg}srt${ResetWithBg}) $GIT_PROMPT_START_USER"
     fi
-    GIT_PROMPT_START_ROOT=""
-    GIT_PROMPT_END_USER="${ResetWithBg}\$${ResetColor}${BgToFg}${ResetColor} "
-    GIT_PROMPT_END_ROOT="${RedWithBg}#${ResetColor}${BgToFg}${ResetColor} "
-
-    ## Please do not add colors to these symbols
-    GIT_PROMPT_SYMBOLS_AHEAD="${ResetWithBg}↑·"           # The symbol for "n versions ahead of origin"
-    GIT_PROMPT_SYMBOLS_BEHIND="${ResetWithBg}↓·"          # The symbol for "n versions behind of origin"
-    GIT_PROMPT_SYMBOLS_PREHASH="${ResetWithBg}:"            # Written before hash of commit, if no name could be found
-    GIT_PROMPT_SYMBOLS_NO_REMOTE_TRACKING="${ResetWithBg}L" # This symbol is written after the branch, if the branch is not tracked
+    GIT_PROMPT_START_ROOT="${GIT_PROMPT_START_USER}"
+    GIT_PROMPT_END_USER="${GreenBg}\$${GreenReset}${ResetColor} "
+    GIT_PROMPT_END_ROOT="${RedBg}#${RedReset}${ResetColor} "
 
     GIT_PROMPT_LEADING_SPACE=0
 }
 
 reload_git_prompt_colors "fax"
-
-GIT_PROMPT_PREFIX=""                 # start of the git info string
-GIT_PROMPT_SUFFIX=""                 # the end of the git info string
