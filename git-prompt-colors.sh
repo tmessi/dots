@@ -14,12 +14,11 @@ override_git_prompt_colors() {
     BlueBg="\[\e[38;${BgGray};48;5;39m\]"
     ResetWithBg="\[\e[0;0;48;${BgGray}m\]"
     ResetGreenBg="\[\e[38;${BgGray};48;5;10m\]"
-    GreenReset="\[\e[38;5;10;48;0;0m\]"
-    RedReset="\[\e[38;5;9;48;0;0m\]"
+    GreenReset="\[\e[38;5;10m\]"
+    RedReset="\[\e[38;5;9m\]"
 
     GIT_PROMT_THEME_NAME="fax"
 
-    # These are the color definitions used by gitprompt.sh
     GIT_PROMPT_PREFIX="${GreenWithBg}"                    # start of the git info string
     GIT_PROMPT_SUFFIX="${ResetWithBg} ${ResetGreenBg} "    # the end of the git info string
     GIT_PROMPT_SEPARATOR="${GreenWithBg}│"                  # separates each item
@@ -60,8 +59,8 @@ override_git_prompt_colors() {
         GIT_PROMPT_START_USER="(${BlueWithBg}srt${ResetWithBg}) $GIT_PROMPT_START_USER"
     fi
     GIT_PROMPT_START_ROOT="${GIT_PROMPT_START_USER}"
-    GIT_PROMPT_END_USER="${GreenBg}\$${GreenReset}${ResetColor} "
-    GIT_PROMPT_END_ROOT="${RedBg}#${RedReset}${ResetColor} "
+    GIT_PROMPT_END_USER="${GreenBg}\$${ResetColor}${GreenReset}${ResetColor} "
+    GIT_PROMPT_END_ROOT="${RedBg}#${ResetColor}${RedReset}${ResetColor} "
 
     GIT_PROMPT_LEADING_SPACE=0
 }
