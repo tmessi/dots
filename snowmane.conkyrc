@@ -47,13 +47,19 @@ ${endif}${endif}\
 ${if_up enp3s0}\
 ^i(.dzen/bitmap/net_down_03.xbm) ${downspeed enp3s0}  \
 ${endif}\
-^i(.dzen/bitmap/spkr_01.xbm) ${mixer} \
+^i(.dzen/bitmap/spkr_01.xbm) ${mixer}  \
 ${if_match "${hddtemp /dev/sda}" == "N/A"}${else}\
-^fg(\#87af00)^bg(\#87af00)^fg(\#262626) ^i(.dzen/bitmap/temp.xbm) sda ${hddtemp /dev/sda}°C \
+^i(.dzen/bitmap/temp.xbm) sda ${hddtemp /dev/sda}°C \
 ${endif}\
 ${if_running spotify}\
-^fg(\#dfaf00)^bg(\#dfaf00)^fg(\#262626) \
-${if_match "${execp ~/bin/spotify-monitor.py playback}" == "Playing"}^i(.dzen/bitmap/note.xbm)$endif\
-${if_match "${execp ~/bin/spotify-monitor.py playback}" == "Paused"}^i(.dzen/bitmap/pause.xbm)$endif\
-${if_match "${execp ~/bin/spotify-monitor.py playback}" == "Stopped"}^i(.dzen/bitmap/stop.xbm)$endif ${execp ~/bin/spotify-monitor.py playing}\
+${if_match "${execp ~/bin/spotify-monitor.py playback}" == "Playing"}\
+^fg(\#87af00)^bg(\#87af00)^fg(\#262626) ^i(.dzen/bitmap/note.xbm) \
+${endif}\
+${if_match "${execp ~/bin/spotify-monitor.py playback}" == "Paused"}\
+^fg(\#ffdf00)^bg(\#ffdf00)^fg(\#262626) ^i(.dzen/bitmap/pause.xbm) \
+${endif}\
+${if_match "${execp ~/bin/spotify-monitor.py playback}" == "Stopped"}\
+^fg(\#af0000)^bg(\#af0000)^fg(\#e4e4e4) ^i(.dzen/bitmap/stop.xbm) \
+${endif}\
+ ${execp ~/bin/spotify-monitor.py playing}\
 ${endif}\
