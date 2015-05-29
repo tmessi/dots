@@ -8,34 +8,52 @@ override_utf8_locale yes
 xftfont Terminus:style=Regular:pixelsize=12:antialias=true
 
 TEXT
-^fg(\#b6e77d)|^fg() ${texeci 1200 ~/bin/updates.py} ^fg(lightblue)^i(.dzen/bitmap/net_up_02.xbm)^fg() \
-^fg(\#b6e77d)|^fg() ^fg(lightblue)^i(.dzen/bitmap/temp.xbm)^fg() ${weather http://weather.noaa.gov/pub/data/observations/metar/stations/ KBWI temperature}°C \
-^fg(\#b6e77d)|^fg() ^fg(lightblue)^i(.dzen/bitmap/fs_01.xbm)^fg() ${loadavg 1} \
-^fg(\#b6e77d)|^fg() ^fg(lightblue)^i(.dzen/bitmap/cpu.xbm)^fg() \
-${if_match ${cpu} >=90}^fg(red)\
-${else}${if_match ${cpu} >=70}^fg(yellow)${endif}${endif}\
-${cpu}^fg()% \
-^fg(lightblue)^i(.dzen/bitmap/temp.xbm)^fg() \
-${if_match ${acpitemp} >=40}^fg(red)\
-${else}${if_match ${acpitemp} >=35}^fg(yellow)${endif}${endif}\
-${acpitemp}^fg()°C \
-^fg(\#b6e77d)|^fg() ^fg(lightblue)^i(.dzen/bitmap/mem.xbm)^fg() \
-${if_match ${memperc} >=90}^fg(red)\
-${else}${if_match ${memperc} >=70}^fg(yellow)${endif}${endif}\
-${memperc}^fg()% \
-${if_match ${swapperc} >=80}^fg(red)\
-${else}${if_match ${swapperc} >0}^fg(yellow)${endif}${endif}\
-${swapperc}^fg()% \
+^fg(\#875f87)^bg(\#875f87)^fg(\#262626) ^i(.dzen/bitmap/net_up_02.xbm) ${texeci 1200 ~/bin/updates.py} \
+^fg(\#005f5f)^bg(\#005f5f)^fg(\#bcbcbc) ^i(.dzen/bitmap/temp.xbm) ${weather http://weather.noaa.gov/pub/data/observations/metar/stations/ KBWI temperature}°C \
+${if_match ${cpu} >=90}
+^fg(\#af0000)^bg(\#af0000)^fg(\#e4e4e4) ^i(.dzen/bitmap/cpu.xbm) \
+${else}${if_match ${cpu} >=70}\
+^fg(\#ffdf00)^bg(\#ffdf00)^fg(\#262626) ^i(.dzen/bitmap/cpu.xbm) \
+${else}\
+^fg(\#87af00)^bg(\#87af00)^fg(\#262626) ^i(.dzen/bitmap/cpu.xbm) \
+${endif}${endif}\
+${cpu}%\
+${if_match ${acpitemp} >=40}\
+^fg(\#af0000)^bg(\#af0000)^fg(\#e4e4e4) ^i(.dzen/bitmap/temp.xbm) \
+${else}${if_match ${acpitemp} >=35}\
+^fg(\#ffdf00)^bg(\#ffdf00)^fg(\#262626) ^i(.dzen/bitmap/temp.xbm) \
+${else}\
+^fg(\#87af00)^bg(\#87af00)^fg(\#262626) ^i(.dzen/bitmap/temp.xbm) \
+${endif}${endif}\
+${acpitemp}°C \
+^fg(\#262626)^bg(\#262626)^fg(\#bcbcbc) ^i(.dzen/bitmap/fs_01.xbm) ${loadavg 1} \
+${if_match ${memperc} >=90}\
+^fg(\#af0000)^bg(\#af0000)^fg(\#e4e4e4) ^i(.dzen/bitmap/mem.xbm) \
+${else}${if_match ${memperc} >=70}\
+^fg(\#ffdf00)^bg(\#ffdf00)^fg(\#262626) ^i(.dzen/bitmap/mem.xbm) \
+${else}\
+^fg(\#87af00)^bg(\#87af00)^fg(\#262626) ^i(.dzen/bitmap/mem.xbm) \
+${endif}${endif}\
+${memperc}%\
+${if_match ${swapperc} >=80}\
+^fg(\#af0000)^bg(\#af0000)^fg(\#e4e4e4)\
+${else}${if_match ${swapperc} >0}\
+^fg(\#ffdf00)^bg(\#ffdf00)^fg(\#262626)\
+${else}\
+^fg(\#87af00)^bg(\#87af00)^fg(\#262626)\
+${endif}${endif}\
+ ${swapperc}% \
+^fg(\#262626)^bg(\#262626)^fg(\#bcbcbc) \
 ${if_up enp3s0}\
-^fg(\#b6e77d)|^fg() ^fg(\#c3f786)^i(.dzen/bitmap/net_down_03.xbm)^fg() ${downspeed enp3s0} \
+^i(.dzen/bitmap/net_down_03.xbm) ${downspeed enp3s0}  \
 ${endif}\
-^fg(\#b6e77d)|^fg() ^fg(\#c3f786)^i(.dzen/bitmap/spkr_01.xbm)^fg() ${mixer} \
+^i(.dzen/bitmap/spkr_01.xbm) ${mixer} \
 ${if_match "${hddtemp /dev/sda}" == "N/A"}${else}\
-^fg(\#b6e77d)|^fg() ^fg(lightblue)^i(.dzen/bitmap/temp.xbm)^fg() sda ${hddtemp /dev/sda}°C \
+^fg(\#87af00)^bg(\#87af00)^fg(\#262626) ^i(.dzen/bitmap/temp.xbm) sda ${hddtemp /dev/sda}°C \
 ${endif}\
 ${if_running spotify}\
-^fg(\#b6e77d)|^fg() \
-${if_match "${execp ~/bin/spotify-monitor.py playback}" == "Playing"}^fg(lightblue)^i(.dzen/bitmap/note.xbm)^fg()$endif\
-${if_match "${execp ~/bin/spotify-monitor.py playback}" == "Paused"}^fg(\#b6e77d)^i(.dzen/bitmap/pause.xbm)^fg()$endif\
-${if_match "${execp ~/bin/spotify-monitor.py playback}" == "Stopped"}^fg(\#e9897c)^i(.dzen/bitmap/stop.xbm)^fg()$endif ${execp ~/bin/spotify-monitor.py playing}\
+^fg(\#dfaf00)^bg(\#dfaf00)^fg(\#262626) \
+${if_match "${execp ~/bin/spotify-monitor.py playback}" == "Playing"}^i(.dzen/bitmap/note.xbm)$endif\
+${if_match "${execp ~/bin/spotify-monitor.py playback}" == "Paused"}^i(.dzen/bitmap/pause.xbm)$endif\
+${if_match "${execp ~/bin/spotify-monitor.py playback}" == "Stopped"}^i(.dzen/bitmap/stop.xbm)$endif ${execp ~/bin/spotify-monitor.py playing}\
 ${endif}\
