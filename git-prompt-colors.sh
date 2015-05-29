@@ -35,7 +35,7 @@ override_git_prompt_colors() {
     fi
 
     GIT_PROMPT_PREFIX="${GreenWithBg}"                    # start of the git info string
-    GIT_PROMPT_SUFFIX="${ResetWithBg}${ResetGreenBg} "    # the end of the git info string
+    GIT_PROMPT_SUFFIX="${ResetWithBg}${ResetGreenBg}"    # the end of the git info string
     GIT_PROMPT_SEPARATOR="${GreenWithBg}│"                  # separates each item
 
     GIT_PROMPT_BRANCH="${CyanWithBg}"                       # the git branch that is active in the current directory
@@ -67,8 +67,8 @@ override_git_prompt_colors() {
     #GIT_PROMPT_START_USER="${GrayWithBg}$(jobscount)"
     GIT_PROMPT_START_USER="${host_prefix}"
     GIT_PROMPT_START_ROOT="${GIT_PROMPT_START_USER}"
-    GIT_PROMPT_END_USER="${GreenBg}\$${ResetColor}${GreenReset}${ResetColor} "
-    GIT_PROMPT_END_ROOT="${RedBg}#${ResetColor}${RedReset}${ResetColor} "
+    GIT_PROMPT_END_USER="${ResetColor}${GreenReset}${ResetColor} "
+    GIT_PROMPT_END_ROOT="${ResetColor}${RedReset}${ResetColor} "
 
     GIT_PROMPT_LEADING_SPACE=0
 }
