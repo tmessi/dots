@@ -8,33 +8,33 @@ override_utf8_locale yes
 xftfont Terminus:style=Regular:pixelsize=12:antialias=true
 
 TEXT
-^fg(\#af5f00)^bg(\#af5f00)^fg(\#262626) ^i(.dzen/bitmap/net_up_02.xbm) ${texeci 1200 ~/bin/updates.py} \
-^fg(\#81a2be)^bg(\#81a2be)^fg(\#262626) ^i(.dzen/bitmap/temp.xbm) ${weather http://weather.noaa.gov/pub/data/observations/metar/stations/ KBWI temperature}°C \
+^fg(\#af5f00)^bg(\#af5f00)^fg(\#262626)^i(.dzen/bitmap/net_up_02.xbm) ${texeci 1200 ~/bin/updates.py} \
+^fg(\#81a2be)^bg(\#81a2be)^fg(\#262626)^i(.dzen/bitmap/temp.xbm) ${weather http://weather.noaa.gov/pub/data/observations/metar/stations/ KBWI temperature}°C \
 ${if_match ${cpu} >=90}
-^fg(\#cc6666)^bg(\#cc6666)^fg(\#e4e4e4) ^i(.dzen/bitmap/cpu.xbm) \
+^fg(\#cc6666)^bg(\#cc6666)^fg(\#e4e4e4)^i(.dzen/bitmap/cpu.xbm) \
 ${else}${if_match ${cpu} >=70}\
-^fg(\#f0c674)^bg(\#f0c674)^fg(\#262626) ^i(.dzen/bitmap/cpu.xbm) \
+^fg(\#f0c674)^bg(\#f0c674)^fg(\#262626)^i(.dzen/bitmap/cpu.xbm) \
 ${else}\
-^fg(\#b5bd68)^bg(\#b5bd68)^fg(\#262626) ^i(.dzen/bitmap/cpu.xbm) \
+^fg(\#b5bd68)^bg(\#b5bd68)^fg(\#262626)^i(.dzen/bitmap/cpu.xbm) \
 ${endif}${endif}\
 ${cpu}%\
 ${if_match ${acpitemp} >=40}\
-^fg(\#cc6666)^bg(\#cc6666)^fg(\#e4e4e4) ^i(.dzen/bitmap/temp.xbm) \
+^fg(\#cc6666)^bg(\#cc6666)^fg(\#e4e4e4)^i(.dzen/bitmap/temp.xbm) \
 ${else}${if_match ${acpitemp} >=35}\
-^fg(\#f0c674)^bg(\#f0c674)^fg(\#262626) ^i(.dzen/bitmap/temp.xbm) \
+^fg(\#f0c674)^bg(\#f0c674)^fg(\#262626)^i(.dzen/bitmap/temp.xbm) \
 ${else}\
-^fg(\#b5bd68)^bg(\#b5bd68)^fg(\#262626) ^i(.dzen/bitmap/temp.xbm) \
+^fg(\#b5bd68)^bg(\#b5bd68)^fg(\#262626)^i(.dzen/bitmap/temp.xbm) \
 ${endif}${endif}\
 ${acpitemp}°C \
-^fg(\#262626)^bg(\#262626)^fg(\#bcbcbc) ^i(.dzen/bitmap/fs_01.xbm) ${loadavg 1} \
+^fg(\#262626)^bg(\#262626)^fg(\#bcbcbc)^i(.dzen/bitmap/fs_01.xbm) ${loadavg 1} \
 ${if_match ${memperc} >=90}\
-^fg(\#cc6666)^bg(\#cc6666)^fg(\#e4e4e4) ^i(.dzen/bitmap/mem.xbm) \
+^fg(\#cc6666)^bg(\#cc6666)^fg(\#e4e4e4)^i(.dzen/bitmap/mem.xbm) \
 ${else}${if_match ${memperc} >=70}\
-^fg(\#f0c674)^bg(\#f0c674)^fg(\#262626) ^i(.dzen/bitmap/mem.xbm) \
+^fg(\#f0c674)^bg(\#f0c674)^fg(\#262626)^i(.dzen/bitmap/mem.xbm) \
 ${else}\
-^fg(\#b5bd68)^bg(\#b5bd68)^fg(\#262626) ^i(.dzen/bitmap/mem.xbm) \
+^fg(\#b5bd68)^bg(\#b5bd68)^fg(\#262626)^i(.dzen/bitmap/mem.xbm) \
 ${endif}${endif}\
-${memperc}%\
+${memperc}% \
 ${if_match ${swapperc} >=80}\
 ^fg(\#cc6666)^bg(\#cc6666)^fg(\#e4e4e4)\
 ${else}${if_match ${swapperc} >0}\
@@ -42,10 +42,10 @@ ${else}${if_match ${swapperc} >0}\
 ${else}\
 ^fg(\#b5bd68)^bg(\#b5bd68)^fg(\#262626)\
 ${endif}${endif}\
- ${swapperc}% \
-^fg(\#262626)^bg(\#262626)^fg(\#bcbcbc) \
+${swapperc}% \
+^fg(\#262626)^bg(\#262626)^fg(\#bcbcbc)\
 ${if_up enp4s0}\
-^i(.dzen/bitmap/net_down_03.xbm) ${downspeed enp4s0}  \
+^i(.dzen/bitmap/net_down_03.xbm) ${downspeed enp4s0} \
 ${endif}\
 ^i(.dzen/bitmap/spkr_01.xbm) ${mixer} \
 ${if_match "${hddtemp /dev/sda}" == "N/A"}${else}\
@@ -56,24 +56,24 @@ ${if_match "${hddtemp /dev/sdb}" == "N/A"}${else}\
 ${endif}\
 ${if_running spotify}\
 ${if_match "${execp ~/bin/spotify-monitor.py playback}" == "Playing"}\
-^fg(\#b5bd68)^bg(\#b5bd68)^fg(\#262626) ^i(.dzen/bitmap/note.xbm) \
+^fg(\#b5bd68)^bg(\#b5bd68)^fg(\#262626)^i(.dzen/bitmap/note.xbm) \
 ${endif}\
 ${if_match "${execp ~/bin/spotify-monitor.py playback}" == "Paused"}\
-^fg(\#f0c674)^bg(\#f0c674)^fg(\#262626) ^i(.dzen/bitmap/pause.xbm) \
+^fg(\#f0c674)^bg(\#f0c674)^fg(\#262626)^i(.dzen/bitmap/pause.xbm) \
 ${endif}\
 ${if_match "${execp ~/bin/spotify-monitor.py playback}" == "Stopped"}\
-^fg(\#cc6666)^bg(\#cc6666)^fg(\#e4e4e4) ^i(.dzen/bitmap/stop.xbm) \
+^fg(\#cc6666)^bg(\#cc6666)^fg(\#e4e4e4)^i(.dzen/bitmap/stop.xbm) \
 ${endif}\
  ${execp ~/bin/spotify-monitor.py playing} \
 ${else} ${if_running mpd}\
 ${if_match "${mpd_status}" == "Playing"}\
-^fg(\#b5bd68)^bg(\#b5bd68)^fg(\#262626) ^i(.dzen/bitmap/note.xbm) \
+^fg(\#b5bd68)^bg(\#b5bd68)^fg(\#262626)^i(.dzen/bitmap/note.xbm) \
 ${endif}\
 ${if_match "${mpd_status}" == "Paused"}\
-^fg(\#f0c674)^bg(\#f0c674)^fg(\#262626) ^i(.dzen/bitmap/pause.xbm) \
+^fg(\#f0c674)^bg(\#f0c674)^fg(\#262626)^i(.dzen/bitmap/pause.xbm) \
 ${endif}\
 ${if_match "${mpd_status}" == "Stopped"}\
-^fg(\#cc6666)^bg(\#cc6666)^fg(\#e4e4e4) ^i(.dzen/bitmap/stop.xbm) \
+^fg(\#cc6666)^bg(\#cc6666)^fg(\#e4e4e4)^i(.dzen/bitmap/stop.xbm) \
 ${endif} \
 ${mpd_smart} \
 ${if_mpd_playing}\
