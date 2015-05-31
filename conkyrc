@@ -45,7 +45,7 @@ ${endif}${endif}\
 ${swapperc}% \
 ^fg(\#262626)^bg(\#262626)^fg(\#bcbcbc)\
 ${if_up enp4s0}\
-^i(.dzen/bitmap/net_down_03.xbm) ${downspeed enp4s0} \
+^i(.dzen/bitmap/net_down_03.xbm) ${downspeedf enp4s0} KiB  \
 ${endif}\
 ^i(.dzen/bitmap/spkr_01.xbm) ${mixer} \
 ${if_match "${hddtemp /dev/sda}" == "N/A"}${else}\

@@ -46,7 +46,7 @@ ${swapperc}% \
 ^fg(\#262626)^bg(\#262626)^fg(\#bcbcbc)\
 ${if_up wlp3s0}\
 ^i(.dzen/bitmap/wifi_02.xbm) ${wireless_essid wlp3s0} (${wireless_link_qual_perc wlp3s0}%) \
-^i(.dzen/bitmap/net_down_03.xbm) ${downspeed wlp3s0}  \
+^i(.dzen/bitmap/net_down_03.xbm) ${downspeedf wlp3s0} KiB  \
 ${endif}\
 ^i(.dzen/bitmap/spkr_01.xbm) ${mixer} \
 ${if_running spotify}\
