@@ -18,14 +18,14 @@ ${else}\
 ^fg(\#b5bd68)^bg(\#b5bd68)^fg(\#262626)^i(.dzen/bitmap/cpu.xbm) \
 ${endif}${endif}\
 ${cpu}%\
-${if_match ${acpitemp} >=40}\
+${if_match ${hwmon temp 2} >=40}\
 ^fg(\#cc6666)^bg(\#cc6666)^fg(\#e4e4e4)^i(.dzen/bitmap/temp.xbm) \
-${else}${if_match ${acpitemp} >=35}\
+${else}${if_match ${hwmon temp 2} >=35}\
 ^fg(\#f0c674)^bg(\#f0c674)^fg(\#262626)^i(.dzen/bitmap/temp.xbm) \
 ${else}\
 ^fg(\#b5bd68)^bg(\#b5bd68)^fg(\#262626)^i(.dzen/bitmap/temp.xbm) \
 ${endif}${endif}\
-${acpitemp}°C \
+${hwmon temp 2}°C \
 ^fg(\#262626)^bg(\#262626)^fg(\#bcbcbc)^i(.dzen/bitmap/fs_01.xbm) ${loadavg 1} \
 ${if_match ${memperc} >=90}\
 ^fg(\#cc6666)^bg(\#cc6666)^fg(\#e4e4e4)^i(.dzen/bitmap/mem.xbm) \
