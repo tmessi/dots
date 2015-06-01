@@ -18,9 +18,9 @@ ${else}\
 ^fg(\#b5bd68)^bg(\#b5bd68)^fg(\#262626)^i(.dzen/bitmap/cpu.xbm) \
 ${endif}${endif}\
 ${cpu}%\
-${if_match ${hwmon 1 temp 1} >=40}\
+${if_match ${hwmon 1 temp 1} >=70}\
 ^fg(\#cc6666)^bg(\#cc6666)^fg(\#e4e4e4)^i(.dzen/bitmap/temp.xbm) \
-${else}${if_match ${hwmon 1 temp 1} >=35}\
+${else}${if_match ${hwmon 1 temp 1} >=60}\
 ^fg(\#f0c674)^bg(\#f0c674)^fg(\#262626)^i(.dzen/bitmap/temp.xbm) \
 ${else}\
 ^fg(\#b5bd68)^bg(\#b5bd68)^fg(\#262626)^i(.dzen/bitmap/temp.xbm) \
