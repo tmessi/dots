@@ -8,6 +8,9 @@ override_utf8_locale yes
 xftfont Terminus:style=Regular:pixelsize=12:antialias=true
 
 TEXT
+${if_existing .gcal_remind}\
+^fg(\#875fd7)^bg(\#875fd7)^fg(\#e4e4e4)^i(.dzen/bitmap/clock.xbm) ${exec cat ~/.gcal_remind} \
+${endif}\
 ^fg(\#af5f00)^bg(\#af5f00)^fg(\#262626)^i(.dzen/bitmap/net_up_02.xbm) ${texeci 1200 ~/bin/updates.py} \
 ^fg(\#81a2be)^bg(\#81a2be)^fg(\#262626)^i(.dzen/bitmap/temp.xbm) ${weather http://weather.noaa.gov/pub/data/observations/metar/stations/ KBWI temperature}°C \
 ${if_match ${cpu} >=90}\
