@@ -15,7 +15,9 @@ ${if_existing .update_count}\
 ^fg(\#af5f00)^bg(\#af5f00)^fg(\#262626)^i(.dzen/bitmap/net_up_02.xbm) ${exec cat ~/.update_count} \
 ${endif}\
 ^fg(\#81a2be)^bg(\#81a2be)^fg(\#262626)^i(.dzen/bitmap/temp.xbm) ${weather http://weather.noaa.gov/pub/data/observations/metar/stations/ KBWI temperature}°C \
+^ca(1, /home/tim/bin/sysinfo_popup)\
 ^fg(\#262626)^bg(\#262626)^fg(\#bcbcbc) ${kernel} \
+^ca()\
 ${if_match ${cpu} >=90}\
 ^fg(\#cc6666)^bg(\#cc6666)^fg(\#e4e4e4)^i(.dzen/bitmap/cpu.xbm) \
 ${else}${if_match ${cpu} >=70}\
@@ -68,6 +70,7 @@ ${endif}\
  ${execp ~/bin/spotify-monitor.py playing} \
 ${endif}\
 ^fg(\#262626)^bg(\#262626)\
+^ca(1, /home/tim/bin/batinfo_popup)\
 ${if_match ${battery_percent} >=40}\
 ^fg(\#b5bd68)^bg(\#b5bd68)^fg(\#262626)^i(.dzen/bitmap/bat_full_01.xbm) \
 ${else}${if_match ${battery_percent} >10}\
@@ -76,3 +79,4 @@ ${else}\
 ^fg(\#cc6666)^bg(\#cc6666)^fg(\#e4e4e4)^i(.dzen/bitmap/bat_empty_01.xbm) \
 ${endif}${endif}\
 ${battery_percent}% ${battery_time}\
+^ca()
