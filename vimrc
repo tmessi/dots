@@ -41,6 +41,7 @@ Plugin 'xolox/vim-easytags'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'nathanaelkane/vim-indent-guides'
 Plugin 'michaeljsmith/vim-indent-object'
+Plugin 'Valloric/YouCompleteMe'
 
 Plugin 'shadowfax-chc/vim-tomorrow-theme'
 
@@ -55,3 +56,5 @@ filetype plugin indent on
 if filereadable(expand("~/.vim/bundle/vim-fax/vimrc.vim"))
 	execute "source ~/.vim/bundle/vim-fax/vimrc.vim"
 endif
+
+let g:jedi#completions_enabled = 0
