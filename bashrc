@@ -55,4 +55,7 @@ export PAGER MANPAGER
 # Anything specific to this host
 [[ -f $HOME/.bashrc_extra ]] && source $HOME/.bashrc_extra
 
+# added by travis gem
+[[ -f $HOME/.travis/travis.sh ]] && source $HOME/.travis/travis.sh
+
 [[ -f /usr/bin/fortune ]] && command fortune firefly calvin futurama hitchhiker
