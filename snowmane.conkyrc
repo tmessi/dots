@@ -54,10 +54,7 @@ ${if_up enp3s0}\
 ^i(.dzen/bitmap/net_down_03.xbm) ${downspeedf enp3s0} KiB  \
 ${execpi 2000 curl -4 icanhazip.com}  \
 ${endif}\
-^i(.dzen/bitmap/spkr_01.xbm) ${mixer}  \
-${if_match "${hddtemp /dev/sda}" == "N/A"}${else}\
-^i(.dzen/bitmap/temp.xbm) sda ${hddtemp /dev/sda}°C \
-${endif}\
+^i(.dzen/bitmap/spkr_01.xbm) ${mixer} \
 ${if_match ${fs_used_perc /home} >=75}\
 ^fg(\#cc6666)^bg(\#cc6666)^fg(\#e4e4e4)\
 ${else}${if_match ${fs_used_perc /home} >=60}\
@@ -66,6 +63,10 @@ ${else}\
 ^fg(\#b5bd68)^bg(\#b5bd68)^fg(\#262626)\
 ${endif}${endif}\
 ^i(.dzen/bitmap/diskette.xbm) ${fs_used_perc /home}% \
+${if_match "${hddtemp /dev/sda}" == "N/A"}${else}\
+^fg(\#262626)^bg(\#262626)^fg(\#bcbcbc)\
+^i(.dzen/bitmap/temp.xbm) sda ${hddtemp /dev/sda}°C \
+${endif}\
 ${if_running spotify}\
 ${if_match "${execp ~/bin/spotify-monitor.py playback}" == "Playing"}\
 ^fg(\#b5bd68)^bg(\#b5bd68)^fg(\#262626)^i(.dzen/bitmap/note.xbm) \
