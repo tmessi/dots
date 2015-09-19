@@ -68,6 +68,7 @@ ${else}\
 ^fg(\#b5bd68)^bg(\#b5bd68)^fg(\#262626)\
 ${endif}${endif}\
 ^i(.dzen/bitmap/diskette.xbm) ${fs_used_perc /home}% \
+^fg(\#262626)^bg(\#262626)\
 ${if_running spotify}\
 ${if_match "${execp ~/bin/spotify-monitor.py playback}" == "Playing"}\
 ^fg(\#b5bd68)^bg(\#b5bd68)^fg(\#262626)^i(.dzen/bitmap/note.xbm) \
