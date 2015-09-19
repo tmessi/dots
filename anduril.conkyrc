@@ -16,7 +16,6 @@ ${if_existing .update_count}\
 ^fg(\#af5f00)^bg(\#af5f00)^fg(\#262626)^i(.dzen/bitmap/net_up_02.xbm) ${exec cat ~/.update_count} \
 ^ca()\
 ${endif}\
-^fg(\#81a2be)^bg(\#81a2be)^fg(\#262626)^i(.dzen/bitmap/temp.xbm) ${weather http://weather.noaa.gov/pub/data/observations/metar/stations/ KBWI temperature}°C \
 ${if_match ${cpu} >=90}\
 ^fg(\#cc6666)^bg(\#cc6666)^fg(\#e4e4e4)^i(.dzen/bitmap/cpu.xbm) \
 ${else}${if_match ${cpu} >=70}\
@@ -64,6 +63,7 @@ ${else}\
 ^fg(\#b5bd68)^bg(\#b5bd68)^fg(\#262626)\
 ${endif}${endif}\
 ^i(.dzen/bitmap/diskette.xbm) ${fs_used_perc /home}% \
+^fg(\#262626)^bg(\#262626)\
 ${if_running spotify}\
 ${if_match "${execp ~/bin/spotify-monitor.py playback}" == "Playing"}\
 ^fg(\#b5bd68)^bg(\#b5bd68)^fg(\#262626)^i(.dzen/bitmap/note.xbm) \
