@@ -20,7 +20,37 @@ function getyn() {
     return $ret
 }
 
+function _ve_help() {
+    echo "usage: ve [options]
+
+optional args:
+
+    -v|--verbose print to std out.
+    -h|--help    priint this help."
+}
+
 function ve() {
+    verbose=0
+    redirect=/dev/null
+    name=${0##*/}
+    opts=$(getopt -o vh --long verbose,help -n "$name" -- "$@")
+    if [[ $? != 0 ]]; then echo "option error" >&2; return 1; fi
+    eval set -- "$opts"
+    while true; do
+        case "$1" in
+            -v|--verbose)
+                verbose=1
+                redirect=/dev/stdout
+                shift;;
+            -h|--help)
+                _ve_help
+                return 1;;
+            --)
+                shift; break;;
+            *)
+                echo "Internal Error!"; return 1;;
+        esac
+    done
     # Set root point for virtualenv creation to git top level
     ve_root=$(git rev-parse --show-toplevel 2> /dev/null)
 
@@ -33,6 +63,7 @@ function ve() {
     if [[ $1 ]]; then
         venv_name="${venv_name}_${1}"
     fi
+    echo "Using virtualenv $venv_name" > $redirect
 
     # If this virtualenv is not active
     if [[ "$VIRTUAL_ENV" != "$ve_root/.pyenv/$venv_name" ]]; then
@@ -41,7 +72,7 @@ function ve() {
         [[ $VIRTUAL_ENV ]] && deactivate
 
         # Create new virtualenv if needed
-        [[ ! -f $ve_root/.pyenv/$venv_name/bin/activate ]] && rm -rf $ve_root/.pyenv/$venv_name && virtualenv $ve_root/.pyenv/$venv_name &> /dev/null
+        [[ ! -f $ve_root/.pyenv/$venv_name/bin/activate ]] && rm -rf $ve_root/.pyenv/$venv_name && virtualenv $ve_root/.pyenv/$venv_name &> $redirect
 
         # Activate virtualenv
         source $ve_root/.pyenv/$venv_name/bin/activate
@@ -53,13 +84,13 @@ function ve() {
 
     if [[ $1 ]]; then
         # Install custom requirements.txt if available
-        [[ -f $ve_root/${1}_requirements.txt ]] && $pip_bin install -r $ve_root/${1}_requirements.txt &> /dev/null
+        [[ -f $ve_root/${1}_requirements.txt ]] && $pip_bin install -r $ve_root/${1}_requirements.txt &> $redirect
     else
         # Install requirements.txt if available
-        [[ -f $ve_root/requirements.txt ]] && $pip_bin install -r $ve_root/requirements.txt &> /dev/null
+        [[ -f $ve_root/requirements.txt ]] && $pip_bin install -r $ve_root/requirements.txt &> $redirect
 
         # Install dev_requirements.txt if available
-        [[ -f $ve_root/dev_requirements.txt ]] && $pip_bin install -r $ve_root/dev_requirements.txt &> /dev/null
+        [[ -f $ve_root/dev_requirements.txt ]] && $pip_bin install -r $ve_root/dev_requirements.txt &> $redirect
     fi
 
 }
