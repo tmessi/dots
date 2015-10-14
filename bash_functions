@@ -116,6 +116,7 @@ function rmpyc() {
     if [[ $1 ]]; then
         path=$1
     fi
+    find $path -not -path '*/\.*' -name "__pycache__" -exec rm -rf {} \; &> /dev/null
     find $path -not -path '*/\.*' -name "*.pyc" -exec rm -rf {} \;
 }
 
