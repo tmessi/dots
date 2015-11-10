@@ -40,6 +40,7 @@
     sum = status
     di = diff
     bo = branch
+    br = branch
     bookmarks = branch
     branches = branch
     o = log --graph @{u}..HEAD
