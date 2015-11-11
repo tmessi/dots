@@ -1,13 +1,12 @@
 set nocompatible
-
 filetype off
 
-execute "set rtp+=~/.vim/bundle/vundle/"
+set rtp+=~/.vim/bundle/Vundle.vim
 let g:vundle_default_git_proto = 'https'
-call vundle#begin("~/.vim/bundle")
+call vundle#begin()
 
 " Plugins to install
-Plugin 'gmarik/vundle'
+Plugin 'VundleVim/Vundle.vim'
 
 " Syntax/filetype detection
 Plugin 'saltstack/salt-vim'
@@ -50,6 +49,7 @@ Plugin 'shadowfax-chc/vim-tomorrow-theme'
 Plugin 'shadowfax-chc/vim-fax'
 
 call vundle#end()
+
 filetype plugin indent on
 
 " Load everything else from vim-fax/vimrc.vim
