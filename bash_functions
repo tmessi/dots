@@ -31,13 +31,17 @@ optional args:
 
 function ve() {
     verbose=0
+    allow_sync=1
     redirect=/dev/null
     name=${0##*/}
-    opts=$(getopt -o vh --long verbose,help -n "$name" -- "$@")
+    opts=$(getopt -o vnh --long verbose,no-sync,help -n "$name" -- "$@")
     if [[ $? != 0 ]]; then echo "option error" >&2; return 1; fi
     eval set -- "$opts"
     while true; do
         case "$1" in
+            -n|--no-sync)
+                allow_sync=0
+                shift;;
             -v|--verbose)
                 verbose=1
                 redirect=/dev/stdout
@@ -86,11 +90,18 @@ function ve() {
         # Install custom requirements.txt if available
         [[ -f $ve_root/${1}_requirements.txt ]] && $pip_bin install -r $ve_root/${1}_requirements.txt &> $redirect
     else
-        # Install requirements.txt if available
-        [[ -f $ve_root/requirements.txt ]] && $pip_bin install -r $ve_root/requirements.txt &> $redirect
-
         # Install dev_requirements.txt if available
         [[ -f $ve_root/dev_requirements.txt ]] && $pip_bin install -r $ve_root/dev_requirements.txt &> $redirect
+
+        # Use pip-sync if available.
+        if [[ $allow_sync -eq 1 ]] && which pip-sync >/dev/null 2>&1; then
+            [[ -f $ve_root/requirements.txt ]] && pip-sync $ve_root/requirements.txt &> $redirect
+            # Install dev_requirements again since pip-sync probably removes them :(
+            [[ -f $ve_root/dev_requirements.txt ]] && $pip_bin install -r $ve_root/dev_requirements.txt &> $redirect
+        else
+            # Install requirements.txt if available
+            [[ -f $ve_root/requirements.txt ]] && $pip_bin install -r $ve_root/requirements.txt &> $redirect
+        fi
     fi
 
 }
