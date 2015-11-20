@@ -131,6 +131,14 @@ function rmpyc() {
     find $path -not -path '*/\.*' -name "*.pyc" -exec rm -rf {} \;
 }
 
+function rmorig() {
+    local path=$PWD
+    if [[ $1 ]]; then
+        path=$1
+    fi
+    find $path -not -path '*/\.*' -name "*.orig" -exec rm -rf {} \;
+}
+
 function djtest() {
     if [[ ! -x ./manage.py ]]; then
         echo "No executatble manage.py"
