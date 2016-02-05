@@ -13,7 +13,8 @@ Plugin 'saltstack/salt-vim'
 
 " Helpful plugins
 Plugin 'Lokaltog/vim-easymotion'
-Plugin 'bling/vim-airline'
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
 Plugin 'ervandew/supertab'
 Plugin 'jistr/vim-nerdtree-tabs'
 Plugin 'kien/ctrlp.vim'
