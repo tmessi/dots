@@ -22,10 +22,10 @@ override_git_prompt_colors() {
     jobcount="${GrayWithBg}$(jobscount)"
     local repo=`git rev-parse --show-toplevel 2> /dev/null`
     if [[ "$SSH_CLIENT" ]]; then
-        if [[ ! -e "$repo" ]]; then
-            host_end_color="${RedWithGreenBg}"
-        else
+        if [[ "$VIRTUAL_ENV" ]]; then
             host_end_color="${RedWithBg}"
+        else
+            host_end_color="${RedWithGreenBg}"
         fi
         virtenv_suffix="${BlueWithRedBg} "
         host_prefix="${jobcount}${RedBg}\h${host_end_color} "
