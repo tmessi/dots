@@ -20,8 +20,8 @@ override_git_prompt_colors() {
 
     GIT_PROMT_THEME_NAME="fax"
     jobcount="${GrayWithBg}$(jobscount)"
+    local repo=`git rev-parse --show-toplevel 2> /dev/null`
     if [[ "$SSH_CLIENT" ]]; then
-        local repo=`git rev-parse --show-toplevel 2> /dev/null`
         if [[ ! -e "$repo" ]]; then
             host_end_color="${RedWithGreenBg}"
         else
@@ -33,8 +33,13 @@ override_git_prompt_colors() {
         virtenv_suffix="${BlueWithBg} "
         host_prefix="${jobcount}"
     fi
+    if [[ "$VIRTUAL_ENV" ]]; then
+        pre_prefix=""
+    else
+        pre_prefix="${GreenBg}${repo##*/}${GreenWithBg} "
+    fi
 
-    GIT_PROMPT_PREFIX="${GreenWithBg}"                    # start of the git info string
+    GIT_PROMPT_PREFIX="${pre_prefix}${GreenWithBg}"                    # start of the git info string
     GIT_PROMPT_SUFFIX="${ResetWithBg}${ResetGreenBg}"    # the end of the git info string
     GIT_PROMPT_SEPARATOR="${GreenWithBg}│"                  # separates each item
 
