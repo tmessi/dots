@@ -9,6 +9,7 @@ optional args:
 
     -p|--pretend  print what install will do without doing it.
     -b|--bundle   run :PluginUpdate after install.
+    -n|--nvm      install nvm as well.
     -r|--rvm      install rvm as well.
     -h|--help     print this help."
 }
@@ -16,7 +17,8 @@ optional args:
 pretend=0
 bundleupdate=0
 rvm=0
-OPTS=$(getopt -o pbhr --long pretend,bundle,rvm,help -n "$name" -- "$@")
+nvm=0
+OPTS=$(getopt -o pbhrn --long pretend,bundle,rvm,nvm,help -n "$name" -- "$@")
 
 if [[ $? != 0 ]]; then echo "option error" >&2; exit 1; fi
 
@@ -32,6 +34,9 @@ while true; do
             shift;;
         -r|--rvm)
             rvm=1
+            shift;;
+        -n|--nvm)
+            nvm=1
             shift;;
         -h|--help)
             print_help
@@ -166,6 +171,15 @@ if [[ $rvm -eq 1 ]]; then
     else
         echo "Installing rvm"
         curl -sSL https://get.rvm.io | bash -s -- stable --ruby --ignore-dotfiles
+    fi
+fi
+
+if [[ $nvm -eq 1 ]]; then
+    if [[ $pretend -eq 1 ]]; then
+        echo "Would install nvm"
+    else
+        echo "Installing nvm"
+        git clone https://github.com/creationix/nvm.git ~/.nvm && cd ~/.nvm && git checkout `git describe --abbrev=0 --tags`
     fi
 fi
 
