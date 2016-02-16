@@ -20,6 +20,36 @@ function getyn() {
     return $ret
 }
 
+
+function nve() {
+    verbose=0
+    redirect=/dev/null
+    name=${0##*/}
+    opts=$(getopt -o vh --long verbose,help -n "$name" -- "$@")
+    if [[ $? != 0 ]]; then echo "option error" >&2; return 1; fi
+    eval set -- "$opts"
+    while true; do
+        case "$1" in
+            -v|--verbose)
+                verbose=1
+                redirect=/dev/stdout
+                shift;;
+            -h|--help)
+                _ve_help
+                return 1;;
+            --)
+                shift; break;;
+            *)
+                echo "Internal Error!"; return 1;;
+        esac
+    done
+
+    ve_root=$(git rev-parse --show-toplevel 2> /dev/null)
+    if [[ -s $ve_root/package.json ]]; then
+        npm update &> $redirect && npm prune &> $redirect
+    fi
+}
+
 function _ve_help() {
     echo "usage: ve [options]
 
