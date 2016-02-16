@@ -4,8 +4,6 @@ set guioptions=sC
 set showtabline=never
 set! browser.tabs.closeWindowWithLastTab=false
 
-autocmd LocationChange slack.com :normal! <C-z>
-
 hi Normal   color: #b6e77d; background: black; font-family: Terminus; padding: 0px;
 hi CmdLine  color: #b6e77d; background: black; font-family: Terminus; padding: 0px;
 hi CompDesc color: #b6e77d; width: 50%;
