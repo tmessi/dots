@@ -73,7 +73,7 @@ URxvt.foreground: #b6e77d
 
 ! Use for "fake" transparency
 URxvt.transparent: true
-URxvt.shading:     10
+URxvt.shading:     40
 URxvt.background:  black
 URxvt.tint:        black
 
