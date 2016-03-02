@@ -56,6 +56,7 @@ function _ve_help() {
 optional args:
 
     -v|--verbose print to std out.
+    -n|--no-sync do not use pip-sync
     -h|--help    priint this help."
 }
 
