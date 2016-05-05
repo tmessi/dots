@@ -27,6 +27,7 @@ PATH="/usr/local/bin:/bin:/usr/bin:/usr/local/sbin:/sbin:/usr/sbin"
 [[ -d "/usr/games/bin" ]] && PATH="/usr/games/bin:$PATH"
 [[ -d "$HOME/bin" ]] && PATH="$HOME/bin:$PATH"
 [[ -d "$GOPATH/bin" ]] && PATH="$GOPATH/bin:$PATH"
+[[ -d "/usr/local/heroku/bin" ]] && PATH="/usr/local/heroku/bin:$PATH"
 export PATH
 
 # Editor and Pager
