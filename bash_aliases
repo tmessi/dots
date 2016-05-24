@@ -75,3 +75,6 @@ alias got='git'
 # Django shortcuts
 alias runserver="./manage.py runserver"
 alias prunserver="./manage.py runserver 0.0.0.0:8000"
+
+alias flip-table='echo "(╯°□°）╯︵ ┻━┻"'
+alias set-table='echo "┬──┬ ノ( ゜-゜ノ)"'
