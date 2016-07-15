@@ -27,3 +27,12 @@ control + b:8
 
 "mediakeys.py toggle"
 control + b:10
+
+"xbacklight -inc 10"
+XF86MonBrightnessUp
+
+"xbacklight -dec 10"
+XF86MonBrightnessDown
+
+"xinput --set-prop 'Razer Orochi 2013' 'Device Accel Constant Deceleration' 3"
+b:9

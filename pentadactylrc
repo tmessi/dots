@@ -18,5 +18,7 @@ hi StatusLineSecure  color: #a0a0FF; background: black; font-family: Terminus; p
 
 nmap <C-b> :bmarks -tags=
 
+:autocmd LocationChange docs.google.com :normal! <C-z>
+:autocmd LocationChange docs.google.com :normal! gi
 
 " vim: set ft=pentadactyl:

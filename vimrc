@@ -43,6 +43,7 @@ Plugin 'nathanaelkane/vim-indent-guides'
 Plugin 'michaeljsmith/vim-indent-object'
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'majutsushi/tagbar'
+Plugin 'b4b4r07/vim-hcl'
 
 Plugin 'shadowfax-chc/vim-tomorrow-theme'
 

@@ -32,7 +32,8 @@ ${else}\
 ^fg(\#b5bd68)^bg(\#b5bd68)^fg(\#262626)^i(.dzen/bitmap/temp.xbm) \
 ${endif}${endif}\
 ${acpitemp}°C \
-^fg(\#262626)^bg(\#262626)^fg(\#bcbcbc)^i(.dzen/bitmap/fs_01.xbm) ${loadavg 1} \
+^fg(\#262626)^bg(\#262626)^fg(\#bcbcbc)^i(.dzen/bitmap/fs_01.xbm) ${loadavg 1}  \
+^i(.dzen/bitmap/full.xbm) ${exec ~/bin/brightness_pct}% \
 ${if_match ${memperc} >=90}\
 ^fg(\#cc6666)^bg(\#cc6666)^fg(\#e4e4e4)^i(.dzen/bitmap/mem.xbm) \
 ${else}${if_match ${memperc} >=70}\
@@ -54,7 +55,7 @@ ${if_up wlp59s0}\
 ^i(.dzen/bitmap/wifi_02.xbm) ${wireless_essid wlp59s0} (${wireless_link_qual_perc wlp59s0}%) \
 ^i(.dzen/bitmap/net_down_03.xbm) ${downspeedf wlp59s0} KiB  \
 ${endif}\
-^i(.dzen/bitmap/spkr_01.xbm) ${mixer} \
+^i(.dzen/bitmap/spkr_01.xbm) ${execp ~/bin/soundkeys.py volume}% \
 ${if_match ${fs_used_perc /home} >=75}\
 ^fg(\#cc6666)^bg(\#cc6666)^fg(\#e4e4e4)\
 ${else}${if_match ${fs_used_perc /home} >=60}\
@@ -63,19 +64,6 @@ ${else}\
 ^fg(\#b5bd68)^bg(\#b5bd68)^fg(\#262626)\
 ${endif}${endif}\
 ^i(.dzen/bitmap/diskette.xbm) ${fs_used_perc /home}% \
-^fg(\#262626)^bg(\#262626)\
-${if_running spotify}\
-${if_match "${execp ~/bin/spotify-monitor.py playback}" == "Playing"}\
-^fg(\#b5bd68)^bg(\#b5bd68)^fg(\#262626)^i(.dzen/bitmap/note.xbm) \
-${endif}\
-${if_match "${execp ~/bin/spotify-monitor.py playback}" == "Paused"}\
-^fg(\#f0c674)^bg(\#f0c674)^fg(\#262626)^i(.dzen/bitmap/pause.xbm) \
-${endif}\
-${if_match "${execp ~/bin/spotify-monitor.py playback}" == "Stopped"}\
-^fg(\#cc6666)^bg(\#cc6666)^fg(\#e4e4e4)^i(.dzen/bitmap/stop.xbm) \
-${endif}\
- ${execp ~/bin/spotify-monitor.py playing} \
-${endif}\
 ^fg(\#262626)^bg(\#262626)\
 ^ca(1, /home/tim/bin/batinfo_popup)\
 ${if_match ${battery_percent} >=40}\
