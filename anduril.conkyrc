@@ -54,7 +54,7 @@ ${if_up wlp3s0}\
 ^i(.dzen/bitmap/wifi_02.xbm) ${wireless_essid wlp3s0} (${wireless_link_qual_perc wlp3s0}%) \
 ^i(.dzen/bitmap/net_down_03.xbm) ${downspeedf wlp3s0} KiB  \
 ${endif}\
-^i(.dzen/bitmap/spkr_01.xbm) ${mixer} \
+^i(.dzen/bitmap/spkr_01.xbm) ${execp ~/bin/soundkeys.py volume}% \
 ${if_match ${fs_used_perc /home} >=75}\
 ^fg(\#cc6666)^bg(\#cc6666)^fg(\#e4e4e4)\
 ${else}${if_match ${fs_used_perc /home} >=60}\
