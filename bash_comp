@@ -19,6 +19,29 @@ __vws_comp()
 }
 complete -F __vws_comp vws
 
+# Thanks to Gavin Panella
+# http://blog.allenap.me/2013/08/change-directory-to-go-package-with-tab.html
+_gcd() {
+    local cur path paths
+    # The current word due for completion.
+    cur=${COMP_WORDS[COMP_CWORD]}
+    # Non-local array storing the possible completions.
+    COMPREPLY=()
+    # Split GOPATH by colon, being careful about whitespace.
+    IFS=: read -a paths -r <<< "$GOPATH"
+    # Iterate GOPATH, again being careful about whitespace.
+    for path in "${paths[@]}"; do
+        COMPREPLY=(
+            "${COMPREPLY[@]}"
+            # Ignore missing directories on GOPATH.
+            $(cd "${path}/src" 2> /dev/null &&
+                compgen -o dirnames "${cur}")
+        )
+    done
+    return 0
+}
+complete -F _gcd -o nospace -S / gcd
+
 
 # From: https://github.com/django/django/blob/master/extras/django_bash_completion
 # #########################################################################

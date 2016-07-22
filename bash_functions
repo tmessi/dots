@@ -149,6 +149,19 @@ function ve() {
 
 }
 
+# Thanks to Gavin Panella
+# http://blog.allenap.me/2013/08/change-directory-to-go-package-with-tab.html
+function gcd() {
+    local package="$1"
+    local pdir="$(go list -e -f '{{.Dir}}' "${package}")"
+    if [ -z "${pdir}" ]; then
+        echo "${package} not found" >&2
+        return 1
+    else
+        cd "${pdir}"
+    fi;
+}
+
 function ws () {
     if [[ $1 ]]; then
         cd ~/workspace/$1
