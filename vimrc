@@ -44,7 +44,7 @@ Plugin 'michaeljsmith/vim-indent-object'
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'majutsushi/tagbar'
 Plugin 'b4b4r07/vim-hcl'
-Plugin 'faith/vim-go'
+Plugin 'fatih/vim-go'
 
 Plugin 'shadowfax-chc/vim-tomorrow-theme'
 
