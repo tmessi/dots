@@ -126,6 +126,11 @@ function ve() {
         elif [[ -f $ve_root/dev_requirements.txt ]]; then
             re_install+="-r $ve_root/dev_requirements.txt "
         fi
+        if [[ -f $ve_root/requirements.dev.in ]]; then
+            sync_reqs+="$ve_root/requirements.dev.txt "
+        elif [[ -f $ve_root/requirements.dev.txt ]]; then
+            re_install+="-r $ve_root/requirements.dev.txt "
+        fi
         if [[ -f $ve_root/doc_requirements.in ]]; then
             sync_reqs+="$ve_root/doc_requirements.txt "
         elif [[ -f $ve_root/doc_requirements.txt ]]; then
@@ -139,6 +144,9 @@ function ve() {
     else
         # Install dev_requirements.txt if available
         [[ -f $ve_root/dev_requirements.txt ]] && $pip_bin install -r $ve_root/dev_requirements.txt &> $redirect
+
+        # Install requirements.dev.txt if available
+        [[ -f $ve_root/requirements.dev.txt ]] && $pip_bin install -r $ve_root/requirements.dev.txt &> $redirect
 
         # Install requirements.txt if available
         [[ -f $ve_root/requirements.txt ]] && $pip_bin install -r $ve_root/requirements.txt &> $redirect
