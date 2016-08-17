@@ -45,6 +45,7 @@ Plugin 'Valloric/YouCompleteMe'
 Plugin 'majutsushi/tagbar'
 Plugin 'b4b4r07/vim-hcl'
 Plugin 'fatih/vim-go'
+Plugin 'heavenshell/vim-pydocstring'
 
 Plugin 'shadowfax-chc/vim-tomorrow-theme'
 
