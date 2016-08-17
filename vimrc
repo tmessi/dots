@@ -46,6 +46,8 @@ Plugin 'majutsushi/tagbar'
 Plugin 'b4b4r07/vim-hcl'
 Plugin 'fatih/vim-go'
 Plugin 'heavenshell/vim-pydocstring'
+Plugin 'SirVer/ultisnips'
+Plugin 'honza/vim-snippets'
 
 Plugin 'shadowfax-chc/vim-tomorrow-theme'
 
