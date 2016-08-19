@@ -35,6 +35,7 @@ alias grep='grep --color=auto'
 alias igrep='grep -i'
 alias rgrep='grep -R'
 alias mkpatch='diff -Naur'
+alias open="xdg-open"
 
 # Silly sudo
 alias mount='sudo mount'
