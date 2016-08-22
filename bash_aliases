@@ -37,6 +37,8 @@ alias rgrep='grep -R'
 alias mkpatch='diff -Naur'
 alias open="xdg-open"
 
+[[ -f /usr/bin/mpv ]] && alias mplayer="mpv"
+
 # Silly sudo
 alias mount='sudo mount'
 alias umount='sudo umount'
