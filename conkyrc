@@ -8,9 +8,6 @@ override_utf8_locale yes
 xftfont Terminus:style=Regular:pixelsize=12:antialias=true
 
 TEXT
-${if_existing .gcal_remind}\
-^fg(\#875fd7)^bg(\#875fd7)^fg(\#e4e4e4)^i(.dzen/bitmap/clock.xbm) ${exec cat ~/.gcal_remind} \
-${endif}\
 ${if_existing .update_count}\
 ^fg(\#af5f00)^bg(\#af5f00)^fg(\#262626)^i(.dzen/bitmap/net_up_02.xbm) ${exec cat ~/.update_count} \
 ${endif}\
