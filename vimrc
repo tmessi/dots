@@ -46,8 +46,9 @@ Plugin 'majutsushi/tagbar'
 Plugin 'b4b4r07/vim-hcl'
 Plugin 'fatih/vim-go'
 Plugin 'heavenshell/vim-pydocstring'
-Plugin 'SirVer/ultisnips'
+"Plugin 'SirVer/ultisnips'
 Plugin 'honza/vim-snippets'
+Plugin 'rjohnsondev/vim-compiler-go'
 
 Plugin 'shadowfax-chc/vim-tomorrow-theme'
 
@@ -63,3 +64,4 @@ filetype plugin indent on
 if filereadable(expand("~/.vim/bundle/vim-fax/vimrc.vim"))
 	execute "source ~/.vim/bundle/vim-fax/vimrc.vim"
 endif
+

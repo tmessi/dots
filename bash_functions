@@ -258,3 +258,9 @@ function usrt() {
     export PATH
     unset STEAM_RUNTIME_HOST_ARCH STEAM_RUNTIME_TARGET_ARCH STEAM_RUNTIME_ROOT NOSRT_PATH SRT NOSRT_LD_LIBRARY_PATH
 }
+
+function docker-cleanup {
+    docker rm -v $(docker ps -a -q -f status=exited)
+    docker rmi $(docker images -f "dangling=true" -q)
+    docker volume rm $(docker volume ls -qf dangling=true)
+}

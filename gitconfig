@@ -3,9 +3,12 @@
     email = tim.messier@gmail.com
 [github]
     user = shadowfax-chc
+[url "git@github.com:"]
+    insteadOf = https://github.com/
 [core]
     editor = vim
     excludesfile = ~/.gitignore_global
+    pager = less -x1,5
 [merge]
     tool = vimdiff
 [color]

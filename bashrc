@@ -19,6 +19,7 @@ set -o vi  # vim bindings for shell
 shopt -s cdspell  # correct spelling on cd
 
 # Path
+export GOROOT="/usr/lib/go"
 export GOPATH=$HOME/go  # Set go path for go development
 PATH="/usr/local/bin:/bin:/usr/bin:/usr/local/sbin:/sbin:/usr/sbin"
 [[ -d "/opt/bin" ]] && PATH="$PATH:/opt/bin"
