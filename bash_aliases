@@ -82,4 +82,4 @@ alias prunserver="./manage.py runserver 0.0.0.0:8000"
 alias flip-table='echo "(╯°□°）╯︵ ┻━┻"'
 alias set-table='echo "┬──┬ ノ( ゜-゜ノ)"'
 
-alias cp-hash="git rev-parse HEAD | xclip"
+alias cp-hash="git rev-parse HEAD | tr -d '\n' | xclip"
