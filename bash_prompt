@@ -2,7 +2,10 @@
 
 jobscount() {
     local background=$(jobs | grep -v 'git fetch' | wc -l)
-    ((background)) && echo -n "(${background})"
+    BgGray="5;235";
+    ResetWithBg="\[\e[0;0;48;${BgGray}m\]"
+    ResetGreenBg="\[\e[38;${BgGray};48;5;10m\]"
+    ((background)) && echo -n " ${background} ${ResetWithBg}${ResetGreenBg} "
 }
 
 # Default prompt
