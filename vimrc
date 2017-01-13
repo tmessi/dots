@@ -45,8 +45,13 @@ Plugin 'michaeljsmith/vim-indent-object'
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'majutsushi/tagbar'
 Plugin 'b4b4r07/vim-hcl'
+Plugin 'hashivim/vim-terraform'
+Plugin 'hashivim/vim-consul'
+Plugin 'hashivim/vim-packer'
+Plugin 'hashivim/vim-vaultproject'
 Plugin 'fatih/vim-go'
 Plugin 'heavenshell/vim-pydocstring'
+Plugin 'junegunn/vim-easy-align'
 "Plugin 'SirVer/ultisnips'
 Plugin 'honza/vim-snippets'
 Plugin 'rjohnsondev/vim-compiler-go'
@@ -65,4 +70,3 @@ filetype plugin indent on
 if filereadable(expand("~/.vim/bundle/vim-fax/vimrc.vim"))
 	execute "source ~/.vim/bundle/vim-fax/vimrc.vim"
 endif
-
