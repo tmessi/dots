@@ -83,3 +83,4 @@ alias flip-table='echo "(╯°□°）╯︵ ┻━┻"'
 alias set-table='echo "┬──┬ ノ( ゜-゜ノ)"'
 
 alias cp-hash="git rev-parse HEAD | tr -d '\n' | xclip"
+alias cp-short="git rev-parse --short HEAD | tr -d '\n' | xclip"
