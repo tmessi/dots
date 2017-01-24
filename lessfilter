@@ -1,0 +1,11 @@
+#!/bin/sh
+
+case "$1" in
+    *.md)
+        which pandoc && pandoc -s -f markdown -t man "$1" | man -l -
+        ;;
+    *)
+        exit 1
+esac
+
+exit 0
