@@ -75,7 +75,6 @@ ${else}\
 ^fg(\#b5bd68)^bg(\#b5bd68)^fg(\#262626)\
 ${endif}${endif}\
 ^i(.dzen/bitmap/diskette.xbm) ${fs_used_perc /var/lib/docker}% \
-^fg(\#262626)^bg(\#262626)\
 ${if_running spotify}\
 ${if_match "${execp ~/bin/spotify-monitor.py playback}" == "Playing"}\
 ^fg(\#b5bd68)^bg(\#b5bd68)^fg(\#262626)^i(.dzen/bitmap/note.xbm) \
@@ -87,7 +86,6 @@ ${if_match "${execp ~/bin/spotify-monitor.py playback}" == "Stopped"}\
 ^fg(\#cc6666)^bg(\#cc6666)^fg(\#e4e4e4)^i(.dzen/bitmap/stop.xbm) \
 ${endif}\
 ${endif}\
-^fg(\#262626)^bg(\#262626)\
 ^ca(1, /home/tim/bin/batinfo_popup)\
 ${if_match ${battery_percent} >=40}\
 ^fg(\#b5bd68)^bg(\#b5bd68)^fg(\#262626)^i(.dzen/bitmap/bat_full_01.xbm) \
