@@ -55,6 +55,7 @@ Plugin 'junegunn/vim-easy-align'
 "Plugin 'SirVer/ultisnips'
 Plugin 'honza/vim-snippets'
 Plugin 'rjohnsondev/vim-compiler-go'
+Plugin 'robbles/logstash.vim'
 
 Plugin 'shadowfax-chc/vim-tomorrow-theme'
 
