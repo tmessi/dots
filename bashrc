@@ -34,6 +34,8 @@ export PATH
 # Editor and Pager
 EDITOR="vim"
 export EDITOR
+export LESS='-R'
+export LESSOPEN='|~/.lessfilter %s'
 PAGER="less -FirSwX"
 MANPAGER="$PAGER"
 export PAGER MANPAGER

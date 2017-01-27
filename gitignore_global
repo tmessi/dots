@@ -4,6 +4,7 @@
 *.py[ocd]
 *.project
 *.orig
+npm-debug.log
 db.sqlite3
 */game/mod_*/[gG]amestate.txt
 */game/mod_*/cfg/server_blacklist.txt
