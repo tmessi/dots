@@ -9,16 +9,24 @@ optional args:
 
     -p|--pretend  print what install will do without doing it.
     -b|--bundle   run :PluginUpdate after install.
-    -n|--nvm      install nvm as well.
-    -r|--rvm      install rvm as well.
+    -t|--tools    install useful tools. Use --help-tools to see list.
+    --help-tools  list tools that will be installed.
     -h|--help     print this help."
+}
+
+function print_help_tools() {
+    echo "Tools:
+
+rmv: Ruby Version Manager    https://rvm.io/
+nvm: Node Version Manager    https://github.com/creationix/nvm
+hub: Github wrapper for git  https://hub.github.com/
+"
 }
 
 pretend=0
 bundleupdate=0
-rvm=0
-nvm=0
-OPTS=$(getopt -o pbhrn --long pretend,bundle,rvm,nvm,help -n "$name" -- "$@")
+tools=0
+OPTS=$(getopt -o pbht --long pretend,bundle,tools,help-tools,help -n "$name" -- "$@")
 
 if [[ $? != 0 ]]; then echo "option error" >&2; exit 1; fi
 
@@ -32,12 +40,13 @@ while true; do
         -b|--bundle)
             bundleupdate=1
             shift;;
-        -r|--rvm)
-            rvm=1
+        -t|--tools)
+            tools=1
             shift;;
-        -n|--nvm)
-            nvm=1
-            shift;;
+        --help-tools)
+            print_help_tools
+            exit 0
+            ;;
         -h|--help)
             print_help
             exit 0
@@ -165,22 +174,42 @@ if [[ $bundleupdate -eq 1 ]]; then
     fi
 fi
 
-if [[ $rvm -eq 1 ]]; then
-    if [[ $pretend -eq 1 ]]; then
-        echo "Would install rvm"
+if [[ $tools -eq 1 ]]; then
+    curl_bin=$(which curl)
+    if [[ -n "${curl_bin}" ]]; then
+        if [[ $pretend -eq 1 ]]; then
+            echo "Would install rvm"
+        else
+            echo "Installing rvm"
+            ${curl_bin} -sSL https://get.rvm.io | bash -s -- stable --ruby --ignore-dotfiles
+        fi
     else
-        echo "Installing rvm"
-        curl -sSL https://get.rvm.io | bash -s -- stable --ruby --ignore-dotfiles
+        echo "Skipping rmv install, curl not found"
     fi
-fi
 
-if [[ $nvm -eq 1 ]]; then
     if [[ $pretend -eq 1 ]]; then
         echo "Would install nvm"
     else
         echo "Installing nvm"
-        git clone https://github.com/creationix/nvm.git ~/.nvm && cd ~/.nvm && git checkout `git describe --abbrev=0 --tags`
+        [[ -d ~/.nvm/.git ]] || git clone https://github.com/creationix/nvm.git ~/.nvm
+        pushd ~/.nvm &> /dev/null
+        git checkout `git describe --abbrev=0 --tags`
+        popd &> /dev/null
+    fi
+
+    go_bin=$(which go)
+    if [[ -n "${go_bin}" ]]; then
+        if [[ $pretend -eq 1 ]]; then
+            echo "Would install hub"
+        else
+            echo "Installing hub"
+            go get -u github.com/github/hub
+        fi
+    else
+        echo "Skipping hub install, go not found"
     fi
 fi
 
 popd &> /dev/null
+
+[[ $pretend -eq 0 ]] && source ~/.bashrc
