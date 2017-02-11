@@ -211,5 +211,3 @@ if [[ $tools -eq 1 ]]; then
 fi
 
 popd &> /dev/null
-
-[[ $pretend -eq 0 ]] && source ~/.bashrc
