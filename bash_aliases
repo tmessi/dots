@@ -78,7 +78,7 @@ alias sduo="sudo"
 alias vm="mv"
 alias got='git'
 
-[[ $(which hub &> /dev/null) ]] && alias git="hub"
+[[ $(which hub 2> /dev/null) ]] && alias git="hub"
 
 # Django shortcuts
 alias runserver="./manage.py runserver"
