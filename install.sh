@@ -17,15 +17,20 @@ optional args:
 function print_help_tools() {
     echo "Tools:
 
-rmv: Ruby Version Manager    https://rvm.io/
-nvm: Node Version Manager    https://github.com/creationix/nvm
-hub: Github wrapper for git  https://hub.github.com/
+rmv: Ruby Version Manager  https://rvm.io/
+nvm: Node Version Manager  https://github.com/creationix/nvm
+
+Go based tools:
+
+hub:  Github wrapper for git                    https://hub.github.com/
+wuzz: Interactive cli tool for HTTP inspection  https://github.com/asciimoo/wuzz
 "
 }
 
 pretend=0
 bundleupdate=0
 tools=0
+go_tools="github.com/github/hub github.com/asciimoo/wuzz"
 OPTS=$(getopt -o pbht --long pretend,bundle,tools,help-tools,help -n "$name" -- "$@")
 
 if [[ $? != 0 ]]; then echo "option error" >&2; exit 1; fi
@@ -199,14 +204,16 @@ if [[ $tools -eq 1 ]]; then
 
     go_bin=$(which go)
     if [[ -n "${go_bin}" ]]; then
-        if [[ $pretend -eq 1 ]]; then
-            echo "Would install hub"
-        else
-            echo "Installing hub"
-            go get -u github.com/github/hub
-        fi
+        for tool in $go_tools; do
+            if [[ $pretend -eq 1 ]]; then
+                echo "Would install $tool"
+            else
+                echo "Installing $tool"
+                go get -u $tool
+            fi
+        done
     else
-        echo "Skipping hub install, go not found"
+        echo "Skipping go based tool installs, go not found"
     fi
 fi
 
