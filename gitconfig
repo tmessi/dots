@@ -1,6 +1,7 @@
 [user]
     name = Timothy Messier
     email = tim.messier@gmail.com
+	signingkey = 42B2695E035AEF82
 [github]
     user = shadowfax-chc
 [url "git@github.com:"]
@@ -25,10 +26,11 @@
 [log]
     decorate = full
 [alias]
-    ls = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate                        ; Log one per line
-    ll = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --numstat              ; Log one per line with files changed
-    lds = log --pretty=format:"%C(yellow)%h\\ %ad%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --date=short    ; Log one per line with dates
-    ld = log --pretty=format:"%C(yellow)%h\\ %ad%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --date=relative  ; Log one per line with relative dates
+    ls = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]\\ %GK" --decorate                        ; Log one per line
+    ll = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]\\ %GK" --decorate --numstat              ; Log one per line with files changed
+    lds = log --pretty=format:"%C(yellow)%h\\ %ad%Cred%d\\ %Creset%s%Cblue\\ [%cn]\\ %GK" --decorate --date=short    ; Log one per line with dates
+    ld = log --pretty=format:"%C(yellow)%h\\ %ad%Cred%d\\ %Creset%s%Cblue\\ [%cn]\\ %GK" --decorate --date=relative  ; Log one per line with relative dates
+    slog = log --show-signature
     glog = log --graph                    ; Graph log
     filelog = log -u                      ; Log for file
     fl = log -u                           ; Log for file
@@ -62,3 +64,7 @@
     uncommit = reset --soft 'HEAD^'
 [push]
     default = simple
+[commit]
+	gpgsign = true
+[gpg]
+	program = gpg2
