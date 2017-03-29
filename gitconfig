@@ -26,10 +26,14 @@
 [log]
     decorate = full
 [alias]
-    ls = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]\\ %C(white)%GK" --decorate                        ; Log one per line
-    ll = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]\\ %C(white)%GK" --decorate --numstat              ; Log one per line with files changed
-    lds = log --pretty=format:"%C(yellow)%h\\ %ad%Cred%d\\ %Creset%s%Cblue\\ [%cn]\\ %C(white)%GK" --decorate --date=short    ; Log one per line with dates
-    ld = log --pretty=format:"%C(yellow)%h\\ %ad%Cred%d\\ %Creset%s%Cblue\\ [%cn]\\ %C(white)%GK" --decorate --date=relative  ; Log one per line with relative dates
+    ls = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%an]\\ %C(white)%GK" --decorate                        ; Log one per line
+    ll = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%an]\\ %C(white)%GK" --decorate --numstat              ; Log one per line with files changed
+    lds = log --pretty=format:"%C(yellow)%h\\ %ad%Cred%d\\ %Creset%s%Cblue\\ [%an]\\ %C(white)%GK" --decorate --date=short    ; Log one per line with dates
+    ld = log --pretty=format:"%C(yellow)%h\\ %ad%Cred%d\\ %Creset%s%Cblue\\ [%an]\\ %C(white)%GK" --decorate --date=relative  ; Log one per line with relative dates
+    lg = log --graph --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%an]\\ %C(white)%GK" --decorate                        ; Log one per line
+    llg = log --graph --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%an]\\ %C(white)%GK" --decorate --numstat              ; Log one per line with files changed
+    lga = log --all --graph --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%an]\\ %C(white)%GK" --decorate                        ; Log one per line
+    llga = log --all --graph --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%an]\\ %C(white)%GK" --decorate --numstat              ; Log one per line with files changed
     slog = log --show-signature
     glog = log --graph                    ; Graph log
     filelog = log -u                      ; Log for file
