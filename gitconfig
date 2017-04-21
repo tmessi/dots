@@ -60,7 +60,7 @@
     vimdiff = difftool --tool=vimdiff --no-prompt
     rpo = remote prune origin
     rps = remote prune shadowfax-chc
-    rp = remote prune
+    rp = "!git remote | xargs -n 1 git remote prune"
     pr = pull-request
     pb = "!git branch --merged | grep -v "\\*" | xargs -n 1 git branch -d"
     unstage = reset HEAD --
