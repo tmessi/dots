@@ -61,6 +61,22 @@ Plugin 'robbles/logstash.vim'
 Plugin 'godlygeek/tabular'
 Plugin 'plasticboy/vim-markdown'
 
+" To try
+"Plugin 'spf13/vim-preview'
+"Plugin 'jamshedvesuna/vim-markdown-preview'
+"Plugin 'junegunn/vim-github-dashboard'
+"Plugin 'kabbamine/vcoolor.vim'
+"Plugin 'fredkschott/covim'
+"Plugin 'jaxbot/github-issues.vim'
+"Plugin 'jarrodctaylor/vim-python-test-runner'
+"Plugin 'thejefe/vim-prreview'
+"Plugin 'linluk/vim-websearch'
+Plugin 'muansari96/vimify'
+"Plugin 'junegunn/vim-emoji'
+Plugin 'wellle/visual-split.vim'
+"Plugin 'metakirby5/codi.vim'
+
+
 Plugin 'shadowfax-chc/vim-tomorrow-theme'
 
 
