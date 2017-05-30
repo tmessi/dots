@@ -260,7 +260,12 @@ function usrt() {
 }
 
 function docker-cleanup {
-    docker rm -v $(docker ps -a -q -f status=exited)
-    docker rmi $(docker images -f "dangling=true" -q)
-    docker volume rm $(docker volume ls -qf dangling=true)
+    exited=$(docker ps -a -q -f status=exited)
+    [[ -n "${exited}" ]] && docker rm -v ${exited}
+
+    dangling=$(docker images -f "dangling=true" -q)
+    [[ -n "${dangling}" ]] && docker rmi ${dangling}
+
+    dangling_volumes=$(docker volume ls -qf dangling=true)
+    [[ -n "${dangling_volumes}" ]] && docker volume rm ${dangling_volumes}
 }
