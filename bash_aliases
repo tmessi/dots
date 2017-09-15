@@ -33,7 +33,8 @@ alias df='df -kTh'
 alias path='echo -e ${PATH//:/\\n}'
 alias grep='grep --color=auto'
 alias igrep='grep -i'
-alias rgrep='grep -R'
+alias rgrep='grep -R --exclude-dir=vendor'
+alias rigrep='grep -i -R --exclude-dir=vendor'
 alias mkpatch='diff -Naur'
 alias open="xdg-open"
 
