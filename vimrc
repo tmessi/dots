@@ -62,6 +62,7 @@ Plugin 'godlygeek/tabular'
 Plugin 'plasticboy/vim-markdown'
 Plugin 'muansari96/vimify'
 Plugin 'wellle/visual-split.vim'
+Plugin 'AndrewRadev/sideways.vim'
 
 Plugin 'shadowfax-chc/vim-tomorrow-theme'
 
