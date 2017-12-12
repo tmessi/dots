@@ -115,3 +115,4 @@ else
 fi
 
 complete -F _python_django_completion -o default $pythons
+complete -C /home/tim/go/bin/gocomplete go

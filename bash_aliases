@@ -90,3 +90,5 @@ alias set-table='echo "┬──┬ ノ( ゜-゜ノ)"'
 
 alias cp-hash="git rev-parse HEAD | tr -d '\n' | xclip"
 alias cp-short="git rev-parse --short HEAD | tr -d '\n' | xclip"
+
+alias x509="openssl x509 -noout -text -in"
