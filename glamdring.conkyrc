@@ -14,10 +14,10 @@ ${if_existing .update_count}\
 ^ca()\
 ${endif}\
 ${if_match "${exec ~/bin/gh-status.sh}" == "minor"}\
-^fg(\#f0c674)^bg(\#f0c674)^fg(\#262626)^i(.dzen/bitmap/info_03.xbm) GitHub ${exec cat ~/.gh_last_updated} \
+^fg(\#f0c674)^bg(\#f0c674)^fg(\#262626)^i(.dzen/bitmap/info_03.xbm) GitHub \
 ${else}\
 ${if_match "${exec ~/bin/gh-status.sh}" == "major"}\
-^fg(\#cc6666)^bg(\#cc6666)^fg(\#e4e4e4)^i(.dzen/bitmap/info_03.xbm) GitHub ${exec cat ~/.gh_last_updated} \
+^fg(\#cc6666)^bg(\#cc6666)^fg(\#e4e4e4)^i(.dzen/bitmap/info_03.xbm) GitHub \
 ${endif}\
 ${endif}\
 ${if_match ${cpu} >=90}\
@@ -85,6 +85,7 @@ ${endif}\
 ${if_match "${execp ~/bin/spotify-monitor.py playback}" == "Stopped"}\
 ^fg(\#cc6666)^bg(\#cc6666)^fg(\#e4e4e4)^i(.dzen/bitmap/stop.xbm) \
 ${endif}\
+ ${execp ~/bin/spotify-monitor.py playing} \
 ${endif}\
 ^ca(1, /home/tim/bin/batinfo_popup)\
 ${if_match ${battery_percent} >=40}\

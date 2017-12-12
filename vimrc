@@ -63,6 +63,7 @@ Plugin 'plasticboy/vim-markdown'
 Plugin 'muansari96/vimify'
 Plugin 'wellle/visual-split.vim'
 Plugin 'AndrewRadev/sideways.vim'
+Plugin 'magicalbanana/vim-sql-syntax'
 
 Plugin 'shadowfax-chc/vim-tomorrow-theme'
 
