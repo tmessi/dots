@@ -3,6 +3,7 @@
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
 ! Plugins and settings
+URxvt.perl-ext-common:      font-size
 URxvt.perl-ext:             default,keyboard-select,url-select
 URxvt.keysym.C-i:           perl:url-select:select_next
 URxvt.keysym.M-bracketleft: perl:keyboard-select:activate
@@ -11,17 +12,19 @@ URxvt.url-select.launcher:  /usr/bin/firefox -new-tab
 URxvt.url-select.underline: true
 URxvt.scrollsytle:          xterm
 URxvt.scrollBar:            false
-URxvt.font:                 -*-terminus-medium-*-*-*-12-*-*-*-*-*-*-*
+URxvt.font:                 -*-terminus-medium-*-*-*-12-*-*-*-*-*-iso10646-*
 URxvt.urgentOnBell:         true
 URxvt.tripleclickwords:     true
 URxvt.cursorUnderline:      true
 URxvt.cursorBlink:          true
 
-! Bind C-0, C-+ and C-= to activate small, medium, and big font size resp.
-URxvt.keysym.C-0:           command:\033]710;-*-terminus-medium-*-*-*-12-*-*-*-*-*-*-*\007
-URxvt.keysym.C-minus:       command:\033]710;-*-terminus-medium-*-*-*-16-*-*-*-*-*-*-*\007
-URxvt.keysym.C-equal:       command:\033]710;-*-terminus-medium-*-*-*-20-*-*-*-*-*-*-*\007
-URxvt.keysym.C-9:           command:\033]710;-*-terminus-medium-*-*-*-11-*-*-*-*-*-*-*\007
+URxvt.font-size.step:  4
+URxvt.keysym.C-equal:  perl:font-size:increase
+URxvt.keysym.C-minus:  perl:font-size:decrease
+URxvt.keysym.C-S-Up:   perl:font-size:incglobal
+URxvt.keysym.C-S-Down: perl:font-size:decglobal
+URxvt.keysym.C-0:      perl:font-size:reset
+URxvt.keysym.C-slash:  perl:font-size:show
 
 ! Normal
 ! color0    black
