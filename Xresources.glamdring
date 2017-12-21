@@ -1,5 +1,4 @@
 URxvt.font:                 -*-terminus-medium-*-*-*-24-*-*-*-*-*-iso10646-*
-URxvt.shading:     10
 
 XLock.mode: matrix
 

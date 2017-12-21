@@ -67,6 +67,9 @@ export PAGER MANPAGER
 # added by travis gem
 [[ -f $HOME/.travis/travis.sh ]] && source $HOME/.travis/travis.sh
 
+# enable autojump if available
+[[ -s /usr/share/autojump/autojump.bash ]] && source /usr/share/autojump/autojump.bash
+
 [[ -f /usr/bin/fortune ]] && command fortune firefly calvin futurama hitchhiker
 
 export NVM_DIR="$HOME/.nvm"
