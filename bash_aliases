@@ -37,6 +37,7 @@ alias rgrep='grep -R --exclude-dir=vendor'
 alias rigrep='grep -i -R --exclude-dir=vendor'
 alias mkpatch='diff -Naur'
 alias open="xdg-open"
+[[ -f /usr/bin/autojump ]] && alias f=j  # f makes more sense then j
 
 [[ -f /usr/bin/mpv ]] && alias mplayer="mpv"
 
