@@ -10,4 +10,7 @@ hi CompItem[selected] background: gray;
 hi ModeMsg color: #b6e77d; background: black;
 hi StatusLine  color: #b6e77d; background: black; font-family: Terminus; padding: 0px;
 
+:set! browser.tabs.closeWindowWithLastTab=false
+map <M-w> :q<CR>
+
 " vim: set ft=vimperator:
