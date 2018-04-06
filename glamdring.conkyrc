@@ -86,7 +86,18 @@ ${if_match "${execp ~/bin/spotify-monitor.py playback}" == "Stopped"}\
 ^fg(\#cc6666)^bg(\#cc6666)^fg(\#e4e4e4)^i(.dzen/bitmap/stop.xbm) \
 ${endif}\
  ${execp ~/bin/spotify-monitor.py playing} \
+${else} ${if_running mpd}\
+${if_match "${mpd_status}" == "Playing"}\
+^fg(\#b5bd68)^bg(\#b5bd68)^fg(\#262626)^i(.dzen/bitmap/note.xbm) \
 ${endif}\
+${if_match "${mpd_status}" == "Paused"}\
+^fg(\#f0c674)^bg(\#f0c674)^fg(\#262626)^i(.dzen/bitmap/pause.xbm) \
+${endif}\
+${if_match "${mpd_status}" == "Stopped"}\
+^fg(\#cc6666)^bg(\#cc6666)^fg(\#e4e4e4)^i(.dzen/bitmap/stop.xbm) \
+${endif} \
+${scroll 20 2 ${mpd_smart}} \
+^fg(\#262626)^bg(\#262626)\
 ^ca(1, /home/tim/bin/batinfo_popup)\
 ${if_match ${battery_percent} >=40}\
 ^fg(\#b5bd68)^bg(\#b5bd68)^fg(\#262626)^i(.dzen/bitmap/bat_full_01.xbm) \
