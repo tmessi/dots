@@ -40,6 +40,9 @@ PAGER="less -FirSwX"
 MANPAGER="$PAGER"
 export PAGER MANPAGER
 
+# Sane background for kernel menuconfig
+export MENUCONFIG_COLOR=blackbg
+
 [[ -f $HOME/.pentadactylrc.$HOSTNAME ]] && export PENTADACTYL_INIT=":source $HOME/.pentadactylrc.$HOSTNAME"
 
 # Prompt and window title of X terminals
