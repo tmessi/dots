@@ -1,0 +1,13 @@
+{
+    "Vendor": true,
+    "Exclude": [
+        "gen.go"
+    ],
+    "Enable": [
+        "golint",
+        "gofmt",
+        "goimports",
+        "vetshadow",
+        "misspell"
+    ]
+}
