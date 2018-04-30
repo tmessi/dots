@@ -1,13 +1,15 @@
-out_to_x no
-out_to_console yes
-update_interval 1.0
-total_run_times 0
-use_spacer none
-use_xft yes
-override_utf8_locale yes
-xftfont Terminus:style=Regular:pixelsize=24:antialias=true
+conky.config = {
+    out_to_x                     = false,
+    out_to_console               = true,
+    update_interval              = 1.0,
+    total_run_times              = 0,
+    use_spacer                   = none,
+    use_xft                      = true,
+    override_utf8_locale         = true,
+    xftfont 'xos4 Terminus:style = Regular:pixelsize=24:antialias=true'
+};
 
-TEXT
+conky.text = [[
 ${if_existing .update_count}\
 ^ca(1, /home/tim/bin/sysinfo_popup)\
 ^fg(\#af5f00)^bg(\#af5f00)^fg(\#262626)^i(.dzen/bitmap/net_up_02.xbm) ${exec cat ~/.update_count} \
@@ -94,3 +96,4 @@ ${else}\
 ${endif}${endif}\
 ${battery_percent}% ${battery_time}\
 ^ca()
+]];
