@@ -181,7 +181,11 @@ function gcd() {
 function ws () {
     if [[ $1 ]]; then
         cd ~/workspace/$1
-        [[ -f "$PWD/requirements.txt" ]] && ve
+        if [[ -d $PWD/.pyenv ]]; then
+            ve -v -a
+        elif [[ -f "$PWD/requirements.txt" ]]; then
+            ve -v
+        fi
     fi
 }
 
