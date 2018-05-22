@@ -1,6 +1,6 @@
 URxvt.font: -*-terminus-medium-*-*-*-24-*-*-*-*-*-iso10646-*
 
-XLock.mode: matrix
+XLock.mode: galaxy
 
 Xft.dpi:       96
 Xft.autohint:  0
