@@ -230,7 +230,7 @@ function djtest() {
         test_file_no_ext=${test_file%%.*}
         test_spec=${test_file_no_ext//\//.}
         echo $test_spec
-        ./manage.py test $test_spec $@
+        ./manage.py test --verbosity=2 --nocapture --nologcapture $test_spec $@
         local ret=$?
         if [[ $ret -ne 0 ]]; then
             echo 'Test failed, skipping additional test files'
