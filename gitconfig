@@ -68,6 +68,7 @@
     unstage = reset HEAD --
     last = log -1 HEAD
     uncommit = reset --soft 'HEAD^'
+    fixupfile = "!f() { git commit --fixup=$(git log --all --full-history -1 --format=format:%h -- \"$1\") \"$@\";}; f"
 [push]
     default = simple
 [commit]
