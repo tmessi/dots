@@ -18,7 +18,7 @@ URxvt.tripleclickwords:     true
 URxvt.cursorUnderline:      true
 URxvt.cursorBlink:          true
 
-URxvt.font-size.step:  4
+URxvt.font-size.step:  2
 URxvt.keysym.C-equal:  perl:font-size:increase
 URxvt.keysym.C-minus:  perl:font-size:decrease
 URxvt.keysym.C-S-Up:   perl:font-size:incglobal
@@ -149,6 +149,14 @@ XTerm*foreground: #b6e77d
 ! other settings
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
-Xft.dpi:          96
-XLock*background: black
-XLock*foreground: #b6e77d
+Xft.dpi:       96
+Xft.autohint:  0
+Xft.lcdfilter: lcddefault
+Xft.hintstyle: hintfull
+Xft.hinting:   1
+Xft.antialias: 1
+Xft.rgba:      rgb
+
+XLock.background: black
+XLock.foreground: #b6e77d
+XLock.mode:       matrix
