@@ -65,8 +65,12 @@ Plugin 'godlygeek/tabular'
 Plugin 'plasticboy/vim-markdown'
 Plugin 'wellle/visual-split.vim'
 Plugin 'AndrewRadev/sideways.vim'
-Plugin 'magicalbanana/vim-sql-syntax'
+Plugin 'shmup/vim-sql-syntax'
+Plugin 'shawncplus/phpcomplete.vim'
 Plugin 'ludovicchabant/vim-gutentags'
+Plugin 'martinda/Jenkinsfile-vim-syntax'
+Plugin 'pangloss/vim-javascript'
+Plugin 'mxw/vim-jsx'
 
 Plugin 'shadowfax-chc/vim-tomorrow-theme'
 
