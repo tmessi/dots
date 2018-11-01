@@ -1,6 +1,7 @@
 # vim: set filetype=sh :
 
 [[ -f /usr/bin/gulp ]] && eval "$(gulp --completion=bash)"
+which doctl &> /dev/null && source <(doctl completion bash)
 
 __ws_comp()
 {
