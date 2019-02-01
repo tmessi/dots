@@ -352,3 +352,8 @@ function docker-cleanup {
     dangling_volumes=$(docker volume ls -qf dangling=true)
     [[ -n "${dangling_volumes}" ]] && docker volume rm ${dangling_volumes}
 }
+
+function gssh {
+    [[ -f $HOME/.ssh/google_compute_engine ]] && ssh-add $HOME/.ssh/google_compute_engine &> /dev/null
+    gcloud compute ssh --ssh-flag="-A" "$@"
+}
