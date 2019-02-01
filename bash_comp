@@ -1,7 +1,7 @@
 # vim: set filetype=sh :
 
 [[ -f /usr/bin/gulp ]] && eval "$(gulp --completion=bash)"
-[[ -f "$HOME/.google-cloud-sdk/completion.bash.inc" ]] && source "$HOME/.google-cloud-sdk/completion.bash.inc"
+[[ -f "$HOME/.gc/google-cloud-sdk/completion.bash.inc" ]] && source "$HOME/.gc/google-cloud-sdk/completion.bash.inc"
 which doctl &> /dev/null && source <(doctl completion bash)
 
 __ws_comp()
