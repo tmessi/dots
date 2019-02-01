@@ -186,12 +186,15 @@ if [[ $tools -eq 1 ]]; then
     if [[ -n "${curl_bin}" ]]; then
         if [[ $pretend -eq 1 ]]; then
             echo "Would install rvm"
+            echo "Would install gcloud"
         else
             echo "Installing rvm"
             ${curl_bin} -sSL https://get.rvm.io | bash -s -- stable --ruby --ignore-dotfiles
+            echo "Installing gcloud"
+            ${curl_bin} -sSL https://sdk.cloud.google.com | bash -s -- --disable-prompts --install-dir="$HOME/.google-cloud-sdk"
         fi
     else
-        echo "Skipping rmv install, curl not found"
+        echo "Skipping rmv, gcloud install, curl not found"
     fi
 
     if [[ $pretend -eq 1 ]]; then
