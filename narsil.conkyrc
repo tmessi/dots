@@ -73,7 +73,7 @@ ${endif}\
 ${if_match "${execp ~/bin/spotify-monitor.py playback}" == "Stopped"}\
 ^fg(\#cc6666)^bg(\#cc6666)^fg(\#e4e4e4)^i(.dzen/bitmap/stop.xbm) \
 ${endif}\
- ${execp ~/bin/spotify-monitor.py playing} \
+ ${scroll 20 2 ${execp ~/bin/spotify-monitor.py playing}} \
 ${else}\
 ${if_running mpd}\
 ${if_match "${mpd_status}" == "Playing"}\
