@@ -1,8 +1,10 @@
 override_git_prompt_colors() {
     # http://unix.stackexchange.com/questions/124407/what-color-codes-can-i-use-in-my-ps1-prompt
+    # https://misc.flogisoft.com/bash/tip_colors_and_formatting
     BgGray="5;235";
     GreenWithBg="\[\e[38;5;10;48;${BgGray}m\]"
     CyanWithBg="\[\e[38;5;12;48;${BgGray}m\]"
+    DarkYellowWithBg="\[\e[38;5;214;48;${BgGray}m\]"
     YellowWithBg="\[\e[38;5;11;48;${BgGray}m\]"
     RedWithBg="\[\e[38;5;9;48;${BgGray}m\]"
     BlueWithBg="\[\e[38;5;39;48;${BgGray}m\]"
@@ -10,8 +12,13 @@ override_git_prompt_colors() {
     BgToFg="\[\e[38;${BgGray}m\]"
     RedBg="\[\e[38;${BgGray};48;5;9m\]"
     BlueWithRedBg="\[\e[38;5;39;48;5;9m\]"
+    BlueWithDarkYellowBg="\[\e[38;5;39;48;5;214m\]"
     RedWithGreenBg="\[\e[38;5;9;48;5;10m\]"
+    DarkYellowWithGreenBg="\[\e[38;5;214;48;5;10m\]"
+    YellowWithGreenBg="\[\e[38;5;11;48;5;10m\]"
     GreenBg="\[\e[38;${BgGray};48;5;10m\]"
+    DarkYellowBg="\[\e[38;${BgGray};48;5;214m\]"
+    YellowBg="\[\e[38;${BgGray};48;5;11m\]"
     BlueBg="\[\e[38;${BgGray};48;5;39m\]"
     ResetWithBg="\[\e[0;0;48;${BgGray}m\]"
     ResetGreenBg="\[\e[38;${BgGray};48;5;10m\]"
@@ -35,8 +42,15 @@ override_git_prompt_colors() {
     fi
     if [[ "$VIRTUAL_ENV" ]]; then
         pre_prefix=""
+        if [[ "$PA" ]]; then
+            virtenv_suffix="${BlueWithDarkYellowBg} "
+            pre_prefix="${DarkYellowBg}${PA}${DarkYellowWithBg} "
+        fi
     else
         pre_prefix="${GreenBg}${repo##*/}${GreenWithBg} "
+        if [[ "$PA" ]]; then
+            pre_prefix="${DarkYellowBg}${PA}${DarkYellowWithGreenBg} ${pre_prefix}"
+        fi
     fi
 
     GIT_PROMPT_PREFIX="${pre_prefix}${GreenWithBg}"                    # start of the git info string
