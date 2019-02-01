@@ -71,6 +71,7 @@ Plugin 'ludovicchabant/vim-gutentags'
 Plugin 'martinda/Jenkinsfile-vim-syntax'
 Plugin 'pangloss/vim-javascript'
 Plugin 'mxw/vim-jsx'
+Plugin 'chr4/nginx.vim'
 
 Plugin 'shadowfax-chc/vim-tomorrow-theme'
 
