@@ -72,6 +72,7 @@ Plugin 'martinda/Jenkinsfile-vim-syntax'
 Plugin 'pangloss/vim-javascript'
 Plugin 'mxw/vim-jsx'
 Plugin 'chr4/nginx.vim'
+Plugin 'direnv/direnv.vim'
 
 Plugin 'shadowfax-chc/vim-tomorrow-theme'
 
