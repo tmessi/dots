@@ -83,3 +83,5 @@ export GPG_TTY=`tty`
 
 # google cloud
 [[ -f "$HOME/.gc/google-cloud-sdk/path.bash.inc" ]] && source "$HOME/.gc/google-cloud-sdk/path.bash.inc"
+
+which direnv &> /dev/null && eval "$(direnv hook bash)"

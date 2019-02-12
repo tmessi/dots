@@ -22,17 +22,20 @@ nvm: Node Version Manager  https://github.com/creationix/nvm
 
 Go based tools:
 
-hub:        Github wrapper for git                    https://hub.github.com/
-wuzz:       Interactive cli tool for HTTP inspection  https://github.com/asciimoo/wuzz
-hclfmt:     Format hcl files                          https://github.com/fatih/hclfmt
-gocomplete: Bash completion for go                    https://github.com/posener/complete/gocomplete
+direnv:     Unclutter your .profile                      https://direnv.net/
+gitin:      Commmit/branch/workdir explorer for git      https://github.com/isacikgoz/gitin
+gocomplete: Bash completion for go                       https://github.com/posener/complete/gocomplete
+gotop:      A terminal based graphical activity monitor  https://github.com/cjbassi/gotop
+hclfmt:     Format hcl files                             https://github.com/fatih/hclfmt
+hub:        Github wrapper for git                       https://hub.github.com/
+wuzz:       Interactive cli tool for HTTP inspection     https://github.com/asciimoo/wuzz
 "
 }
 
 pretend=0
 bundleupdate=0
 tools=0
-go_tools="github.com/github/hub github.com/asciimoo/wuzz github.com/fatih/hclfmt github.com/schachmat/wego github.com/posener/complete/gocomplete"
+go_tools="github.com/github/hub github.com/asciimoo/wuzz github.com/fatih/hclfmt github.com/schachmat/wego github.com/posener/complete/gocomplete github.com/isacikgoz/gitin github.com/cjbassi/gotop github.com/direnv/direnv"
 OPTS=$(getopt -o pbht --long pretend,bundle,tools,help-tools,help -n "$name" -- "$@")
 
 if [[ $? != 0 ]]; then echo "option error" >&2; exit 1; fi
