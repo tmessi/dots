@@ -41,6 +41,14 @@ PAGER="less -FirSwX"
 MANPAGER="$PAGER"
 export PAGER MANPAGER
 
+# History
+export HISTFILESIZE=
+export HISTSIZE=
+export HISTTIMEFORMAT="[%F %T] "
+export HISTCONTROL="erasedups:ignorespace"
+export HISTFILE=~/.bash_eternal_history
+PROMPT_COMMAND="history -a; $PROMPT_COMMAND"
+
 # Sane background for kernel menuconfig
 export MENUCONFIG_COLOR=blackbg
 
