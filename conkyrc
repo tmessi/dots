@@ -51,7 +51,7 @@ ${swapperc}% \
 ${if_up enp4s0}\
 ^i(.dzen/bitmap/net_down_03.xbm) ${downspeedf enp4s0} KiB  \
 ${endif}\
-^i(.dzen/bitmap/spkr_01.xbm) ${mixer} \
+^i(.dzen/bitmap/spkr_01.xbm) ${execp ~/bin/soundkeys.py volume}% \
 ${if_match "${hddtemp /dev/sda}" == "N/A"}${else}\
  ^i(.dzen/bitmap/temp.xbm) sda ${hddtemp /dev/sda}°C \
 ${endif}\
