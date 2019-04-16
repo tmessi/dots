@@ -40,8 +40,6 @@ alias open="xdg-open"
 alias dmesg="dmesg --color=always"
 [[ -f /usr/bin/autojump ]] && alias f=j  # f makes more sense then j
 
-[[ -f /usr/bin/mpv ]] && alias mplayer="mpv"
-
 # Silly sudo
 alias mount='sudo mount'
 alias umount='sudo umount'
