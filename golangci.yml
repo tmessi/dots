@@ -1,0 +1,13 @@
+linters:
+  disable-all: true
+  enable:
+    - gofmt
+    - goimports
+    - golint
+    - gosimple
+    - govet
+    - misspell
+    - vetshadow
+
+issues:
+  exclude-use-default: false
