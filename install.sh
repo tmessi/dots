@@ -225,4 +225,12 @@ if [[ $tools -eq 1 ]]; then
     fi
 fi
 
+
+if [[ $pretend -eq 1 ]]; then
+    echo "Would remove the following broken links"
+    find $HOME -xtype l
+else
+    find $HOME -xtype l -delete
+fi
+
 popd &> /dev/null
