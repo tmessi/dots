@@ -19,7 +19,7 @@ Plug 'kien/ctrlp.vim'
 Plug 'mileszs/ack.vim'
 Plug 'phleet/vim-mercenary'
 Plug 'scrooloose/nerdcommenter'
-Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
+Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeFind' }
 Plug 'scrooloose/syntastic'
 Plug 'scrooloose/vim-slumlord'
 Plug 'aklt/plantuml-syntax'
