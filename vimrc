@@ -1,90 +1,87 @@
 set nocompatible
-filetype off
 
-set rtp+=~/.vim/bundle/Vundle.vim
-let g:vundle_default_git_proto = 'https'
-call vundle#begin()
+if empty(glob('~/.vim/autoload/plug.vim'))
+  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
 
-" Plugins to install
-Plugin 'VundleVim/Vundle.vim'
-
+call plug#begin('~/.vim/plugged')
 " Syntax/filetype detection
-Plugin 'saltstack/salt-vim'
+Plug 'saltstack/salt-vim'
 
 " Helpful plugins
-Plugin 'Lokaltog/vim-easymotion'
-Plugin 'vim-airline/vim-airline'
-Plugin 'vim-airline/vim-airline-themes'
-Plugin 'ervandew/supertab'
-Plugin 'kien/ctrlp.vim'
-Plugin 'mileszs/ack.vim'
-Plugin 'phleet/vim-mercenary'
-Plugin 'scrooloose/nerdcommenter'
-Plugin 'scrooloose/nerdtree'
-Plugin 'scrooloose/syntastic'
-Plugin 'scrooloose/vim-slumlord'
-Plugin 'aklt/plantuml-syntax'
-Plugin 'sjl/gundo.vim'
-Plugin 'gregsexton/gitv'
-Plugin 'tpope/vim-abolish'
-Plugin 'tpope/vim-eunuch'
-Plugin 'tpope/vim-fugitive'
-Plugin 'tpope/vim-rhubarb'
-Plugin 'tpope/vim-repeat'
-Plugin 'tpope/vim-speeddating'
-Plugin 'tpope/vim-surround'
-Plugin 'tpope/vim-endwise'
-Plugin 'tpope/vim-unimpaired'
-Plugin 'tpope/vim-git'
-Plugin 'walm/jshint.vim'
-Plugin 'aaronbieber/quicktask'
-Plugin 'davidhalter/jedi-vim'
-Plugin 'kchmck/vim-coffee-script'
-Plugin 'xolox/vim-misc'
-Plugin 'airblade/vim-gitgutter'
-Plugin 'nathanaelkane/vim-indent-guides'
-Plugin 'michaeljsmith/vim-indent-object'
-Plugin 'maralla/completor.vim'
-Plugin 'majutsushi/tagbar'
-Plugin 'b4b4r07/vim-hcl'
-Plugin 'hashivim/vim-terraform'
-Plugin 'hashivim/vim-consul'
-Plugin 'hashivim/vim-packer'
-Plugin 'hashivim/vim-vaultproject'
-Plugin 'fatih/vim-go'
-Plugin 'fatih/vim-hclfmt'
-Plugin 'heavenshell/vim-pydocstring'
-Plugin 'junegunn/vim-easy-align'
-Plugin 'junegunn/goyo.vim'
-Plugin 'junegunn/limelight.vim'
-Plugin 'junegunn/vim-journal'
-Plugin 'honza/vim-snippets'
-Plugin 'rjohnsondev/vim-compiler-go'
-Plugin 'robbles/logstash.vim'
-Plugin 'godlygeek/tabular'
-Plugin 'plasticboy/vim-markdown'
-Plugin 'wellle/visual-split.vim'
-Plugin 'AndrewRadev/sideways.vim'
-Plugin 'shmup/vim-sql-syntax'
-Plugin 'shawncplus/phpcomplete.vim'
-Plugin 'ludovicchabant/vim-gutentags'
-Plugin 'martinda/Jenkinsfile-vim-syntax'
-Plugin 'pangloss/vim-javascript'
-Plugin 'mxw/vim-jsx'
-Plugin 'chr4/nginx.vim'
-Plugin 'direnv/direnv.vim'
+Plug 'Lokaltog/vim-easymotion'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+Plug 'ervandew/supertab'
+Plug 'kien/ctrlp.vim'
+Plug 'mileszs/ack.vim'
+Plug 'phleet/vim-mercenary'
+Plug 'scrooloose/nerdcommenter'
+Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
+Plug 'scrooloose/syntastic'
+Plug 'scrooloose/vim-slumlord'
+Plug 'aklt/plantuml-syntax'
+Plug 'sjl/gundo.vim'
+Plug 'gregsexton/gitv'
+Plug 'tpope/vim-abolish'
+Plug 'tpope/vim-eunuch'
+Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-rhubarb'
+Plug 'tpope/vim-repeat'
+Plug 'tpope/vim-speeddating'
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-endwise'
+Plug 'tpope/vim-unimpaired'
+Plug 'tpope/vim-git'
+Plug 'walm/jshint.vim'
+Plug 'aaronbieber/quicktask'
+Plug 'davidhalter/jedi-vim'
+Plug 'kchmck/vim-coffee-script'
+Plug 'xolox/vim-misc'
+Plug 'airblade/vim-gitgutter'
+Plug 'nathanaelkane/vim-indent-guides'
+Plug 'michaeljsmith/vim-indent-object'
+Plug 'maralla/completor.vim'
+Plug 'majutsushi/tagbar'
+Plug 'b4b4r07/vim-hcl'
+Plug 'hashivim/vim-terraform'
+Plug 'hashivim/vim-consul'
+Plug 'hashivim/vim-packer'
+Plug 'hashivim/vim-vaultproject'
+Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' }
+Plug 'fatih/vim-hclfmt'
+Plug 'heavenshell/vim-pydocstring'
+Plug 'junegunn/vim-easy-align'
+Plug 'junegunn/goyo.vim'
+Plug 'junegunn/limelight.vim'
+Plug 'junegunn/vim-journal'
+Plug 'honza/vim-snippets'
+Plug 'rjohnsondev/vim-compiler-go'
+Plug 'robbles/logstash.vim'
+Plug 'godlygeek/tabular'
+Plug 'plasticboy/vim-markdown'
+Plug 'wellle/visual-split.vim'
+Plug 'AndrewRadev/sideways.vim'
+Plug 'shmup/vim-sql-syntax'
+Plug 'shawncplus/phpcomplete.vim'
+Plug 'ludovicchabant/vim-gutentags'
+Plug 'martinda/Jenkinsfile-vim-syntax'
+Plug 'pangloss/vim-javascript'
+Plug 'mxw/vim-jsx'
+Plug 'chr4/nginx.vim'
+Plug 'direnv/direnv.vim'
+Plug 'markonm/traces.vim'
 
-Plugin 'shadowfax-chc/vim-tomorrow-theme'
+Plug 'shadowfax-chc/vim-tomorrow-theme'
 
+" My vim plugin contains the vimrc and filetype configs.
+Plug 'shadowfax-chc/vim-fax'
 
-" My vim bundle
-Plugin 'shadowfax-chc/vim-fax'
-
-call vundle#end()
-
-filetype plugin indent on
+call plug#end()
 
 " Load everything else from vim-fax/vimrc.vim
-if filereadable(expand("~/.vim/bundle/vim-fax/vimrc.vim"))
-	execute "source ~/.vim/bundle/vim-fax/vimrc.vim"
+if filereadable(expand("~/.vim/plugged/vim-fax/vimrc.vim"))
+	execute "source ~/.vim/plugged/vim-fax/vimrc.vim"
 endif

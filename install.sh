@@ -8,7 +8,6 @@ function print_help() {
 optional args:
 
     -p|--pretend  print what install will do without doing it.
-    -b|--bundle   run :PluginUpdate after install.
     -t|--tools    install useful tools. Use --help-tools to see list.
     --help-tools  list tools that will be installed.
     -h|--help     print this help."
@@ -33,10 +32,9 @@ wuzz:       Interactive cli tool for HTTP inspection     https://github.com/asci
 }
 
 pretend=0
-bundleupdate=0
 tools=0
 go_tools="github.com/github/hub github.com/asciimoo/wuzz github.com/fatih/hclfmt github.com/schachmat/wego github.com/posener/complete/gocomplete github.com/isacikgoz/gitin github.com/cjbassi/gotop github.com/direnv/direnv github.com/shadowfax-chc/wallpaper/wp"
-OPTS=$(getopt -o pbht --long pretend,bundle,tools,help-tools,help -n "$name" -- "$@")
+OPTS=$(getopt -o pht --long pretend,tools,help-tools,help -n "$name" -- "$@")
 
 if [[ $? != 0 ]]; then echo "option error" >&2; exit 1; fi
 
@@ -46,9 +44,6 @@ while true; do
     case "$1" in
         -p|--pretend)
             pretend=1
-            shift;;
-        -b|--bundle)
-            bundleupdate=1
             shift;;
         -t|--tools)
             tools=1
@@ -153,35 +148,9 @@ if [[ ! -d "$HOME/.bash-git-prompt" ]]; then
 fi
 
 if [[ $pretend -eq 1 ]]; then
-    echo "Would make dirs '$HOME/.vim/{bundle,swap,backup,undo}"
+    echo "Would make dirs '$HOME/.vim/{swap,backup,undo}"
 else
-    mkdir -p "$HOME/.vim/"{bundle,swap,backup,undo}
-fi
-
-if [[ ! -d "$HOME/.vim/bundle/Vundle.vim" ]]; then
-    if [[ $pretend -eq 1 ]]; then
-        echo "Would install vundle"
-    else
-        echo "Installing vundle"
-        # Cleean up old vundle install
-        rm -rf $HOME/.vim/bundle/vundle
-        git clone https://github.com/VundleVim/Vundle.vim.git "$HOME/.vim/bundle/Vundle.vim" &> /dev/null
-        if [[ $bundleupdate -eq 0 ]]; then
-            echo "Now start vim and run:"
-            echo ":PluginInstall"
-        fi
-    fi
-else
-    echo "Vundle already installed"
-fi
-
-if [[ $bundleupdate -eq 1 ]]; then
-    if [[ $pretend -eq 1 ]]; then
-        echo "Would run :PluginUpdate"
-    else
-        echo "Running bundle update"
-        vim -c PluginUpdate -c qa &> /dev/null
-    fi
+    mkdir -p "$HOME/.vim/"{swap,backup,undo}
 fi
 
 if [[ $tools -eq 1 ]]; then
@@ -232,5 +201,8 @@ if [[ $pretend -eq 1 ]]; then
 else
     find $HOME -xtype l -delete
 fi
+
+# Cleanup oold bundle dir now that vim-plug is being used
+[[ -d ~/.vim/bundle ]] && rm -rf ~/.vim/bundle
 
 popd &> /dev/null
