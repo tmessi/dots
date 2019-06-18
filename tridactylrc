@@ -1,0 +1,10 @@
+guiset_quiet tabs autohide
+guiset_quiet navbar none
+guiset_quiet titlebar hide
+guiset_quiet hoverlink left
+set hintnames numeric
+set hintfiltermode vimperator
+set homepages https://github.com
+set newtab https://github.com
+set theme dark
+set yankto both
