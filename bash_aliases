@@ -38,7 +38,7 @@ alias rigrep='grep -i -R --exclude-dir=vendor'
 alias mkpatch='diff -Naur'
 alias open="xdg-open"
 alias dmesg="dmesg --color=always"
-[[ -f /usr/bin/autojump ]] && alias f=j  # f makes more sense then j
+which autojump &>/dev/null && alias f=j  # f makes more sense then j
 
 # Silly sudo
 alias mount='sudo mount'
@@ -49,12 +49,7 @@ alias eix-sync='sudo eix-sync'
 alias eix-update='sudo eix-update'
 alias rc-update='sudo rc-update'
 alias revdep-rebuild='sudo revdep-rebuild'
-alias salt='sudo salt'
-alias salt-key='sudo salt-key'
-alias salt-cloud='sudo salt-cloud'
-alias salt-run='sudo salt-run'
-alias salt-call='sudo salt-call'
-alias hald='sudo hald --daemon=yes --verbose=yes'
+alias apk='sudo apk'
 
 # Program defaults
 alias tmux='tmux -2'
