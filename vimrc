@@ -43,7 +43,7 @@ Plug 'xolox/vim-misc'
 Plug 'airblade/vim-gitgutter'
 Plug 'nathanaelkane/vim-indent-guides'
 Plug 'michaeljsmith/vim-indent-object'
-Plug 'maralla/completor.vim'
+Plug 'maralla/completor.vim', has('python') ? {} : { 'on': [] }
 Plug 'majutsushi/tagbar'
 Plug 'b4b4r07/vim-hcl'
 Plug 'hashivim/vim-terraform'
