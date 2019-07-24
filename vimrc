@@ -71,7 +71,7 @@ Plug 'martinda/Jenkinsfile-vim-syntax'
 Plug 'pangloss/vim-javascript'
 Plug 'mxw/vim-jsx'
 Plug 'chr4/nginx.vim'
-Plug 'direnv/direnv.vim'
+Plug 'direnv/direnv.vim', executable('direnv') ? {} : { 'on': [] }
 Plug 'markonm/traces.vim'
 
 Plug 'shadowfax-chc/vim-tomorrow-theme'
