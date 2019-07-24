@@ -82,6 +82,7 @@ export MENUCONFIG_COLOR=blackbg
 
 # enable autojump if available
 [[ -s /usr/share/autojump/autojump.bash ]] && source /usr/share/autojump/autojump.bash
+[[ -s $HOME/.autojump/etc/profile.d/autojump.sh ]] && source $HOME/.autojump/etc/profile.d/autojump.sh
 
 [[ -f /usr/bin/fortune ]] && command fortune firefly calvin futurama hitchhiker
 
