@@ -4,9 +4,12 @@
 [[ $- != *i* ]] && return
 if [[ $SSH_CLIENT ]]; then
     if which tmux >/dev/null 2>&1; then
-        test -z "$TMUX" && (tmux attach || tmux new-session -c cat /etc/motd)
+        test -z "$TMUX" && (tmux attach || tmux new-session)
     fi
-    which screenfetch &> /dev/null && screenfetch
+    if [[ $TMUX_PANE == '%0' ]]; then
+        [[ -f /etc/motd ]] && cat /etc/motd
+        which screenfetch &> /dev/null && screenfetch
+    fi
 fi
 
 # For spectrwm
