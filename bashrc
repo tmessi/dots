@@ -4,7 +4,7 @@
 [[ $- != *i* ]] && return
 if [[ $SSH_CLIENT ]]; then
     if which tmux >/dev/null 2>&1; then
-        test -z "$TMUX" && (tmux attach || tmux new-session)
+        test -z "$TMUX" && (tmux attach || tmux new-session -c cat /etc/motd)
     fi
     which screenfetch &> /dev/null && screenfetch
 fi
