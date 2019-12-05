@@ -61,7 +61,7 @@ data) # Test if lzma archive
             xz -F lzma -dc "$1"
         fi
     else
-        echo "Unrecognized file"
+        return
     fi ;;
 ISO[[:space:]]9660[[:space:]]CD-ROM[[:space:]]filesystem[[:space:]]data*)
     if cmdexist isoinfo ; then
