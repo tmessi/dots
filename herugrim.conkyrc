@@ -62,30 +62,19 @@ ${else}\
 ^fg(\#b5bd68)^bg(\#b5bd68)^fg(\#262626)\
 ${endif}${endif}\
 ^i(.dzen/bitmap/diskette.xbm) ${fs_used_perc /home}% \
+${if_match "${execp mm status}" != ""}\
 ^fg(\#262626)^bg(\#262626)\
-${if_running spotify}\
-${if_match "${execp ~/bin/spotify-monitor.py playback}" == "Playing"}\
+${if_match "${execp mm status}" == "Playing"}\
 ^fg(\#b5bd68)^bg(\#b5bd68)^fg(\#262626)^i(.dzen/bitmap/note.xbm) \
 ${endif}\
-${if_match "${execp ~/bin/spotify-monitor.py playback}" == "Paused"}\
+${if_match "${execp mm status}" == "Paused"}\
 ^fg(\#f0c674)^bg(\#f0c674)^fg(\#262626)^i(.dzen/bitmap/pause.xbm) \
 ${endif}\
-${if_match "${execp ~/bin/spotify-monitor.py playback}" == "Stopped"}\
+${if_match "${execp mm status}" == "Stopped"}\
 ^fg(\#cc6666)^bg(\#cc6666)^fg(\#e4e4e4)^i(.dzen/bitmap/stop.xbm) \
 ${endif}\
- ${scroll 20 2 ${execp ~/bin/spotify-monitor.py playing}} \
-${else}\
-${if_running mpd}\
-${if_match "${mpd_status}" == "Playing"}\
-^fg(\#b5bd68)^bg(\#b5bd68)^fg(\#262626)^i(.dzen/bitmap/note.xbm) \
+ ${scroll 20 2 ${execp mm playing}} \
 ${endif}\
-${if_match "${mpd_status}" == "Paused"}\
-^fg(\#f0c674)^bg(\#f0c674)^fg(\#262626)^i(.dzen/bitmap/pause.xbm) \
-${endif}\
-${if_match "${mpd_status}" == "Stopped"}\
-^fg(\#cc6666)^bg(\#cc6666)^fg(\#e4e4e4)^i(.dzen/bitmap/stop.xbm) \
-${endif} \
-${scroll 20 2 ${mpd_smart}} \
 ^fg(\#262626)^bg(\#262626)\
 ^ca(1, /home/tim/bin/batinfo_popup)\
 ${if_match ${battery_percent} >=40}\
