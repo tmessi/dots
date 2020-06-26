@@ -42,4 +42,4 @@ fi
 
 xset +fp /usr/share/fonts/terminus/
 
-exec /usr/bin/spectrwm 2&> $HOME/.spectrwm.log
+exec dbus-launch --exit-with-session /usr/bin/spectrwm 2&> $HOME/.spectrwm.log
