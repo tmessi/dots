@@ -88,8 +88,6 @@ export MENUCONFIG_COLOR=blackbg
 [[ -s /usr/share/autojump/autojump.bash ]] && source /usr/share/autojump/autojump.bash
 [[ -s $HOME/.autojump/etc/profile.d/autojump.sh ]] && source $HOME/.autojump/etc/profile.d/autojump.sh
 
-[[ -f /usr/bin/fortune ]] && command fortune firefly calvin futurama hitchhiker
-
 export NVM_DIR="$HOME/.nvm"
 [[ -s "$NVM_DIR/nvm.sh" ]] && source "$NVM_DIR/nvm.sh"
 
