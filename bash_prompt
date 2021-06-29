@@ -20,7 +20,7 @@ if [[ "$SSH_CLIENT" ]]; then
     PS1="\[\e[0;31m\]\h$PS1"
     # Set host and pwd in X window title
     case ${TERM} in
-        xterm*|rxvt*)
+        xterm*|rxvt*|alacritty)
             PROMPT_COMMAND='echo -ne "\033]0;${HOSTNAME}|${PWD/#$HOME/~}\007"'
             ;;
         screen*)
@@ -30,7 +30,7 @@ if [[ "$SSH_CLIENT" ]]; then
 else
     # Set pwd in X window title
     case ${TERM} in
-        xterm*|rxvt*)
+        xterm*|rxvt*|alacritty)
             PROMPT_COMMAND='echo -ne "\033]0;${PWD/#$HOME/~}\007"'
             ;;
         screen*)
