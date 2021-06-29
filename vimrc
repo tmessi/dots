@@ -75,6 +75,7 @@ Plug 'direnv/direnv.vim', executable('direnv') ? {} : { 'on': [] }
 Plug 'markonm/traces.vim'
 
 Plug 'shadowfax-chc/vim-tomorrow-theme'
+Plug 'morhetz/gruvbox'
 
 " My vim plugin contains the vimrc and filetype configs.
 Plug 'shadowfax-chc/vim-fax'
