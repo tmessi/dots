@@ -1,13 +1,13 @@
-"mediakeys.py next"
+"mm next"
 XF86AudioNext
 
-"mediakeys.py prev"
+"mm prev"
 XF86AudioPrev
 
-"mediakeys.py toggle"
+"mm toggle"
 XF86AudioPlay
 
-"mediakeys.py stop"
+"mm stop"
 XF86AudioStop
 
 "soundkeys.py lower"
@@ -19,20 +19,14 @@ XF86AudioRaiseVolume
 "soundkeys.py toggle"
 XF86AudioMute
 
-"mediakeys.py next"
+"mm next"
 control + b:9
 
-"mediakeys.py prev"
+"mm prev"
 control + b:8
 
-"mediakeys.py toggle"
+"mm toggle"
 control + b:10
 
-"xbacklight -inc 10"
-XF86MonBrightnessUp
-
-"xbacklight -dec 10"
-XF86MonBrightnessDown
-
-"xinput --set-prop 'Razer Orochi 2013' 'Device Accel Constant Deceleration' 3"
-b:9
+"sudo s2ram"
+XF86Sleep
