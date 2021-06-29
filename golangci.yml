@@ -3,11 +3,8 @@ linters:
   enable:
     - gofmt
     - goimports
-    - golint
-    - gosimple
-    - govet
+    - revive
     - misspell
-    - vetshadow
 
 issues:
   exclude-use-default: false
