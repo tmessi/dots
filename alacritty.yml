@@ -99,7 +99,7 @@ colors:
   # Default colors
   primary:
     background: '#000000'
-    foreground: '#b6e77d'
+    foreground: '#ebdbb2'
 
     # Bright and dim foreground colors
     #
@@ -186,15 +186,15 @@ colors:
   #  background: CellForeground
 
   # Normal colors
-  #normal:
-  #  black:   '#1d1f21'
-  #  red:     '#cc6666'
-  #  green:   '#b5bd68'
-  #  yellow:  '#f0c674'
-  #  blue:    '#81a2be'
-  #  magenta: '#b294bb'
-  #  cyan:    '#8abeb7'
-  #  white:   '#c5c8c6'
+  normal:
+    black:   '#1d1f21'
+    red:     '#fb4934'
+    green:   '#b8bb26'
+    yellow:  '#fabd2f'
+    blue:    '#83a598'
+    magenta: '#d3869b'
+    cyan:    '#8ec07c'
+    white:   '#c5c8c6'
 
   # Bright colors
   #bright:
@@ -276,7 +276,7 @@ colors:
 #
 # Window opacity as a floating point number from `0.0` to `1.0`.
 # The value `0.0` is completely transparent and `1.0` is opaque.
-background_opacity: 0.8
+background_opacity: 0.85
 
 #selection:
   # This string contains all characters that are used as separators for
