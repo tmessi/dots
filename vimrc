@@ -70,15 +70,18 @@ Plug 'chr4/nginx.vim'
 Plug 'direnv/direnv.vim', executable('direnv') ? {} : { 'on': [] }
 Plug 'markonm/traces.vim'
 
-Plug 'shadowfax-chc/vim-tomorrow-theme'
+" Theme
 Plug 'morhetz/gruvbox'
 
 " My vim plugin contains the vimrc and filetype configs.
-Plug 'shadowfax-chc/vim-fax'
+Plug 'tmessi/messi-vim'
 
 call plug#end()
 
-" Load everything else from vim-fax/vimrc.vim
-if filereadable(expand("~/.vim/plugged/vim-fax/vimrc.vim"))
-	execute "source ~/.vim/plugged/vim-fax/vimrc.vim"
+" Load everything else from messi-vim/vimrc.vim
+if filereadable(expand("~/.vim/plugged/messi-vim/vimrc.vim"))
+	execute "source ~/.vim/plugged/messi-vim/vimrc.vim"
 endif
+
+nmap <C-P> :FZF<CR>
+let g:fzf_preview_window = ['right:50%', 'ctrl-/']
