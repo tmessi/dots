@@ -97,3 +97,5 @@ export GPG_TTY=`tty`
 [[ -f "$HOME/.gc/google-cloud-sdk/path.bash.inc" ]] && source "$HOME/.gc/google-cloud-sdk/path.bash.inc"
 
 which direnv &> /dev/null && eval "$(direnv hook bash)"
+
+export FZF_DEFAULT_OPTS='--height 30% --layout=reverse --border'

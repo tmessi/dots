@@ -4,6 +4,8 @@
 [[ -f "$HOME/.gc/google-cloud-sdk/completion.bash.inc" ]] && source "$HOME/.gc/google-cloud-sdk/completion.bash.inc"
 which doctl &> /dev/null && source <(doctl completion bash)
 
+[[ -f /usr/share/bash-completion/completions/fzf ]] && source /usr/share/bash-completion/completions/fzf
+
 __ws_comp()
 {
     local cur=${COMP_WORDS[COMP_CWORD]}
