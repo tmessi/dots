@@ -33,7 +33,7 @@ wuzz:       Interactive cli tool for HTTP inspection     https://github.com/asci
 
 pretend=0
 tools=0
-go_tools="github.com/github/hub github.com/asciimoo/wuzz github.com/fatih/hclfmt github.com/schachmat/wego github.com/posener/complete/gocomplete github.com/isacikgoz/gitin github.com/cjbassi/gotop github.com/direnv/direnv github.com/shadowfax-chc/wallpaper/wp"
+go_tools="github.com/github/hub github.com/asciimoo/wuzz github.com/fatih/hclfmt github.com/schachmat/wego github.com/posener/complete/gocomplete github.com/isacikgoz/gitin github.com/cjbassi/gotop github.com/direnv/direnv github.com/tmessi/wallpaper/wp"
 OPTS=$(getopt -o pht --long pretend,tools,help-tools,help -n "$name" -- "$@")
 
 if [[ $? != 0 ]]; then echo "option error" >&2; exit 1; fi
