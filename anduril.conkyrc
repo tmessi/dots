@@ -1,0 +1,90 @@
+conky.config = {
+    out_to_x             = false,
+    out_to_console       = true,
+    update_interval      = 1.0,
+    total_run_times      = 0,
+    use_spacer           = none,
+    use_xft              = true,
+    override_utf8_locale = true,
+    font                 = 'xos4 Terminus:style=Regular:pixelsize=24:antialias=true',
+};
+
+conky.text = [[
+${if_existing .update_count}\
+^ca(1, /home/tim/bin/sysinfo_popup)\
+^fg(\#fe8019)^bg(\#fe8019)^fg(\#262626)^i(.dzen/bitmap/net_up_02.xbm) ${exec cat ~/.update_count} \
+^ca()\
+${endif}\
+${if_match ${cpu} >=90}\
+^fg(\#fb4934)^bg(\#fb4934)^fg(\#e4e4e4)^i(.dzen/bitmap/cpu.xbm) \
+${else}${if_match ${cpu} >=70}\
+^fg(\#fabd2f)^bg(\#fabd2f)^fg(\#262626)^i(.dzen/bitmap/cpu.xbm) \
+${else}\
+^fg(\#b8bb26)^bg(\#b8bb26)^fg(\#262626)^i(.dzen/bitmap/cpu.xbm) \
+${endif}${endif}\
+${cpu}%\
+${if_match ${hwmon 4 temp 1} >=90}\
+^fg(\#fb4934)^bg(\#fb4934)^fg(\#e4e4e4)^i(.dzen/bitmap/temp.xbm) \
+${else}${if_match ${hwmon 4 temp 1} >=70}\
+^fg(\#fabd2f)^bg(\#fabd2f)^fg(\#262626)^i(.dzen/bitmap/temp.xbm) \
+${else}\
+^fg(\#b8bb26)^bg(\#b8bb26)^fg(\#262626)^i(.dzen/bitmap/temp.xbm) \
+${endif}${endif}\
+${hwmon 4 temp 1}°C \
+^fg(\#262626)^bg(\#262626)^fg(\#bcbcbc)^i(.dzen/bitmap/fs_01.xbm) ${loadavg 1} \
+${if_match ${memperc} >=90}\
+^fg(\#fb4934)^bg(\#fb4934)^fg(\#e4e4e4)^i(.dzen/bitmap/mem.xbm) \
+${else}${if_match ${memperc} >=70}\
+^fg(\#fabd2f)^bg(\#fabd2f)^fg(\#262626)^i(.dzen/bitmap/mem.xbm) \
+${else}\
+^fg(\#b8bb26)^bg(\#b8bb26)^fg(\#262626)^i(.dzen/bitmap/mem.xbm) \
+${endif}${endif}\
+${memperc}%\
+${if_match ${swapperc} >=80}\
+^fg(\#fb4934)^bg(\#fb4934)^fg(\#e4e4e4)\
+${else}${if_match ${swapperc} >0}\
+^fg(\#fabd2f)^bg(\#fabd2f)^fg(\#262626)\
+${else}\
+^fg(\#b8bb26)^bg(\#b8bb26)^fg(\#262626)\
+${endif}${endif}\
+${swapperc}% \
+^fg(\#262626)^bg(\#262626)^fg(\#bcbcbc)\
+${if_up wlp108s0}\
+^i(.dzen/bitmap/wifi_02.xbm) ${wireless_essid wlp108s0} (${wireless_link_qual_perc wlp108s0}%) \
+^i(.dzen/bitmap/net_down_03.xbm) ${downspeedf wlp108s0} KiB  \
+${endif}\
+${if_match "${execp headset.sh}" == "headphones"}^i(.dzen/bitmap/phones.xbm)${else}^i(.dzen/bitmap/spkr_01.xbm)${endif} ${execp ~/bin/soundkeys.py volume}% \
+${execp ~/bin/soundkeys.py mic-volume}% \
+${if_match ${fs_used_perc /home} >=75}\
+^fg(\#fb4934)^bg(\#fb4934)^fg(\#e4e4e4)\
+${else}${if_match ${fs_used_perc /home} >=60}\
+^fg(\#fabd2f)^bg(\#fabd2f)^fg(\#262626)\
+${else}\
+^fg(\#b8bb26)^bg(\#b8bb26)^fg(\#262626)\
+${endif}${endif}\
+^i(.dzen/bitmap/diskette.xbm) ${fs_used_perc /home}% \
+${if_match "${execp mm status}" != ""}\
+^fg(\#262626)^bg(\#262626)\
+${if_match "${execp mm status}" == "Playing"}\
+^fg(\#b8bb26)^bg(\#b8bb26)^fg(\#262626)^i(.dzen/bitmap/note.xbm) \
+${endif}\
+${if_match "${execp mm status}" == "Paused"}\
+^fg(\#fabd2f)^bg(\#fabd2f)^fg(\#262626)^i(.dzen/bitmap/pause.xbm) \
+${endif}\
+${if_match "${execp mm status}" == "Stopped"}\
+^fg(\#fb4934)^bg(\#fb4934)^fg(\#e4e4e4)^i(.dzen/bitmap/stop.xbm) \
+${endif}\
+ ${scroll 20 2 ${execp mm playing}} \
+${endif}\
+^fg(\#262626)^bg(\#262626)\
+^ca(1, /home/tim/bin/batinfo_popup)\
+${if_match ${battery_percent} >=40}\
+^fg(\#b8bb26)^bg(\#b8bb26)^fg(\#262626)^i(.dzen/bitmap/bat_full_01.xbm) \
+${else}${if_match ${battery_percent} >10}\
+^fg(\#fabd2f)^bg(\#fabd2f)^fg(\#262626)^i(.dzen/bitmap/bat_low_01.xbm) \
+${else}\
+^fg(\#fb4934)^bg(\#fb4934)^fg(\#e4e4e4)^i(.dzen/bitmap/bat_empty_01.xbm) \
+${endif}${endif}\
+${battery_percent}% ${battery_time}\
+^ca()
+]];
