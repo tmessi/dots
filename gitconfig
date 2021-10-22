@@ -1,24 +1,24 @@
 [user]
-    name = Timothy Messier
-    email = tim.messier@gmail.com
+    name       = Timothy Messier
+    email      = tim.messier@gmail.com
 	signingkey = 42B2695E035AEF82
 [github]
-    user = shadowfax-chc
+    user = tmessi
 [url "git@github.com:"]
     insteadOf = https://github.com/
 [core]
-    editor = vim
+    editor       = vim
     excludesfile = ~/.gitignore_global
-    pager = less -x1,5 -XFR
+    pager        = less -x1,5 -XFR
 [merge]
     tool = vimdiff
 [color]
-    status = auto
-    branch = auto
+    status      = auto
+    branch      = auto
     interactive = auto
-    diff = auto
-    grep = auto
-    ui = auto
+    diff        = auto
+    grep        = auto
+    ui          = auto
 [diff]
     tool = vimdiff
 [difftool]
@@ -26,48 +26,48 @@
 [log]
     decorate = no
 [alias]
-    l = log --pretty=format:"%C(yellow)%h\\ %C(reset)%s"                                                                ; Log one per line no frills
-    ls = log --pretty=format:"%C(yellow)%h\\ %C(reset)%s%C(blue)\\ [%an]%C(red)%d" --decorate                           ; Log one per line
-    ll = log --pretty=format:"%C(yellow)%h\\ %C(reset)%s%C(blue)\\ [%an]%C(red)%d" --decorate --numstat                 ; Log one per line with files changed
-    lds = log --pretty=format:"%C(yellow)%h\\ %ad\\ %C(reset)%s%C(blue)\\ [%an]%C(red)%d" --decorate --date=short       ; Log one per line with dates
-    ld = log --pretty=format:"%C(yellow)%h\\ %ad\\ %C(reset)%s%C(blue)\\ [%an]%C(red)%d" --decorate --date=relative     ; Log one per line with relative dates
-    lg = log --graph --pretty=format:"%C(yellow)%h\\ %C(reset)%s%C(blue)\\ [%an]%C(red)%d" --decorate                   ; Log one per line
-    llg = log --graph --pretty=format:"%C(yellow)%h\\ %C(reset)%s%C(blue)\\ [%an]%C(red)%d" --decorate --numstat        ; Log one per line with files changed
-    lga = log --all --graph --pretty=format:"%C(yellow)%h\\ %C(reset)%s%C(blue)\\ [%an]%C(red)%d" --decorate            ; Log one per line
-    llga = log --all --graph --pretty=format:"%C(yellow)%h\\ %C(reset)%s%C(blue)\\ [%an]%C(red)%d" --decorate --numstat ; Log one per line with files changed
-    logd = log --decorate=full
-    slog = log --show-signature
-    glog = log --graph                    ; Graph log
-    filelog = log -u                      ; Log for file
-    fl = log -u                           ; Log for file
-    dl = "!git ll -1"                     ; Show modified files in last commit
-    dlc = diff --cached HEAD^             ; Show diff of last commit
-    f = "!git ls-files | grep -i"         ; Find a file in a codebase
-    la = "!git config -l | grep alias | cut -c 7-"   ; List aliases
-    st = status
-    ci = commit -a
-    amend = commit --amend --reset-author
-    up = checkout
-    co = checkout
-    sum = status
-    di = diff
-    bo = branch
-    br = branch
+    l         = log                                                    --pretty=format:"%C(yellow)%h\\ %C(reset)%s"                                            ; Log one per line no frills
+    ls        = log --decorate                                         --pretty=format:"%C(yellow)%h\\ %C(reset)%<(72,trunc)%s%C(blue)\\ [%an]%C(red)%d"       ; Log one per line
+    ll        = log --decorate --numstat                               --pretty=format:"%C(yellow)%h\\ %C(reset)%<(72,trunc)%s%C(blue)\\ [%an]%C(red)%d"       ; Log one per line with files changed
+    lds       = log --decorate                         --date=short    --pretty=format:"%C(yellow)%h\\ %ad\\ %C(reset)%<(72,trunc)%s%C(blue)\\ [%an]%C(red)%d" ; Log one per line with dates
+    ld        = log --decorate                         --date=relative --pretty=format:"%C(yellow)%h\\ %ad\\ %C(reset)%<(72,trunc)%s%C(blue)\\ [%an]%C(red)%d" ; Log one per line with relative dates
+    lg        = log --decorate           --graph                       --pretty=format:"%C(yellow)%h\\ %C(reset)%<(72,trunc)%s%C(blue)\\ [%an]%C(red)%d"       ; Log one per line
+    llg       = log --decorate --numstat --graph                       --pretty=format:"%C(yellow)%h\\ %C(reset)%<(72,trunc)%s%C(blue)\\ [%an]%C(red)%d"       ; Log one per line with files changed
+    lga       = log --decorate           --graph --all                 --pretty=format:"%C(yellow)%h\\ %C(reset)%<(72,trunc)%s%C(blue)\\ [%an]%C(red)%d"       ; Log one per line
+    llga      = log --decorate --numstat --graph --all                 --pretty=format:"%C(yellow)%h\\ %C(reset)%<(72,trunc)%s%C(blue)\\ [%an]%C(red)%d"       ; Log one per line with files changed
+    logd      = log --decorate=full
+    slog      = log --show-signature
+    glog      = log --graph                               ; Graph log
+    filelog   = log -u                                    ; Log for file
+    fl        = log -u                                    ; Log for file
+    dl        = "!git ll -1"                              ; Show modified files in last commit
+    dlc       = diff --cached HEAD^                       ; Show diff of last commit
+    f         = "!git ls-files | grep -i"                 ; Find a file in a codebase
+    la        = "!git config -l | grep alias | cut -c 7-" ; List aliases
+    st        = status
+    ci        = commit -a
+    amend     = commit --amend --reset-author
+    up        = checkout
+    co        = checkout
+    sum       = status
+    di        = diff
+    bo        = branch
+    br        = branch
     bookmarks = branch
-    branches = branch
-    o = log --graph @{u}..HEAD
-    out = log --graph @{u}..HEAD
-    outgoing = log --graph @{u}..HEAD
-    in = log --graph HEAD..@{u}
-    incoming = log --graph HEAD..@{u}
-    vimdiff = difftool --tool=vimdiff --no-prompt
-    rpo = remote prune origin
-    rps = remote prune tmessi
-    rp = "!git remote | xargs -n 1 git remote prune"
-    pb = "!git branch --merged | grep -v "\\*" | xargs -n 1 git branch -d"
-    unstage = reset HEAD --
-    last = log -1 HEAD
-    uncommit = reset --soft 'HEAD^'
+    branches  = branch
+    o         = log --graph @{u}..HEAD
+    out       = log --graph @{u}..HEAD
+    outgoing  = log --graph @{u}..HEAD
+    in        = log --graph HEAD..@{u}
+    incoming  = log --graph HEAD..@{u}
+    vimdiff   = difftool --tool=vimdiff --no-prompt
+    rpo       = remote prune origin
+    rps       = remote prune tmessi
+    rp        = "!git remote | xargs -n 1 git remote prune"
+    pb        = "!git branch --merged | grep -v "\\*" | xargs -n 1 git branch -d"
+    unstage   = reset HEAD --
+    last      = log -1 HEAD
+    uncommit  = reset --soft 'HEAD^'
     fixupfile = "!f() { git commit --fixup=$(git log --all --full-history -1 --format=format:%h -- \"$1\") \"$@\";}; f"
 [push]
     default = simple
