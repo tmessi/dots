@@ -98,4 +98,4 @@ export GPG_TTY=`tty`
 
 which direnv &> /dev/null && eval "$(direnv hook bash)"
 
-export FZF_DEFAULT_OPTS='--height 30% --layout=reverse --border'
+export FZF_DEFAULT_OPTS="--height 50% --layout=reverse --border --preview 'bat --style=numbers --color=always --line-range :500 {}'"
