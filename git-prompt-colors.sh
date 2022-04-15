@@ -51,6 +51,9 @@ override_git_prompt_colors() {
         if [[ "$PA" ]]; then
             pre_prefix="${DarkYellowBg}${PA}${DarkYellowWithGreenBg} ${pre_prefix}"
         fi
+        if [[ ${repo} == *"enterprise"* ]]; then
+            pre_prefix="${RedBg}${repo##*/}${RedWithBg} "
+        fi
     fi
 
     GIT_PROMPT_PREFIX="${pre_prefix}${GreenWithBg}"                    # start of the git info string
