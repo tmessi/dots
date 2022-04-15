@@ -82,8 +82,6 @@ RAR[[:space:]]archive[[:space:]]data*)
         elif cmdexist pandoc; then
             pandoc -s -f markdown -t man "$1" | man -l -
         fi
-    else
-        colorize "$1"
     fi ;;
 esac
 
