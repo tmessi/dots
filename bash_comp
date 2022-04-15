@@ -6,6 +6,8 @@ which doctl &> /dev/null && source <(doctl completion bash)
 
 [[ -f /usr/share/bash-completion/completions/fzf ]] && source /usr/share/bash-completion/completions/fzf
 
+which jira &> /dev/null && eval "$(jira --completion-script-bash)"
+
 __ws_comp()
 {
     local cur=${COMP_WORDS[COMP_CWORD]}
