@@ -69,6 +69,8 @@ Plug 'mxw/vim-jsx'
 Plug 'chr4/nginx.vim'
 Plug 'direnv/direnv.vim', executable('direnv') ? {} : { 'on': [] }
 Plug 'markonm/traces.vim'
+Plug 'zackhsi/fzf-tags'
+Plug 'yegappan/taglist'
 
 " Theme
 Plug 'morhetz/gruvbox'
@@ -83,5 +85,3 @@ if filereadable(expand("~/.vim/plugged/messi-vim/vimrc.vim"))
 	execute "source ~/.vim/plugged/messi-vim/vimrc.vim"
 endif
 
-nmap <C-P> :FZF<CR>
-let g:fzf_preview_window = ['right:50%', 'ctrl-/']
