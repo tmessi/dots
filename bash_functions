@@ -357,3 +357,9 @@ function gssh {
     [[ -f $HOME/.ssh/google_compute_engine ]] && ssh-add $HOME/.ssh/google_compute_engine &> /dev/null
     gcloud compute ssh --ssh-flag="-A" "$@"
 }
+
+function gtc {
+    go test -cover -coverprofile=.coverage $* && \
+        go tool cover -html=.coverage && \
+        rm -f .coverage
+}
