@@ -140,4 +140,6 @@ _cli_bash_autocomplete() {
   fi
 }
 
+complete -C boundary boundary
+
 complete -o bashdefault -o default -o nospace -F _cli_bash_autocomplete cci
