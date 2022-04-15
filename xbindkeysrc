@@ -19,6 +19,15 @@ XF86AudioRaiseVolume
 "soundkeys.py toggle"
 XF86AudioMute
 
+"soundkeys.py mic-lower"
+control + XF86AudioLowerVolume
+
+"soundkeys.py mic-raise"
+control + XF86AudioRaiseVolume
+
+"soundkeys.py mic-toggle"
+control + XF86AudioMute
+
 "mm next"
 control + b:9
 
