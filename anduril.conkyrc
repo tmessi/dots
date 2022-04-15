@@ -49,9 +49,13 @@ ${else}\
 ${endif}${endif}\
 ${swapperc}% \
 ^fg(\#262626)^bg(\#262626)^fg(\#bcbcbc)\
+${if_up eth0}\
+^i(.dzen/bitmap/net_wired.xbm) ${downspeedf eth0} KiB  \
+${else}\
 ${if_up wlp108s0}\
 ^i(.dzen/bitmap/wifi_02.xbm) ${wireless_essid wlp108s0} (${wireless_link_qual_perc wlp108s0}%) \
 ^i(.dzen/bitmap/net_down_03.xbm) ${downspeedf wlp108s0} KiB  \
+${endif}\
 ${endif}\
 ${if_match "${execp headset.sh}" == "headphones"}^i(.dzen/bitmap/phones.xbm)${else}^i(.dzen/bitmap/spkr_01.xbm)${endif} ${execp ~/bin/soundkeys.py volume}% \
 ${execp ~/bin/soundkeys.py mic-volume}% \
