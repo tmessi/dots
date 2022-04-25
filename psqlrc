@@ -1,0 +1,36 @@
+\set QUIET 1
+\setenv PAGER 'less -S'
+\timing
+\x auto
+\set HISTFILE ~/.psql_history- :DBNAME
+\set HISTCONTROL ignoredups
+\pset null [null]
+\set COMP_KEYWORD_CASE lower
+\set PROMPT1 '%[%033[38;5;235;48;5;214m%]psql%[%033[0;0m%]%[%033[38;5;214;48;5;235m%] %[%033[38;5;12;48;5;235m%]%/%[%033[0;0m%]%[%033[38;5;235m%]%[%033[0;0m%] '
+\set PROMPT2 '%w'
+\unset QUIET
+
+-- colors i like to use
+-- BgGray="5;235";
+-- GreenWithBg="\[\e[38;5;10;48;${BgGray}m\]"
+-- CyanWithBg="\[\e[38;5;12;48;${BgGray}m\]"
+-- DarkYellowWithBg="\[\e[38;5;214;48;${BgGray}m\]"
+-- YellowWithBg="\[\e[38;5;11;48;${BgGray}m\]"
+-- RedWithBg="\[\e[38;5;9;48;${BgGray}m\]"
+-- BlueWithBg="\[\e[38;5;39;48;${BgGray}m\]"
+-- GrayWithBg="\[\e[38;5;252;48;${BgGray}m\]"
+-- BgToFg="\[\e[38;${BgGray}m\]"
+-- RedBg="\[\e[38;${BgGray};48;5;9m\]"
+-- BlueWithRedBg="\[\e[38;5;39;48;5;9m\]"
+-- BlueWithDarkYellowBg="\[\e[38;5;39;48;5;214m\]"
+-- RedWithGreenBg="\[\e[38;5;9;48;5;10m\]"
+-- DarkYellowWithGreenBg="\[\e[38;5;214;48;5;10m\]"
+-- YellowWithGreenBg="\[\e[38;5;11;48;5;10m\]"
+-- GreenBg="\[\e[38;${BgGray};48;5;10m\]"
+-- DarkYellowBg="\[\e[38;${BgGray};48;5;214m\]"
+-- YellowBg="\[\e[38;${BgGray};48;5;11m\]"
+-- BlueBg="\[\e[38;${BgGray};48;5;39m\]"
+-- ResetWithBg="\[\e[0;0;48;${BgGray}m\]"
+-- ResetGreenBg="\[\e[38;${BgGray};48;5;10m\]"
+-- GreenReset="\[\e[38;5;10m\]"
+-- RedReset="\[\e[38;5;9m\]"
