@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 userresources=$HOME/.Xresources
 usermodmap=$HOME/.Xmodmap
@@ -40,6 +40,16 @@ if [ -f $HOME/bin/xstartup.${hostname} ]; then
     $HOME/bin/xstartup.${hostname}
 fi
 
-xset +fp /usr/share/fonts/terminus/
+if [ -d /usr/share/fonts/terminus ]; then
+    xset +fp /usr/share/fonts/terminus/
+fi
 
-exec dbus-launch --exit-with-session /usr/bin/spectrwm 2&> $HOME/.spectrwm.log
+if [ -d /usr/share/fonts/X11/misc ]; then
+    xset +fp /usr/share/fonts/X11/misc/
+fi
+
+if [ -d /prefix/usr/share/fonts/terminus ]; then
+    xset +fp /prefix/usr/share/fonts/terminus/
+fi
+
+exec dbus-launch --exit-with-session spectrwm 2&> $HOME/.spectrwm.log

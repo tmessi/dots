@@ -28,7 +28,7 @@ override_git_prompt_colors() {
     GIT_PROMT_THEME_NAME="fax"
     jobcount="${GrayWithBg}$(jobscount)"
     local repo=`git rev-parse --show-toplevel 2> /dev/null`
-    if [[ "$SSH_CLIENT" ]]; then
+    if [[ "$SSH_TTY" ]]; then
         if [[ "$VIRTUAL_ENV" ]]; then
             host_end_color="${RedWithBg}"
         else

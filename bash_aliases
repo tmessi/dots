@@ -43,12 +43,14 @@ which autojump &>/dev/null && alias f=j  # f makes more sense then j
 # Silly sudo
 alias mount='sudo mount'
 alias umount='sudo umount'
-alias emerge='sudo emerge'
-alias eix='sudo eix -F'
-alias eix-sync='sudo eix-sync'
-alias eix-update='sudo eix-update'
-alias rc-update='sudo rc-update'
-alias revdep-rebuild='sudo revdep-rebuild'
+if [[ ${DISTRO} == "Gentoo" ]]; then
+    alias emerge='sudo emerge'
+    alias eix='sudo eix -F'
+    alias eix-sync='sudo eix-sync'
+    alias eix-update='sudo eix-update'
+    alias rc-update='sudo rc-update'
+    alias revdep-rebuild='sudo revdep-rebuild'
+fi
 alias apk='sudo apk'
 
 # Program defaults
