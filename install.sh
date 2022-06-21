@@ -186,7 +186,7 @@ if [[ $tools -eq 1 ]]; then
                 echo "Would install $tool"
             else
                 echo "Installing $tool"
-                go get -u $tool
+                go install $tool@latest
             fi
         done
     else
