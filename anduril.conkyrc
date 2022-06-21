@@ -10,6 +10,12 @@ conky.config = {
 };
 
 conky.text = [[
+${if_existing .apt_update_security_count}\
+^fg(\#fb4934)^bg(\#fb4934)^fg(\#e4e4e4)^i(.dzen/bitmap/net_up_02.xbm) ${exec cat ~/.apt_update_security_count} \
+${endif}\
+${if_existing .apt_update_count}\
+^fg(\#fabd2f)^bg(\#fabd2f)^fg(\#262626)^i(.dzen/bitmap/net_up_02.xbm) ${exec cat ~/.apt_update_count} \
+${endif}\
 ${if_existing .update_count}\
 ^ca(1, /home/tim/bin/sysinfo_popup)\
 ^fg(\#fe8019)^bg(\#fe8019)^fg(\#262626)^i(.dzen/bitmap/net_up_02.xbm) ${exec cat ~/.update_count} \
