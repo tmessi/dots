@@ -262,6 +262,17 @@ function docker-cleanup {
     [[ -n "${dangling_volumes}" ]] && docker volume rm ${dangling_volumes}
 }
 
+function docker-status {
+    local container=$1
+    local inspect
+
+    inspect=$(docker inspect "${container}" 2>/dev/null) || \
+    if [[ $? -ne 0 ]]; then
+        inspect='[{"State": {"Status": "down"}}]'
+    fi
+    echo "${inspect}" | jq -r '.[].State.Status'
+}
+
 function gssh {
     [[ -f $HOME/.ssh/google_compute_engine ]] && ssh-add $HOME/.ssh/google_compute_engine &> /dev/null
     gcloud compute ssh --ssh-flag="-A" "$@"

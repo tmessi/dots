@@ -56,6 +56,20 @@ override_git_prompt_colors() {
         fi
     fi
 
+    if [[ "${CHECK_CONTAINER}" ]]; then
+        container_status=$(docker-status "${CHECK_CONTAINER}")
+        case "${container_status}" in
+            down)
+                pre_prefix="${pre_prefix}${RedWithBg}🐳 "
+            ;;
+            running)
+                pre_prefix="${pre_prefix}${GreenWithBg}🐳 "
+            ;;
+            *)
+            ;;
+        esac
+    fi
+
     GIT_PROMPT_PREFIX="${pre_prefix}${GreenWithBg}"                    # start of the git info string
     GIT_PROMPT_SUFFIX="${ResetWithBg}${ResetGreenBg}"    # the end of the git info string
     GIT_PROMPT_SEPARATOR="${GreenWithBg}│"                  # separates each item
