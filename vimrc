@@ -71,6 +71,8 @@ Plug 'direnv/direnv.vim', executable('direnv') ? {} : { 'on': [] }
 Plug 'markonm/traces.vim'
 Plug 'zackhsi/fzf-tags'
 Plug 'yegappan/taglist'
+Plug 'ycm-core/YouCompleteMe', { 'do': './install.py --go-completer' }
+Plug 'sebdah/vim-delve'
 
 " Theme
 Plug 'morhetz/gruvbox'
