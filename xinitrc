@@ -6,6 +6,7 @@ sysresources=/etc/X11/xinit/.Xresources
 sysmodmap=/etc/X11/xinit/.Xmodmap
 hostname=$(hostname)
 hostresources=$userresources.$hostname
+prefix=/home/tim/gentoo
 
 # merge in defaults and keymaps
 
@@ -48,8 +49,8 @@ if [ -d /usr/share/fonts/X11/misc ]; then
     xset +fp /usr/share/fonts/X11/misc/
 fi
 
-if [ -d /prefix/usr/share/fonts/terminus ]; then
-    xset +fp /prefix/usr/share/fonts/terminus/
+if [ -d $prefix/usr/share/fonts/terminus ]; then
+    xset +fp $prefix/usr/share/fonts/terminus/
 fi
 
 exec dbus-launch --exit-with-session spectrwm 2&> $HOME/.spectrwm.log
