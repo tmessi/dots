@@ -73,6 +73,7 @@ Plug 'zackhsi/fzf-tags'
 Plug 'yegappan/taglist'
 Plug 'ycm-core/YouCompleteMe', { 'do': './install.py --go-completer' }
 Plug 'sebdah/vim-delve'
+Plug 'rhysd/committia.vim'
 
 " Theme
 Plug 'morhetz/gruvbox'
