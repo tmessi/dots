@@ -38,7 +38,8 @@ alias rigrep='grep -i -R --exclude-dir=vendor'
 alias mkpatch='diff -Naur'
 alias open="xdg-open"
 alias dmesg="dmesg --color=always"
-which autojump &>/dev/null && alias f=j  # f makes more sense then j
+[[ $(which direnv 2> /dev/null) ]] && alias dr="direnv reload"
+[[ $(which autojump 2>/dev/null) ]] && alias f=j  # f makes more sense than j
 
 # Silly sudo
 alias mount='sudo mount'
@@ -91,3 +92,5 @@ alias cp-short="git rev-parse --short HEAD | tr -d '\n' | xclip"
 alias x509="openssl x509 -noout -text -in"
 alias asdf="sudo setxkbmap dvorak && echo dvorak"
 alias aoeu="sudo setxkbmap us && echo qwerty"
+
+alias hexedit="hexedit --color"
