@@ -1,5 +1,6 @@
 \set QUIET 1
-\setenv PAGER 'less -S'
+\pset pager always
+\setenv PAGER 'bat -l sql --style=grid,snip'
 \timing
 \x auto
 \set HISTFILE ~/.psql_history- :DBNAME
