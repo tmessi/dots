@@ -4,9 +4,6 @@
 [[ -f "$HOME/.gc/google-cloud-sdk/completion.bash.inc" ]] && source "$HOME/.gc/google-cloud-sdk/completion.bash.inc"
 which doctl &> /dev/null && source <(doctl completion bash)
 
-[[ -f /usr/share/bash-completion/completions/fzf ]] && source /usr/share/bash-completion/completions/fzf
-[[ -f /prefix/usr/share/bash-completion/completions/fzf ]] && source /prefix/usr/share/bash-completion/completions/fzf
-
 which jira &> /dev/null && eval "$(jira --completion-script-bash)"
 
 __ws_comp()
@@ -124,6 +121,7 @@ fi
 complete -F _python_django_completion -o default $pythons
 complete -C /home/tim/go/bin/gocomplete go
 
+
 complete -F _autojump f
 
 _cli_bash_autocomplete() {
@@ -142,5 +140,16 @@ _cli_bash_autocomplete() {
 }
 
 complete -C boundary boundary
+complete -C vault vault
 
 complete -o bashdefault -o default -o nospace -F _cli_bash_autocomplete cci
+
+### FZF things
+if which fzf &> /dev/null; then
+    [[ -f /usr/share/bash-completion/completions/fzf ]] && source /usr/share/bash-completion/completions/fzf
+    [[ -f /home/tim/gentoo/usr/share/bash-completion/completions/fzf ]] && source /home/tim/gentoo/usr/share/bash-completion/completions/fzf
+
+    export FZF_DEFAULT_OPTS="--height 50% --layout=reverse --border --preview 'bat --style=numbers --color=always --line-range :500 {} 2>/dev/null || tree -C {} | head -100'"
+
+    _fzf_setup_completion path hexedit
+fi
