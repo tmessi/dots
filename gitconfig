@@ -4,6 +4,7 @@
 	signingkey = 42B2695E035AEF82
 [github]
     user = tmessi
+#[url "ssh://git@github.com/"]
 [url "git@github.com:"]
     insteadOf = https://github.com/
 [core]
@@ -36,6 +37,7 @@
     lga       = log --decorate           --graph --all                 --pretty=format:"%C(yellow)%h\\ %C(reset)%<(72,trunc)%s%C(blue)\\ [%an]%C(red)%d"       ; Log one per line
     llga      = log --decorate --numstat --graph --all                 --pretty=format:"%C(yellow)%h\\ %C(reset)%<(72,trunc)%s%C(blue)\\ [%an]%C(red)%d"       ; Log one per line with files changed
     logd      = log --decorate=full
+    lm        = log --author=\"Timothy Messier\"
     slog      = log --show-signature
     glog      = log --graph                               ; Graph log
     filelog   = log -u                                    ; Log for file
@@ -62,6 +64,7 @@
     in        = log --graph HEAD..@{u}
     incoming  = log --graph HEAD..@{u}
     inp       = log -p      HEAD..@{u}
+    inll      = log         HEAD..@{u} --decorate --numstat --pretty=format:"%C(yellow)%h\\ %C(reset)%<(72,trunc)%s%C(blue)\\ [%an]%C(red)%d"
     vimdiff   = difftool --tool=vimdiff --no-prompt
     rpo       = remote prune origin
     rps       = remote prune tmessi
