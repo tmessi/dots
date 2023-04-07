@@ -59,12 +59,9 @@ override_git_prompt_colors() {
     if [[ "${CHECK_CONTAINER}" ]]; then
         container_status=$(docker-status "${CHECK_CONTAINER}")
         case "${container_status}" in
-            down)
-                pre_prefix="${pre_prefix}${RedWithBg}🐳 "
-            ;;
-            running)
-                pre_prefix="${pre_prefix}${GreenWithBg}🐳 "
-            ;;
+            down) ;;
+            running) pre_prefix="${pre_prefix}${GreenWithBg}🐳 " ;;
+            exited)  pre_prefix="${pre_prefix}${YellowWithBg}🐳 " ;;
             *)
             ;;
         esac
