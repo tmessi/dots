@@ -3,7 +3,7 @@ conky.config = {
     out_to_console       = true,
     update_interval      = 1.0,
     total_run_times      = 0,
-    use_spacer           = none,
+    use_spacer           = 'none',
     use_xft              = true,
     override_utf8_locale = true,
     font                 = 'xos4 Terminus:style=Regular:pixelsize=24:antialias=true',
@@ -29,14 +29,14 @@ ${else}\
 ^fg(\#b8bb26)^bg(\#b8bb26)^fg(\#262626)^i(.dzen/bitmap/cpu.xbm) \
 ${endif}${endif}\
 ${cpu}%\
-${if_match ${hwmon 4 temp 1} >=90}\
+${if_match ${hwmon 5 temp 1} >=90}\
 ^fg(\#fb4934)^bg(\#fb4934)^fg(\#e4e4e4)^i(.dzen/bitmap/temp.xbm) \
-${else}${if_match ${hwmon 4 temp 1} >=70}\
+${else}${if_match ${hwmon 5 temp 1} >=70}\
 ^fg(\#fabd2f)^bg(\#fabd2f)^fg(\#262626)^i(.dzen/bitmap/temp.xbm) \
 ${else}\
 ^fg(\#b8bb26)^bg(\#b8bb26)^fg(\#262626)^i(.dzen/bitmap/temp.xbm) \
 ${endif}${endif}\
-${hwmon 4 temp 1}°C \
+${hwmon 5 temp 1}°C \
 ^fg(\#262626)^bg(\#262626)^fg(\#bcbcbc)^i(.dzen/bitmap/fs_01.xbm) ${loadavg 1} \
 ${if_match ${memperc} >=90}\
 ^fg(\#fb4934)^bg(\#fb4934)^fg(\#e4e4e4)^i(.dzen/bitmap/mem.xbm) \
@@ -73,6 +73,14 @@ ${else}\
 ^fg(\#b8bb26)^bg(\#b8bb26)^fg(\#262626)\
 ${endif}${endif}\
 ^i(.dzen/bitmap/diskette.xbm) ${fs_used_perc /home}% \
+${if_match ${fs_used_perc /var/lib/docker} >=75}\
+^fg(\#fb4934)^bg(\#fb4934)^fg(\#e4e4e4)\
+${else}${if_match ${fs_used_perc /var/lib/docker} >=60}\
+^fg(\#fabd2f)^bg(\#fabd2f)^fg(\#262626)\
+${else}\
+^fg(\#b8bb26)^bg(\#b8bb26)^fg(\#262626)\
+${endif}${endif}\
+^i(.dzen/bitmap/diskette.xbm) ${fs_used_perc /var/lib/docker}% \
 ${if_match "${execp mm status}" != ""}\
 ^fg(\#262626)^bg(\#262626)\
 ${if_match "${execp mm status}" == "Playing"}\
