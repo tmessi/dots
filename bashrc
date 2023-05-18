@@ -61,6 +61,7 @@ export LESSOPEN='|~/.lessfilter %s'
 PAGER="less -FirSwX"
 MANPAGER="$PAGER"
 export PAGER MANPAGER
+export BAT_THEME="gruvbox-dark"
 
 # History
 export HISTFILESIZE=
