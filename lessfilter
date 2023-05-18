@@ -4,12 +4,6 @@ function cmdexist() {
   which "$1" &> /dev/null
 }
 
-function colorize() {
-  if cmdexist pygmentize; then
-      pygmentize -O style=monokai -g "$1"
-  fi
-}
-
 # Determine file type of $1
 # and determine which viewer is appropriate
 case "$(file -Lb "$1")" in
@@ -82,6 +76,8 @@ RAR[[:space:]]archive[[:space:]]data*)
         elif cmdexist pandoc; then
             pandoc -s -f markdown -t man "$1" | man -l -
         fi
+    else
+        bat --paging never --color always --style full "$1"
     fi ;;
 esac
 
