@@ -94,3 +94,5 @@ alias asdf="sudo setxkbmap dvorak && echo dvorak"
 alias aoeu="sudo setxkbmap us && echo qwerty"
 
 alias hexedit="hexedit --color"
+
+[[ $(which bat 2> /dev/null) ]] && alias batcat=bat
