@@ -57,7 +57,7 @@ alias apk='sudo apk'
 # Program defaults
 alias tmux='tmux -2'
 alias bwm-ng='bwm-ng -I %ram0,ram1,ram2,ram3,ram4,ram5,ram6,ram7,ram8,ram9,ram10,ram11,ram12,ram13,ram14,ram15,sda,sdb,sdc,md0,lo,sit0'
-alias preview='feh -g 700x700 --scale-down -d'
+alias preview='feh --scale-down -g 1920x1080 -d'
 alias mkisofs-qick='mkisofs -R -l -J'
 alias bundleupdate='vim -c PluginUpdate -c qa'
 alias pluginupdate='vim -c PluginUpdate -c qa'

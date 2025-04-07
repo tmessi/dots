@@ -74,6 +74,8 @@
     last      = log -1 HEAD
     uncommit  = reset --soft 'HEAD^'
     fixupfile = "!f() { git commit --fixup=$(git log --all --full-history -1 --format=format:%h -- \"$1\") \"$@\";}; f"
+    fixup     = "!git log -n 50 --pretty=format:'%h %s' --no-merges | fzf --preview 'git log --oneline -1 --numstat $(echo {} | cut -c -7)' | cut -c -7 | xargs -o git commit --fixup"
+    checkpoint = "!git add . && git commit -m 'checkpoint'"
 [push]
     default = simple
 [commit]
@@ -93,3 +95,5 @@
 	defaultBranch = main
 [rerere]
 	enabled = true
+[rebase]
+	updateRefs = true

@@ -5,6 +5,7 @@ linters:
     - gofumpt
     - goimports
     - misspell
+    - stylecheck
     # - gosimple
     # - govet
     # - vetshadow
@@ -44,6 +45,7 @@ issues:
   max-issues-per-linter: 0 # show all errors
   max-same-issues: 0  # show all errors
   include:
+    - EXC0011
     - EXC0012
     - EXC0013
     - EXC0014

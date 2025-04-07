@@ -114,6 +114,7 @@ which direnv &> /dev/null && eval "$(direnv hook bash)"
 # Use eselect bashcomp to manage symlinks
 [[ -f /etc/profile.d/bash-completion.sh ]] && source /etc/profile.d/bash-completion.sh
 [[ -f $prefix/etc/profile.d/bash-completion.sh ]] && source $prefix/etc/profile.d/bash-completion.sh
+[[ -f $prefix/etc/bash/bashrc.d/bash_completion.sh ]] && source $prefix/etc/bash/bashrc.d/bash_completion.sh
 
 # Completions not managed via Gentoo
 [[ -f $HOME/.bash_comp ]] && source $HOME/.bash_comp
