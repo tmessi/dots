@@ -67,7 +67,8 @@ Zip[[:space:]]archive[[:space:]]data*)
     unzip -l "$1" ;;
 RAR[[:space:]]archive[[:space:]]data*)
     cmdexist unrar && unrar l "$1" ;;
-
+directory)
+    tree -C $1 ;;
 # text
 *text*|HTML*)
     if [[ "$1" =~ [.]*md$ ]] ; then

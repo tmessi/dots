@@ -51,6 +51,7 @@ PATH="/usr/local/bin:/bin:/usr/bin:/usr/local/sbin:/sbin:/usr/sbin"
 [[ -d "$HOME/.local/bin" ]] && PATH="$HOME/.local/bin:$PATH"
 [[ -d "/usr/local/heroku/bin" ]] && PATH="/usr/local/heroku/bin:$PATH"
 [[ -d "$HOME/.config/composer/vendor/bin" ]] && PATH="$HOME/.config/composer/vendor/bin:$PATH"
+[[ -d "/etc/eselect/wine/bin" ]] && PATH="$PATH:/etc/eselect/wine/bin"
 export PATH
 
 # Editor and Pager
