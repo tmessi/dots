@@ -6,29 +6,42 @@ if [[ -f /usr/bin/ls++ ]]; then
     alias l='ls++ --potsf -F'    #colors
     alias ll='ls++ --potsf -ah'  #long list
     alias la='ls++ --potsf -A'  #show hidden
-    alias lx='ls++ --potsf -B'  #sort by sextension
+    alias lx='ls++ --potsf -B'  #sort by extension
     alias lk='ls++ --potsf -Sr'  #sort by size biggest last
     alias lc='ls++ --potsf -tcr' #sort by and show chagne times
     alias lu='ls++ --potsf -tur' #sort by and show access time
     alias lt='ls++ --potsf -tr'  #sort by date
     alias lm='ls++ --potsf -a |more'          #pipe through more
     alias lr='ls++ --potsf -R'                #recursive
+elif [[ $(which lsd 2> /dev/null) ]]; then
+    alias ls='lsd -F --color=auto'    #colors
+    alias l='lsd -F --color=auto'    #colors
+    alias ll='lsd -lh --color=auto'  #long list
+    alias la='lsd -AF --color=auto'  #show hidden
+    alias lx='lsd -lX --color=auto'  #sort by extension
+    alias lk='lsd -lSr --color=auto'  #sort by size biggest last
+    #alias lc='lsd -ltcr --color=auto' #sort by and show chagne times
+    #alias lu='lsd -ltur --color=auto' #sort by and show access time
+    alias lt='lsd -ltr --color=auto'  #sort by date
+    alias lm='lsd -al |more'          #pipe through more
+    alias lr='lsd -lR'                #recursive
+    alias tree='lsd  -l --tree'          #alternative to recursive ls
 else
     alias ls='ls -F --color=auto'    #colors
     alias l='ls -F --color=auto'    #colors
     alias ll='ls -lsah --color=auto'  #long list
     alias la='ls -AF --color=auto'  #show hidden
-    alias lx='ls -lXB --color=auto'  #sort by sextension
+    alias lx='ls -lXB --color=auto'  #sort by extension
     alias lk='ls -lSr --color=auto'  #sort by size biggest last
     alias lc='ls -ltcr --color=auto' #sort by and show chagne times
     alias lu='ls -ltur --color=auto' #sort by and show access time
     alias lt='ls -ltr --color=auto'  #sort by date
     alias lm='ls -al |more'          #pipe through more
     alias lr='ls -lR'                #recursive
+    alias tree='tree -Csuh'          #alternative to recursive ls
 fi
 
 # short cuts
-alias tree='tree -Csuh'          #alternative to recursive ls
 alias df='df -kTh'
 alias path='echo -e ${PATH//:/\\n}'
 alias grep='grep --color=auto'
